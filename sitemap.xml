@@ -2,6 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://toolkitbox.org/</loc></url>
   <url><loc>https://toolkitbox.org/zh/</loc></url>
+  <url><loc>https://toolkitbox.org/about/</loc></url>
+  <url><loc>https://toolkitbox.org/privacy/</loc></url>
+  <url><loc>https://toolkitbox.org/terms/</loc></url>
+  <url><loc>https://toolkitbox.org/contact/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/about/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/privacy/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/terms/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/contact/</loc></url>
   <url><loc>https://json.toolkitbox.org/</loc></url>
   <url><loc>https://base64.toolkitbox.org/</loc></url>
   <url><loc>https://uuid.toolkitbox.org/</loc></url>

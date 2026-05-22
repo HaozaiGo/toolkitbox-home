@@ -10,6 +10,7 @@
   <link rel="alternate" hreflang="en" href="https://toolkitbox.org/">
   <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/">
   <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:title" content="ToolkitBox - Private Developer Tools">
   <meta property="og:description" content="Fast browser tools for JSON, Base64, UUIDs, regex, diffs, URLs, SSL certificates, and colors.">
@@ -71,9 +72,13 @@
       border: 1px solid #b7c1d5;
       border-radius: 7px;
       background: #fff;
-      color: var(--blue);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 15px;
+      overflow: hidden;
+    }
+    .mark img {
+      display: block;
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
     }
     .nav a.lang {
       color: var(--muted);
@@ -220,7 +225,7 @@
 <body>
   <header class="top">
     <nav class="nav" aria-label="Main navigation">
-      <div class="brand"><span class="mark">{ }</span><span>ToolkitBox</span></div>
+      <div class="brand"><span class="mark"><img src="logo.svg" alt="" width="22" height="22"></span><span>ToolkitBox</span></div>
       <a class="lang" href="/zh/">中文</a>
     </nav>
   </header>
@@ -254,7 +259,7 @@
     </section>
     <footer>
       <span>ToolkitBox</span>
-      <a href="/llms.txt">llms.txt</a>
+      <span><a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/contact/">Contact</a> · <a href="/llms.txt">llms.txt</a></span>
     </footer>
   </main>
   <script>
