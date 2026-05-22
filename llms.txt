@@ -1,0 +1,16 @@
+# ToolkitBox
+
+ToolkitBox is a directory of private browser tools for developers.
+
+Primary URLs:
+- https://toolkitbox.org/
+- https://json.toolkitbox.org/
+- https://base64.toolkitbox.org/
+- https://uuid.toolkitbox.org/
+- https://regex.toolkitbox.org/
+- https://diff.toolkitbox.org/
+- https://url.toolkitbox.org/
+- https://ssl.toolkitbox.org/
+- https://color.toolkitbox.org/
+
+Most tools run in the browser. SSL Checker uses a Vercel Serverless Function for certificate inspection.

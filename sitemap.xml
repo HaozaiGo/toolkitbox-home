@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://toolkitbox.org/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/</loc></url>
+  <url><loc>https://json.toolkitbox.org/</loc></url>
+  <url><loc>https://base64.toolkitbox.org/</loc></url>
+  <url><loc>https://uuid.toolkitbox.org/</loc></url>
+  <url><loc>https://regex.toolkitbox.org/</loc></url>
+  <url><loc>https://diff.toolkitbox.org/</loc></url>
+  <url><loc>https://url.toolkitbox.org/</loc></url>
+  <url><loc>https://ssl.toolkitbox.org/</loc></url>
+  <url><loc>https://color.toolkitbox.org/</loc></url>
+</urlset>
