@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn how text comparison improves reviews for configuration files, documentation, payloads, and release notes.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/text-diff-workflow/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>Using Text Diff Tools to Review Config, Copy, and API Changes - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>Using Text Diff Tools to Review Config, Copy, and API Changes</h1>
+    <p class="lead">A diff is not just for source code. Text comparison is useful whenever two versions look similar but behave differently: configuration files, API responses, translations, prompts, release notes, and support macros.</p>
+    <section class="panel"><h2>Compare before rewriting</h2><p>When two blocks of text differ, resist manually scanning line by line. Paste both versions into a diff tool first. The visual comparison helps you focus on the actual changes instead of rereading everything from scratch.</p></section>
+    <section class="panel"><h2>Use diffs for configuration reviews</h2><p>Small configuration changes can have large effects. A diff can reveal a changed environment name, a missing comma, a toggled flag, or a value copied into the wrong section. This is especially useful before deploying config-heavy services.</p></section>
+    <section class="panel"><h2>Review generated text safely</h2><p>AI-generated drafts, translated copy, and release notes often change more than expected. Comparing versions helps you catch removed warnings, altered product names, and changes in tone before publishing.</p></section>
+    <section class="panel"><h2>Normalize formatting when needed</h2><p>Some diffs are noisy because indentation or line wrapping changed. When the structure matters more than whitespace, normalize the text first. When whitespace is meaningful, keep the raw input and inspect changes carefully.</p></section>
+    <section class="panel"><h2>Turn differences into decisions</h2><p>A good diff does not replace judgment. It shows what changed so you can decide whether the change is intentional, safe, and complete.</p></section>
+    <section class="panel"><h2>Try the related tool</h2><p><a href="https://diff.toolkitbox.org/">Open Diff Checker</a> to apply this workflow in your browser.</p></section>
+    <footer><a href="/">Home</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/contact/">Contact</a></footer>
+  </main>
+</body>
+</html>

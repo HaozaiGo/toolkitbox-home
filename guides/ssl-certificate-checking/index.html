@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Understand certificate expiry, hostnames, chains, and practical first checks for HTTPS problems.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/ssl-certificate-checking/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>What to Check When an SSL Certificate Looks Broken - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>What to Check When an SSL Certificate Looks Broken</h1>
+    <p class="lead">HTTPS failures can come from expired certificates, missing intermediates, hostname mismatches, DNS changes, or a deployment that served the wrong certificate. A quick checklist makes the problem less mysterious.</p>
+    <section class="panel"><h2>Check the hostname first</h2><p>Certificates are issued for specific names. If the certificate does not match the hostname users visit, browsers will warn even if the certificate is otherwise valid. Check both the root domain and the www or subdomain version.</p></section>
+    <section class="panel"><h2>Look at expiry before anything else</h2><p>Expired certificates are common and easy to miss until users report errors. Track the expiration date and renew early enough that DNS, deployment, and CDN propagation do not create a last-minute incident.</p></section>
+    <section class="panel"><h2>Verify the certificate chain</h2><p>A certificate can be valid but still fail if the intermediate chain is incomplete. Some clients are forgiving, while others are strict. Chain problems often appear after moving hosting providers or changing CDN settings.</p></section>
+    <section class="panel"><h2>Remember DNS and hosting layers</h2><p>If a domain points to the wrong service, that service may present a certificate for a different project. After DNS changes, check the resolved target and confirm the host is attached to the right deployment.</p></section>
+    <section class="panel"><h2>Document the fix</h2><p>Certificate issues are recurring operational tasks. After fixing one, document the renewal path, owner, provider, and expected alerting so the same issue is easier to solve next time.</p></section>
+    <section class="panel"><h2>Try the related tool</h2><p><a href="https://ssl.toolkitbox.org/">Open SSL Checker</a> to apply this workflow in your browser.</p></section>
+    <footer><a href="/">Home</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/contact/">Contact</a></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical guide to parsing URLs, decoding query strings, and avoiding common link bugs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/url-encoding-decoding/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>URL Encoding and Decoding for Debugging Web Links - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>URL Encoding and Decoding for Debugging Web Links</h1>
+    <p class="lead">URLs carry routing, tracking, search, and state. When a link breaks, the problem is often hidden in encoding, query parameters, redirects, or a small character that was copied incorrectly.</p>
+    <section class="panel"><h2>Break the URL into parts</h2><p>Before editing a URL, split it into scheme, host, path, query string, and fragment. This makes it easier to see whether the issue is a missing protocol, an unexpected domain, a malformed path, or a query parameter problem.</p></section>
+    <section class="panel"><h2>Decode query strings before debugging</h2><p>Encoded values are hard to read. Decode the query string so you can inspect parameters, repeated keys, nested redirect URLs, and tracking values. If a decoded value contains another URL, inspect that URL separately.</p></section>
+    <section class="panel"><h2>Encode only the right pieces</h2><p>A common mistake is encoding an entire URL when only a parameter value should be encoded. Another mistake is failing to encode reserved characters inside a parameter. Treat each URL component separately.</p></section>
+    <section class="panel"><h2>Watch redirects and user-provided URLs</h2><p>Redirect parameters can create security and analytics problems. When a URL includes a next, redirect, return, or callback parameter, verify that the destination is expected and properly encoded.</p></section>
+    <section class="panel"><h2>Keep examples private</h2><p>Links can contain session IDs, email addresses, campaign data, or private document identifiers. Use local browser-side tools and sanitize examples before sharing them in tickets or public issue reports.</p></section>
+    <section class="panel"><h2>Try the related tool</h2><p><a href="https://url.toolkitbox.org/">Open URL Checker</a> to apply this workflow in your browser.</p></section>
+    <footer><a href="/">Home</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/contact/">Contact</a></footer>
+  </main>
+</body>
+</html>

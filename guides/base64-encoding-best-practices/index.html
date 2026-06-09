@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Understand common Base64 use cases, URL-safe variants, Data URIs, and practical limits for browser-side encoding.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/base64-encoding-best-practices/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>Base64 Encoding: When to Use It and When Not To - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>Base64 Encoding: When to Use It and When Not To</h1>
+    <p class="lead">Base64 is useful when binary data needs to travel through text-only systems, but it is not compression, encryption, or a privacy layer. Knowing the difference helps you avoid bloated payloads and false security assumptions.</p>
+    <section class="panel"><h2>Base64 turns bytes into text</h2><p>The main purpose of Base64 is compatibility. It represents binary data using printable characters so the data can fit into JSON, email, HTML, CSS, or URL parameters. The encoded result is usually larger than the original file, so it should be used deliberately.</p></section>
+    <section class="panel"><h2>Use URL-safe Base64 for URLs and tokens</h2><p>Standard Base64 can include characters that have special meaning in URLs. URL-safe Base64 changes those characters so encoded strings are easier to pass in query parameters, path segments, and token-like values. If a system expects a specific variant, use that variant consistently.</p></section>
+    <section class="panel"><h2>Data URIs are convenient for small assets</h2><p>A Data URI can embed a small image or file directly into HTML or CSS. This can be handy for demos, tests, icons, and documentation snippets. For large assets, separate files are usually better because they cache more cleanly and keep source documents readable.</p></section>
+    <section class="panel"><h2>Do not treat Base64 as security</h2><p>Anyone can decode Base64. It should not be used to hide secrets, passwords, private API keys, or sensitive customer data. If data needs protection, use proper encryption, access control, and secret management instead.</p></section>
+    <section class="panel"><h2>Decode before debugging</h2><p>When debugging encoded data, decode it before inspecting behavior. Many mistakes are simple: accidental whitespace, the wrong character set, missing padding, or a URL-safe string being decoded as standard Base64.</p></section>
+    <section class="panel"><h2>Try the related tool</h2><p><a href="https://base64.toolkitbox.org/">Open Base64 Tool</a> to apply this workflow in your browser.</p></section>
+    <footer><a href="/">Home</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/contact/">Contact</a></footer>
+  </main>
+</body>
+</html>

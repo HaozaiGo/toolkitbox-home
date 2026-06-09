@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A step-by-step workflow for testing regex patterns, capture groups, replacements, and edge cases.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/regex-testing-guide/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>How to Test Regular Expressions Before Shipping Them - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>How to Test Regular Expressions Before Shipping Them</h1>
+    <p class="lead">Regular expressions are compact, which makes them powerful and easy to misunderstand. A careful test workflow helps you catch false positives, missed matches, and replacement mistakes before they reach production.</p>
+    <section class="panel"><h2>Begin with real examples</h2><p>Start with a small set of strings that represent the data you actually expect. Include normal cases, empty values, malformed input, and surprising but valid examples. This prevents a pattern from only working against the one sample used while writing it.</p></section>
+    <section class="panel"><h2>Test what should not match</h2><p>A regex is only useful if it rejects the right things. Add negative examples such as extra punctuation, invalid prefixes, mixed whitespace, and partial matches. False positives are often more damaging than a pattern that simply fails loudly.</p></section>
+    <section class="panel"><h2>Inspect capture groups</h2><p>Capture groups are where many production bugs hide. Confirm group order, optional groups, named groups, and repeated groups before using the result in code. If a replacement string uses $1 or $2, verify the preview before shipping.</p></section>
+    <section class="panel"><h2>Keep patterns maintainable</h2><p>A clever one-line regex can become expensive to maintain. If a pattern is business-critical, keep notes about what it accepts and what it intentionally rejects. In code, pair complex patterns with tests and descriptive variable names.</p></section>
+    <section class="panel"><h2>Remember the engine matters</h2><p>ToolkitBox uses the JavaScript regular expression engine in the browser. If your production system uses another language, check for differences in flags, lookbehind support, Unicode behavior, and replacement syntax.</p></section>
+    <section class="panel"><h2>Try the related tool</h2><p><a href="https://regex.toolkitbox.org/">Open Regex Tester</a> to apply this workflow in your browser.</p></section>
+    <footer><a href="/">Home</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/contact/">Contact</a></footer>
+  </main>
+</body>
+</html>

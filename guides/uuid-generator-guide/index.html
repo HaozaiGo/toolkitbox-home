@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn where UUIDs fit, how to use them in test data, and what to avoid when generating identifiers.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/uuid-generator-guide/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>A Practical Guide to UUIDs for Development and Testing - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>A Practical Guide to UUIDs for Development and Testing</h1>
+    <p class="lead">UUIDs are convenient identifiers for prototypes, fixtures, distributed systems, and local development. They are easy to generate and hard to collide, but they are not a replacement for every database key or every security token.</p>
+    <section class="panel"><h2>Use UUIDs when coordination is hard</h2><p>A UUID is useful when multiple systems need to create identifiers without asking a central database for the next number. This makes them popular for client-generated IDs, import jobs, offline workflows, message correlation, and test data.</p></section>
+    <section class="panel"><h2>Separate identifiers from secrets</h2><p>A UUID can identify an object, but it should not be treated as proof of permission. If guessing or discovering an ID would expose sensitive data, protect the resource with authentication and authorization checks.</p></section>
+    <section class="panel"><h2>Keep test fixtures realistic</h2><p>Generated UUIDs are helpful in sample payloads because they look like the identifiers your application already expects. This makes API examples, database seed data, and mock events easier to copy into real development environments.</p></section>
+    <section class="panel"><h2>Watch for readability tradeoffs</h2><p>UUIDs are long. They are less readable in logs than short numeric IDs or meaningful slugs. For human-facing URLs, support tickets, and admin dashboards, you may want a shorter display identifier alongside the internal UUID.</p></section>
+    <section class="panel"><h2>Choose consistency over cleverness</h2><p>Most teams benefit from one default UUID style across a project. Mixing formats without a reason makes validation, database indexing, and documentation harder than necessary.</p></section>
+    <section class="panel"><h2>Try the related tool</h2><p><a href="https://uuid.toolkitbox.org/">Open UUID Generator</a> to apply this workflow in your browser.</p></section>
+    <footer><a href="/">Home</a><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/contact/">Contact</a></footer>
+  </main>
+</body>
+</html>

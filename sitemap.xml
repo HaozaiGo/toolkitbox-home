@@ -18,4 +18,13 @@
   <url><loc>https://url.toolkitbox.org/</loc></url>
   <url><loc>https://ssl.toolkitbox.org/</loc></url>
   <url><loc>https://color.toolkitbox.org/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/json-formatting-validation/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/base64-encoding-best-practices/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/uuid-generator-guide/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/regex-testing-guide/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/text-diff-workflow/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/url-encoding-decoding/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/ssl-certificate-checking/</loc></url>
+  <url><loc>https://toolkitbox.org/guides/color-conversion-accessibility/</loc></url>
 </urlset>
