@@ -80,10 +80,22 @@
       height: 22px;
       object-fit: contain;
     }
-    .nav a.lang {
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 14px;
+    }
+    .nav-links a:hover {
+      color: var(--ink);
     }
     main {
       max-width: 1160px;
@@ -204,6 +216,15 @@
       h1 { font-size: 36px; }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+    @media (max-width: 640px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
     @media (max-width: 560px) {
       main { padding-top: 26px; }
       h1 { font-size: 32px; }
@@ -232,7 +253,7 @@
   <header class="top">
     <nav class="nav" aria-label="Main navigation">
       <div class="brand"><span class="mark"><img src="logo.svg" alt="" width="22" height="22"></span><span>ToolkitBox</span></div>
-      <a class="lang" href="/zh/">中文</a>
+      <div class="nav-links"><a href="/about/">About</a><span>·</span><a href="/contact/">Contact</a><span>·</span><a href="/guides/">Guides</a><span>·</span><a href="/zh/">中文</a></div>
     </nav>
   </header>
   <main>
@@ -273,10 +294,7 @@
       </div>
     </section>
 
-    <footer>
-      <span>ToolkitBox</span>
-      <span><a href="/about/">About</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/contact/">Contact</a> · <a href="/guides/">Guides</a> · <a href="/llms.txt">llms.txt</a></span>
-    </footer>
+    <footer><span><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Service</a></span></footer>
   </main>
   <script>
     const canvas = document.getElementById("tool-scene");

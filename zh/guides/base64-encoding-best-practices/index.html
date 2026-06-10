@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="了解 Base64 编码的实际用途、限制、URL 安全变体、Data URI 场景，以及如何避免把敏感内容上传到未知服务。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/base64-encoding-best-practices/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/base64-encoding-best-practices/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/base64-encoding-best-practices/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/base64-encoding-best-practices/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>Base64 编码：什么时候该用，什么时候不该用 - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/base64-encoding-best-practices/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>Base64 编码：什么时候该用，什么时候不该用</h1>
+    <p class="lead">Base64 的主要作用不是加密，而是把二进制或特殊字符内容转换成更容易放进文本协议的表示形式。理解这一点，能避免把它误当作安全措施。</p>
+    <section class="panel"><h2>Base64 解决的是兼容性问题</h2><p>邮件、JSON、HTML、CSS 和 URL 参数更适合传输文本。Base64 可以把图片片段、文件内容或二进制数据变成可打印字符，但编码后的内容通常比原始内容更大，因此不适合无节制地塞进所有地方。</p></section>
+    <section class="panel"><h2>Base64 不是加密</h2><p>任何人都可以轻松解码 Base64 字符串。不要因为字符串看起来不可读，就把密码、令牌、私钥或客户数据当成“已保护”。如果内容本身敏感，应使用真正的加密、权限控制和安全传输方式。</p></section>
+    <section class="panel"><h2>URL 安全变体适合放进链接</h2><p>标准 Base64 可能包含加号、斜杠和等号，这些字符在 URL 中可能需要额外转义。URL-safe Base64 会替换部分字符，减少链接、查询参数和短 token 在传输中的格式问题。</p></section>
+    <section class="panel"><h2>Data URI 应谨慎使用</h2><p>把小图标或小片段嵌入 CSS/HTML 时，Data URI 很方便。但较大的图片或文件会让 HTML/CSS 变长，影响缓存、审查和维护。产品代码中最好只对小而稳定的资源使用这种方式。</p></section>
+    <section class="panel"><h2>优先使用本地编码工具</h2><p>调试 Webhook、复制日志或处理示例数据时，如果内容可能包含内部字段，浏览器端工具是更稳妥的默认选择。它减少了把原始字符串发给第三方服务的机会。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://base64.toolkitbox.org/">打开 Base64 Tool</a>，在浏览器中编码和解码文本。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

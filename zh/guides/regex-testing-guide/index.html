@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="学习如何在上线前测试正则表达式，检查匹配、捕获组、替换逻辑、边界情况和性能风险。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/regex-testing-guide/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/regex-testing-guide/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/regex-testing-guide/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/regex-testing-guide/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>正则表达式上线前如何测试 - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/regex-testing-guide/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>正则表达式上线前如何测试</h1>
+    <p class="lead">正则表达式通常很短，但影响范围可能很大。它可能用于表单校验、日志清洗、路由匹配、内容过滤或批量替换。上线前建立测试流程，能减少误匹配和漏匹配。</p>
+    <section class="panel"><h2>先写出应该匹配的样例</h2><p>不要只用一个“刚好通过”的字符串测试。准备多组真实但已脱敏的样例，包括普通输入、边界输入、大小写变化和包含空格或特殊字符的情况。</p></section>
+    <section class="panel"><h2>同时准备不应该匹配的样例</h2><p>正则测试只看成功匹配是不够的。你还需要验证哪些输入必须被拒绝，否则很容易让错误邮箱、异常 URL、非法文件名或无关日志行通过校验。</p></section>
+    <section class="panel"><h2>检查捕获组和替换结果</h2><p>很多问题不是匹配本身，而是捕获组位置变化导致后续替换错误。每次修改表达式后，都应该确认每个捕获组的含义，以及替换模板是否仍然引用正确字段。</p></section>
+    <section class="panel"><h2>注意贪婪匹配和性能风险</h2><p>过度宽泛的表达式可能吞掉比预期更多的文本。复杂嵌套和回溯也可能让长输入变慢。对用户输入、日志文件和大文本处理场景，应尽量使用更明确的边界。</p></section>
+    <section class="panel"><h2>使用脱敏数据进行浏览器端测试</h2><p>测试正则时经常会复制日志、路径、邮箱或订单号。把真实个人信息替换为示例值，再使用浏览器端工具测试，可以降低误传敏感内容的风险。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://regex.toolkitbox.org/">打开 Regex Tester</a>，在浏览器中测试表达式和匹配结果。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

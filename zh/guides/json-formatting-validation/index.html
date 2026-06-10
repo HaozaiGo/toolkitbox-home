@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="学习如何在浏览器中安全地格式化、校验、对比和转换 JSON，减少 API 数据、配置文件和日志泄露风险。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/json-formatting-validation/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/json-formatting-validation/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/json-formatting-validation/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/json-formatting-validation/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>如何在不泄露 API 数据的情况下格式化和校验 JSON - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/json-formatting-validation/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>如何在不泄露 API 数据的情况下格式化和校验 JSON</h1>
+    <p class="lead">JSON 经常出现在接口响应、Webhook、配置文件和调试日志里。把这些内容随手复制到在线工具之前，先确认处理是否发生在浏览器本地，这能明显降低令牌、客户数据和内部字段被误传的风险。</p>
+    <section class="panel"><h2>先校验，再美化</h2><p>当 JSON 解析失败时，第一步应该是确认文档本身是否有效。漏掉逗号、多写尾随逗号、引号不匹配或括号层级错误，都会让后续排查变复杂。校验通过后再格式化，结构才更容易阅读。</p></section>
+    <section class="panel"><h2>用格式化检查结构，而不只是让文本变好看</h2><p>格式化的价值在于暴露数据形状。你可以快速看到数组是否嵌套过深、字段是否出现在错误层级、接口是否返回了意外键名。这对调试第三方 API、功能开关、埋点事件和配置文件都很有帮助。</p></section>
+    <section class="panel"><h2>行为变化时对比两份 payload</h2><p>如果昨天能工作的请求今天失败了，把旧 payload 和新 payload 格式化后再对比，通常能更快发现字段改名、类型变化、缺失字段和 null 值。对结构化数据来说，先格式化再 diff 比直接比较一行压缩文本更可靠。</p></section>
+    <section class="panel"><h2>转换前先清理源数据</h2><p>JSON 转 YAML 或 XML 时，源数据越稳定，转换结果越容易检查。先移除不需要的字段，确认结构和类型，再进行转换，可以减少把隐藏问题带到另一个格式里的概率。</p></section>
+    <section class="panel"><h2>敏感内容默认留在本地</h2><p>生产 token、访问密钥、客户资料和内部日志不应该被粘贴到不了解处理方式的工具里。ToolkitBox 的定位是尽量使用浏览器端工作流，让日常格式化、校验和清理不必离开你的设备。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://json.toolkitbox.org/">打开 JSON Toolbox</a>，在浏览器中应用这套工作流。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

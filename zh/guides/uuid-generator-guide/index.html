@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="了解 UUID 在开发、测试、日志和示例数据中的常见用途，以及生成标识符时应该注意的隐私和可追踪性问题。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/uuid-generator-guide/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/uuid-generator-guide/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/uuid-generator-guide/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/uuid-generator-guide/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>开发和测试中的 UUID 实用指南 - ToolkitBox</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/uuid-generator-guide/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>开发和测试中的 UUID 实用指南</h1>
+    <p class="lead">UUID 常用于测试数据、临时标识、日志关联和分布式系统中的对象标识。它能减少人工命名冲突，但并不自动解决权限、身份和隐私问题。</p>
+    <section class="panel"><h2>UUID 适合生成无需人工记忆的标识</h2><p>在测试环境中，你可能需要快速创建用户、订单、任务或文件名。UUID 能提供足够分散的标识，避免多个开发者或测试脚本产生相同名称。</p></section>
+    <section class="panel"><h2>测试数据不应包含真实用户信息</h2><p>用 UUID 替代真实邮箱、手机号或客户编号，可以降低示例数据泄露风险。即使只是写 bug report 或分享日志，也应尽量使用随机标识和脱敏字段。</p></section>
+    <section class="panel"><h2>不要把 UUID 当作访问控制</h2><p>UUID 很难猜，但这不等于权限控制。公开链接、下载地址和 API 资源仍然需要鉴权、过期机制和访问检查。不要只因为路径里有 UUID 就认为资源安全。</p></section>
+    <section class="panel"><h2>日志关联要注意生命周期</h2><p>把同一个 UUID 用作请求链路 ID 或任务 ID 很有用，但长期保留的标识可能增加追踪个人行为的能力。生产日志应结合保留周期、脱敏策略和访问权限管理。</p></section>
+    <section class="panel"><h2>批量生成前先确认用途</h2><p>如果只是临时测试，随机 UUID 足够方便；如果需要排序、时间信息或数据库索引友好性，就应评估更具体的 ID 方案。工具能帮你生成标识，但设计仍要匹配业务需求。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://uuid.toolkitbox.org/">打开 UUID Generator</a>，在浏览器中生成测试标识符。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

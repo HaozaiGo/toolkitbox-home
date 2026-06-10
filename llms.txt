@@ -1,6 +1,6 @@
 # ToolkitBox
 
-ToolkitBox is a directory of private browser tools for developers.
+ToolkitBox is a developer tools directory for fast, privacy-friendly browser utilities, including JSON formatting and validation, Base64 encoding and decoding, UUID generation, regex testing, text diff comparison, URL parsing, SSL certificate checking, and color conversion tools.
 
 Primary URLs:
 - https://toolkitbox.org/

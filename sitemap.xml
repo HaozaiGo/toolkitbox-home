@@ -10,6 +10,11 @@
   <url><loc>https://toolkitbox.org/zh/privacy/</loc></url>
   <url><loc>https://toolkitbox.org/zh/terms/</loc></url>
   <url><loc>https://toolkitbox.org/zh/contact/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/guides/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/guides/json-formatting-validation/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/guides/base64-encoding-best-practices/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/guides/uuid-generator-guide/</loc></url>
+  <url><loc>https://toolkitbox.org/zh/guides/regex-testing-guide/</loc></url>
   <url><loc>https://json.toolkitbox.org/</loc></url>
   <url><loc>https://base64.toolkitbox.org/</loc></url>
   <url><loc>https://uuid.toolkitbox.org/</loc></url>
