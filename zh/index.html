@@ -31,6 +31,13 @@
     .nav, main, .intro, .scene, .grid, .card { min-width: 0; }
     .scene { max-width: 100%; }
     .lead, .card span, .nav-links { overflow-wrap: anywhere; }
+    .hero-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .hero-points span { border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 12px; font-weight: 650; line-height: 1; padding: 7px 9px; white-space: nowrap; }
+    .trust-strip { margin-top: 4px; padding: 12px 14px; border: 1px solid #cfe3dc; border-radius: 8px; background: #f4fbf8; color: #355e55; font-size: 14px; line-height: 1.55; }
+    .section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .section-head h2 { margin: 0; }
+    .view-all { flex: 0 0 auto; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--muted); font-size: 13px; font-weight: 650; line-height: 1; padding: 8px 11px; text-decoration: none; }
+    .view-all:hover { color: var(--ink); border-color: #a9b4c7; }
     @media (max-width: 560px) {
       .nav, main { width: 100%; }
       main, .nav { max-width: 100vw; }
@@ -82,7 +89,8 @@
 <body>
   <header class="top"><nav class="nav" aria-label="主导航"><div class="brand"><span class="mark"><img src="../logo.svg" alt="" width="22" height="22"></span><span>ToolkitBox</span></div><div class="nav-links"><a href="/zh/about/">关于</a><span>·</span><a href="/zh/contact/">联系</a><span>·</span><a href="/zh/guides/">指南</a><span>·</span><a href="/">English</a></div></nav></header>
   <main>
-    <section class="intro" aria-labelledby="title"><div><h1 id="title">ToolkitBox</h1><p class="lead">快速、私密的浏览器开发者工具入口。</p></div><div class="scene" aria-hidden="true"><canvas id="tool-scene"></canvas></div></section>
+    <section class="intro" aria-labelledby="title"><div><h1 id="title">ToolkitBox</h1><p class="lead">面向开发者的私密浏览器工具。不上传、无需账号，日常任务快速处理。</p><div class="hero-points" aria-label="ToolkitBox 亮点"><span>隐私优先</span><span>浏览器内运行</span><span>无需账号</span><span>免费工具</span></div></div><div class="scene" aria-hidden="true"><canvas id="tool-scene"></canvas></div></section>
+    <p class="trust-strip">大多数工具直接在浏览器中运行。只要可能，敏感输入都应该留在你的设备上。</p>
     <section class="group" aria-labelledby="data-tools"><h2 id="data-tools">数据与编码</h2><div class="grid">
       <a class="card" href="https://json.toolkitbox.org/"><div class="card-top"><strong>JSON Toolbox</strong><span class="icon blue">{ }</span></div><span>格式化、校验、压缩、对比、YAML、XML。</span></a>
       <a class="card" href="https://base64.toolkitbox.org/"><div class="card-top"><strong>Base64 Tool</strong><span class="icon green">64</span></div><span>本地编码和解码文本。</span></a>
@@ -96,12 +104,13 @@
       <a class="card" href="https://ssl.toolkitbox.org/"><div class="card-top"><strong>SSL Checker</strong><span class="icon amber">TLS</span></div><span>检查证书状态和到期时间。</span></a>
     </div></section>
     <section class="group" aria-labelledby="latest-guides">
-      <h2 id="latest-guides">最新指南</h2>
+      <div class="section-head"><h2 id="latest-guides">最新指南</h2><a class="view-all" href="/zh/guides/">查看更多</a></div>
       <div class="grid">
         <a class="card" href="/zh/guides/json-formatting-validation/"><div class="card-top"><strong>如何在不泄露 API 数据的情况下格式化和校验 JSON</strong><span class="icon blue">G</span></div><span>在浏览器中安全地格式化、校验、对比和转换 JSON 的实用指南。</span></a>
         <a class="card" href="/zh/guides/base64-encoding-best-practices/"><div class="card-top"><strong>Base64 编码：什么时候该用，什么时候不该用</strong><span class="icon blue">G</span></div><span>了解常见 Base64 用途、URL 安全变体、Data URI 和浏览器端编码限制。</span></a>
         <a class="card" href="/zh/guides/uuid-generator-guide/"><div class="card-top"><strong>开发和测试中的 UUID 实用指南</strong><span class="icon blue">G</span></div><span>了解 UUID 适合哪些场景，如何用于测试数据，以及生成标识符时应避免什么。</span></a>
         <a class="card" href="/zh/guides/regex-testing-guide/"><div class="card-top"><strong>正则表达式上线前如何测试</strong><span class="icon blue">G</span></div><span>测试正则模式、捕获组、替换和边界情况的分步工作流。</span></a>
+
       </div>
     </section>
     <footer><span><a href="/zh/privacy/">隐私策略</a> · <a href="/zh/terms/">服务条款</a></span></footer>

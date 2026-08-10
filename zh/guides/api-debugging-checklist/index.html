@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用更安全的流程调试 API payload：JSON 格式化、URL 检查、文本对比和敏感字段脱敏。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/api-debugging-checklist/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/api-debugging-checklist/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/api-debugging-checklist/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/api-debugging-checklist/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="浏览器端 API 调试安全检查清单 - ToolkitBox">
+  <meta property="og:description" content="用更安全的流程调试 API payload：JSON 格式化、URL 检查、文本对比和敏感字段脱敏。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/api-debugging-checklist/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="浏览器端 API 调试安全检查清单 - ToolkitBox">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>浏览器端 API 调试安全检查清单 - ToolkitBox</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toolkitbox.org/#organization",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/"
+      },
+      {
+        "@type": "Article",
+        "headline": "浏览器端 API 调试安全检查清单",
+        "description": "用更安全的流程调试 API payload：JSON 格式化、URL 检查、文本对比和敏感字段脱敏。",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": "https://toolkitbox.org/zh/guides/api-debugging-checklist/",
+        "dateModified": "2026-08-09",
+        "author": { "@id": "https://toolkitbox.org/#organization" },
+        "publisher": { "@id": "https://toolkitbox.org/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ToolkitBox", "item": "https://toolkitbox.org/" },
+          { "@type": "ListItem", "position": 2, "name": "指南", "item": "https://toolkitbox.org/zh/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "浏览器端 API 调试安全检查清单", "item": "https://toolkitbox.org/zh/guides/api-debugging-checklist/" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/api-debugging-checklist/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>浏览器端 API 调试安全检查清单</h1>
+    <p class="lead">API 问题经常藏在很小的细节里：字段改名、回调 URL 编码、请求头缺失或 null 值。用清单排查，既能更快定位问题，也能避免暴露过多数据。</p>
+    <section class="panel"><h2>先校验结构</h2><p>如果 JSON payload 失败，先确认语法是否有效，再排查业务逻辑。格式化后的 payload 更容易检查字段名、嵌套层级、数组和意外的 null 值。</p></section>
+    <section class="panel"><h2>对比正常和异常样例</h2><p>当一个请求能工作、另一个失败时，把两份 payload 或 URL 放在一起对比。diff 可以发现类型变化、参数缺失、字段改名或多余空白。</p></section>
+    <section class="panel"><h2>解码 URL 和回调参数</h2><p>API 流程经常包含 redirect、next、return 或 callback 参数。先解码，再单独检查嵌套 URL，避免漏掉异常跳转目标。</p></section>
+    <section class="panel"><h2>分享前移除敏感字段</h2><p>授权头、Cookie、API Key、刷新令牌、客户 ID 和私密文档链接，在粘贴到工单、聊天或公开 issue 前都应该删除。</p></section>
+    <section class="panel"><h2>记录最终原因</h2><p>修复后记录问题属于语法、schema 漂移、编码、认证、环境不一致还是部署配置。下次调试会快很多。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://json.toolkitbox.org/zh/">打开 JSON Toolbox，格式化并检查 API payload。</a></p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

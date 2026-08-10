@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="了解在提交工单或公开 issue 前，日志、堆栈、URL 和错误信息中哪些内容应该移除或替换。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/redact-logs-before-sharing/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/redact-logs-before-sharing/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/redact-logs-before-sharing/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/redact-logs-before-sharing/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="分享日志和错误信息前，应该如何脱敏 - ToolkitBox">
+  <meta property="og:description" content="了解在提交工单或公开 issue 前，日志、堆栈、URL 和错误信息中哪些内容应该移除或替换。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/redact-logs-before-sharing/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="分享日志和错误信息前，应该如何脱敏 - ToolkitBox">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>分享日志和错误信息前，应该如何脱敏 - ToolkitBox</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toolkitbox.org/#organization",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/"
+      },
+      {
+        "@type": "Article",
+        "headline": "分享日志和错误信息前，应该如何脱敏",
+        "description": "了解在提交工单或公开 issue 前，日志、堆栈、URL 和错误信息中哪些内容应该移除或替换。",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": "https://toolkitbox.org/zh/guides/redact-logs-before-sharing/",
+        "dateModified": "2026-08-09",
+        "author": { "@id": "https://toolkitbox.org/#organization" },
+        "publisher": { "@id": "https://toolkitbox.org/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ToolkitBox", "item": "https://toolkitbox.org/" },
+          { "@type": "ListItem", "position": 2, "name": "指南", "item": "https://toolkitbox.org/zh/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "分享日志和错误信息前，应该如何脱敏", "item": "https://toolkitbox.org/zh/guides/redact-logs-before-sharing/" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/redact-logs-before-sharing/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>分享日志和错误信息前，应该如何脱敏</h1>
+    <p class="lead">日志之所以有用，是因为它包含上下文。但这些上下文也可能暴露凭证、客户标识、内部域名和私密文件路径。分享前必须先检查。</p>
+    <section class="panel"><h2>先找凭证和密钥</h2><p>优先搜索 token、密码、Bearer Header、Cookie、私钥、数据库 URL 和云服务凭证。分享前用稳定占位符替换。</p></section>
+    <section class="panel"><h2>减少用户和账号信息</h2><p>客户 ID、邮箱、手机号、文档名和组织名通常不需要完整展示。如果精确值不是必要条件，只保留值的形状。</p></section>
+    <section class="panel"><h2>清理 URL 和查询参数</h2><p>URL 里可能包含会话 ID、跳转目标、文档标识和追踪参数。先解码查询字符串，再判断哪些字段可以保留。</p></section>
+    <section class="panel"><h2>保留足够的排查上下文</h2><p>脱敏不是把问题删光。时间戳、错误名称、状态码、关键堆栈片段和非敏感配置，通常应该保留下来。</p></section>
+    <section class="panel"><h2>使用一致的占位符</h2><p>类似的敏感值用 API_TOKEN、USER_ID、INTERNAL_HOST 这类固定名称替换，既可读，也不会暴露真实数据。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://diff.toolkitbox.org/zh/">打开 Diff Checker，并排检查脱敏前后的文本。</a></p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

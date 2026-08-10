@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="面向开发者的隐私检查清单：什么时候适合使用浏览器端工具，什么时候敏感数据需要额外处理。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/local-browser-tools-privacy/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/local-browser-tools-privacy/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/local-browser-tools-privacy/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/local-browser-tools-privacy/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="开发者本地浏览器工具隐私检查清单 - ToolkitBox">
+  <meta property="og:description" content="面向开发者的隐私检查清单：什么时候适合使用浏览器端工具，什么时候敏感数据需要额外处理。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/local-browser-tools-privacy/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="开发者本地浏览器工具隐私检查清单 - ToolkitBox">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>开发者本地浏览器工具隐私检查清单 - ToolkitBox</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toolkitbox.org/#organization",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/"
+      },
+      {
+        "@type": "Article",
+        "headline": "开发者本地浏览器工具隐私检查清单",
+        "description": "面向开发者的隐私检查清单：什么时候适合使用浏览器端工具，什么时候敏感数据需要额外处理。",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": "https://toolkitbox.org/zh/guides/local-browser-tools-privacy/",
+        "dateModified": "2026-08-09",
+        "author": { "@id": "https://toolkitbox.org/#organization" },
+        "publisher": { "@id": "https://toolkitbox.org/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ToolkitBox", "item": "https://toolkitbox.org/" },
+          { "@type": "ListItem", "position": 2, "name": "指南", "item": "https://toolkitbox.org/zh/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "开发者本地浏览器工具隐私检查清单", "item": "https://toolkitbox.org/zh/guides/local-browser-tools-privacy/" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/local-browser-tools-privacy/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>开发者本地浏览器工具隐私检查清单</h1>
+    <p class="lead">本地浏览器工具的价值在于减少不必要的上传。但它不是万能的：输入内容、浏览器环境、扩展权限和共享设备都会影响安全边界。</p>
+    <section class="panel"><h2>先理解本地处理是什么意思</h2><p>浏览器端工具通常用 JavaScript 在你的设备上处理输入，这不同于把内容发送到服务器处理。处理敏感内容前，应确认工具说明是否支持本地工作流。</p></section>
+    <section class="panel"><h2>共享设备上要更谨慎</h2><p>本地处理不能防止浏览器历史、剪贴板管理器、截图或同一设备上的其他人看到内容。敏感任务应尽量使用可信私人设备。</p></section>
+    <section class="panel"><h2>检查浏览器扩展</h2><p>某些扩展可能根据权限读取页面内容。如果要处理敏感样本，最好使用扩展较少、可信的浏览器配置。</p></section>
+    <section class="panel"><h2>必要时清理临时内容</h2><p>处理敏感样本后，清空输入框、下载文件和剪贴板内容。只保存确实需要的清理结果。</p></section>
+    <section class="panel"><h2>不要替代正常安全控制</h2><p>本地工具能减少上传，但不能替代访问控制、加密、监控、代码审查和生产数据处理规范。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="/zh/">打开 ToolkitBox，使用常见开发任务的私密浏览器工具。</a></p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

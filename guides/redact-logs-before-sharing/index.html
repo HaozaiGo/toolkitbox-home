@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn what to remove from logs, stack traces, URLs, and error messages before posting them in tickets or public issue reports.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/redact-logs-before-sharing/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/redact-logs-before-sharing/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/redact-logs-before-sharing/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/redact-logs-before-sharing/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Redact Logs and Error Messages Before Sharing Them - ToolkitBox">
+  <meta property="og:description" content="Learn what to remove from logs, stack traces, URLs, and error messages before posting them in tickets or public issue reports.">
+  <meta property="og:url" content="https://toolkitbox.org/guides/redact-logs-before-sharing/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="How to Redact Logs and Error Messages Before Sharing Them - ToolkitBox">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>How to Redact Logs and Error Messages Before Sharing Them - ToolkitBox</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toolkitbox.org/#organization",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/"
+      },
+      {
+        "@type": "Article",
+        "headline": "How to Redact Logs and Error Messages Before Sharing Them",
+        "description": "Learn what to remove from logs, stack traces, URLs, and error messages before posting them in tickets or public issue reports.",
+        "inLanguage": "en",
+        "mainEntityOfPage": "https://toolkitbox.org/guides/redact-logs-before-sharing/",
+        "dateModified": "2026-08-09",
+        "author": { "@id": "https://toolkitbox.org/#organization" },
+        "publisher": { "@id": "https://toolkitbox.org/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ToolkitBox", "item": "https://toolkitbox.org/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://toolkitbox.org/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "How to Redact Logs and Error Messages Before Sharing Them", "item": "https://toolkitbox.org/guides/redact-logs-before-sharing/" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/zh/guides/redact-logs-before-sharing/">中文</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>How to Redact Logs and Error Messages Before Sharing Them</h1>
+    <p class="lead">Logs are useful because they include context. That same context can expose credentials, customer identifiers, internal hostnames, and private file paths when shared without review.</p>
+    <section class="panel"><h2>Look for credentials first</h2><p>Search for tokens, passwords, bearer headers, cookies, private keys, database URLs, and cloud credentials. Replace them with stable placeholders before sharing.</p></section>
+    <section class="panel"><h2>Reduce user and account details</h2><p>Customer IDs, email addresses, phone numbers, document names, and organization names are rarely needed in full. Keep only the shape of the value when the exact value is not required.</p></section>
+    <section class="panel"><h2>Clean URLs and query strings</h2><p>URLs can contain session IDs, redirect targets, document identifiers, and tracking parameters. Decode query strings before deciding what to keep.</p></section>
+    <section class="panel"><h2>Keep enough context to debug</h2><p>Redaction should not erase the whole problem. Preserve timestamps, error names, relevant status codes, shortened stack frames, and non-sensitive configuration details.</p></section>
+    <section class="panel"><h2>Use consistent placeholders</h2><p>Replace similar secrets with consistent names such as API_TOKEN, USER_ID, or INTERNAL_HOST. This keeps examples readable without exposing real values.</p></section>
+    <section class="panel"><h2>Try the related tool</h2><p><a href="https://diff.toolkitbox.org/">Open Diff Checker to review redacted and original text side by side.</a></p></section>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+  </main>
+</body>
+</html>
