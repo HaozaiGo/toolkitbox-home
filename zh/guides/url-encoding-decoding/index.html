@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="理解 URL 解析、查询参数、编码解码和分享链接清理，减少 Web 链接调试中的常见错误。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/url-encoding-decoding/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/url-encoding-decoding/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/url-encoding-decoding/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/url-encoding-decoding/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="URL 编码和解码：调试 Web 链接的实用方法 - ToolkitBox">
+  <meta property="og:description" content="理解 URL 解析、查询参数、编码解码和分享链接清理，减少 Web 链接调试中的常见错误。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/url-encoding-decoding/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="URL 编码和解码：调试 Web 链接的实用方法 - ToolkitBox">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>URL 编码和解码：调试 Web 链接的实用方法 - ToolkitBox</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toolkitbox.org/#organization",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/"
+      },
+      {
+        "@type": "Article",
+        "headline": "URL 编码和解码：调试 Web 链接的实用方法",
+        "description": "理解 URL 解析、查询参数、编码解码和分享链接清理，减少 Web 链接调试中的常见错误。",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": "https://toolkitbox.org/zh/guides/url-encoding-decoding/",
+        "dateModified": "2026-08-09",
+        "author": {
+          "@id": "https://toolkitbox.org/#organization"
+        },
+        "publisher": {
+          "@id": "https://toolkitbox.org/#organization"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "ToolkitBox",
+            "item": "https://toolkitbox.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "指南",
+            "item": "https://toolkitbox.org/zh/guides/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "URL 编码和解码：调试 Web 链接的实用方法",
+            "item": "https://toolkitbox.org/zh/guides/url-encoding-decoding/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/url-encoding-decoding/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>URL 编码和解码：调试 Web 链接的实用方法</h1>
+    <p class="lead">URL 会携带路由、查询参数、跳转目标、追踪字段和页面状态。链接失效时，问题往往藏在编码、参数顺序、保留字符或复制时多出的一个字符里。</p>
+    <section class="panel"><h2>先拆成组件再修改</h2><p>不要把整条 URL 当作一段普通字符串处理。先拆分协议、域名、路径、查询参数和片段，确认问题出在域名、路径、参数值还是 Hash 上。</p></section>
+    <section class="panel"><h2>调试查询参数前先解码</h2><p>编码后的参数很难阅读。先解码查询字符串，可以看到重复 key、嵌套跳转链接、中文字符、追踪参数和意外混入的空格。如果某个参数本身又是一条 URL，需要单独检查。</p></section>
+    <section class="panel"><h2>只编码需要编码的部分</h2><p>常见错误是把整条 URL 全部编码，或者在参数值中漏掉保留字符编码。处理链接时应按组件操作：路径、参数名、参数值和片段的规则并不完全一样。</p></section>
+    <section class="panel"><h2>小心 redirect、next 和 callback</h2><p>带跳转参数的 URL 可能造成安全或统计问题。遇到 redirect、next、return、callback 等字段时，要确认目标域名是否可信，编码层级是否正确。</p></section>
+    <section class="panel"><h2>分享链接前清理敏感信息</h2><p>链接中可能包含邮箱、文档 ID、会话标识、访问令牌或广告追踪参数。用于工单、截图或公开 issue 前，应删除不必要的私密参数。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://url.toolkitbox.org/zh/">打开 URL Checker</a>，在浏览器中解析和清理 URL。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

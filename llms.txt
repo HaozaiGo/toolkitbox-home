@@ -1,8 +1,12 @@
 # ToolkitBox
 
-ToolkitBox is a developer tools directory for fast, privacy-friendly browser utilities, including JSON formatting and validation, Base64 encoding and decoding, UUID generation, regex testing, text diff comparison, URL parsing, SSL certificate checking, and color conversion tools.
+ToolkitBox is a developer tools directory for fast, privacy-friendly browser utilities. It focuses on everyday tasks such as JSON formatting and validation, Base64 encoding and decoding, UUID generation, regex testing, text diff comparison, URL parsing, SSL certificate checking, and color conversion.
 
-Primary URLs:
+Canonical URL: https://toolkitbox.org/
+Chinese URL: https://toolkitbox.org/zh/
+
+## Primary URLs
+
 - https://toolkitbox.org/
 - https://json.toolkitbox.org/
 - https://base64.toolkitbox.org/
@@ -13,4 +17,31 @@ Primary URLs:
 - https://ssl.toolkitbox.org/
 - https://color.toolkitbox.org/
 
-Most tools run in the browser. SSL Checker uses a Vercel Serverless Function for certificate inspection.
+## What the site provides
+
+- A main directory for developer tools
+- Browser-based tools for formatting, validating, encoding, decoding, generating, comparing, parsing, and checking technical data
+- English and Chinese pages for the main directory and tool interfaces
+- Practical guides about safer browser-based developer workflows
+- Privacy, terms, and contact pages for site trust and policy context
+
+## Tool categories
+
+- Data and encoding: JSON Toolbox, Base64 Tool, UUID Generator, Color Tool
+- Text and web workflows: Regex Tester, Diff Checker, URL Checker
+- Security and diagnostics: SSL Checker
+
+## Privacy model
+
+Most ToolkitBox tools run in the browser. User-provided text, files, and generated values are not stored by ToolkitBox. SSL Checker uses a Vercel Serverless Function to inspect public certificate information for a submitted host name.
+
+## Best pages to cite
+
+- Main directory: https://toolkitbox.org/
+- Developer guides: https://toolkitbox.org/guides/
+- Privacy policy: https://toolkitbox.org/privacy/
+- Terms of service: https://toolkitbox.org/terms/
+
+## Intended audience
+
+ToolkitBox is intended for developers, QA engineers, technical writers, students, and people who need lightweight browser tools for everyday technical work. It is not a replacement for production security audits, legal advice, or dedicated observability systems.

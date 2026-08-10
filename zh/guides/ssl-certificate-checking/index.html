@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="排查 HTTPS 和 SSL/TLS 证书问题时，如何检查到期时间、域名匹配、证书链、DNS 和部署层。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/ssl-certificate-checking/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/ssl-certificate-checking/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/ssl-certificate-checking/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/ssl-certificate-checking/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SSL 证书异常时应该先检查什么 - ToolkitBox">
+  <meta property="og:description" content="排查 HTTPS 和 SSL/TLS 证书问题时，如何检查到期时间、域名匹配、证书链、DNS 和部署层。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/ssl-certificate-checking/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SSL 证书异常时应该先检查什么 - ToolkitBox">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>SSL 证书异常时应该先检查什么 - ToolkitBox</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toolkitbox.org/#organization",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/"
+      },
+      {
+        "@type": "Article",
+        "headline": "SSL 证书异常时应该先检查什么",
+        "description": "排查 HTTPS 和 SSL/TLS 证书问题时，如何检查到期时间、域名匹配、证书链、DNS 和部署层。",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": "https://toolkitbox.org/zh/guides/ssl-certificate-checking/",
+        "dateModified": "2026-08-09",
+        "author": {
+          "@id": "https://toolkitbox.org/#organization"
+        },
+        "publisher": {
+          "@id": "https://toolkitbox.org/#organization"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "ToolkitBox",
+            "item": "https://toolkitbox.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "指南",
+            "item": "https://toolkitbox.org/zh/guides/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SSL 证书异常时应该先检查什么",
+            "item": "https://toolkitbox.org/zh/guides/ssl-certificate-checking/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/ssl-certificate-checking/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>SSL 证书异常时应该先检查什么</h1>
+    <p class="lead">HTTPS 报错可能来自证书过期、域名不匹配、中间证书链缺失、DNS 指向错误，或者部署平台返回了其他项目的证书。按顺序检查可以让问题更快收敛。</p>
+    <section class="panel"><h2>先确认访问的主机名</h2><p>证书是签发给具体域名的。根域名、www 域名和子域名可能使用不同证书。浏览器提示名称不匹配时，先确认用户实际访问的 host 是否在证书的 SAN 列表里。</p></section>
+    <section class="panel"><h2>到期时间是第一优先级</h2><p>证书过期是最常见也最容易忽略的问题。除了检查日期，还要预留 DNS、CDN、部署和缓存传播时间，不要等到最后一天才续期。</p></section>
+    <section class="panel"><h2>检查证书链和颁发机构</h2><p>证书本身有效，不代表所有客户端都能信任。中间证书链缺失时，一些浏览器可能正常，另一些客户端会失败。迁移托管平台或 CDN 后尤其要检查这一点。</p></section>
+    <section class="panel"><h2>DNS 和部署层也会影响证书</h2><p>如果 DNS 指向了错误服务，对方可能返回另一个项目的证书。修改 DNS、添加域名或切换平台后，要确认域名已经绑定到正确部署。</p></section>
+    <section class="panel"><h2>把修复流程记录下来</h2><p>证书问题不是一次性任务。记录证书提供方、续期入口、负责人与提醒方式，下次遇到同类问题时会少很多排查成本。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://ssl.toolkitbox.org/zh/">打开 SSL Checker</a>，检查公开证书信息。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

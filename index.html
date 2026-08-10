@@ -16,7 +16,12 @@
   <meta property="og:description" content="Fast browser tools for JSON, Base64, UUIDs, regex, diffs, URLs, SSL certificates, and colors.">
   <meta property="og:url" content="https://toolkitbox.org/">
   <meta property="og:site_name" content="ToolkitBox">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://toolkitbox.org/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ToolkitBox - Private Developer Tools">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og.png">
   <title>ToolkitBox - Private Developer Tools</title>
   <style>
     :root {
@@ -232,14 +237,51 @@
       .grid { grid-template-columns: 1fr; }
       .scene { aspect-ratio: 4 / 3; }
     }
+
+    /* Mobile ad-safety and overflow guard */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .nav, main, .intro, .scene, .grid, .card { min-width: 0; }
+    .scene { max-width: 100%; }
+    .lead, .card span, .nav-links { overflow-wrap: anywhere; }
+    @media (max-width: 560px) {
+      .nav, main { width: 100%; }
+      main, .nav { max-width: 100vw; }
+      .intro, .grid, .scene { width: 100%; max-width: calc(100vw - 40px); }
+      .lead { width: 100%; max-width: 32ch; }
+      .scene canvas { max-width: 100%; }
+
+      .intro { overflow: hidden; }
+      .scene { width: 100%; max-width: 100%; }
+      .nav-links { row-gap: 8px; }
+      .card { min-height: auto; }
+    }
   </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "ToolkitBox",
-    "url": "https://toolkitbox.org/",
-    "description": "Fast, private browser tools for developers."
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toolkitbox.org/#organization",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/",
+        "logo": "https://toolkitbox.org/logo.svg",
+        "sameAs": [
+          "https://github.com/HaozaiGo"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://toolkitbox.org/#website",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/",
+        "description": "Fast, private browser tools for JSON, Base64, UUIDs, regex, diffs, URLs, SSL certificates, and colors.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://toolkitbox.org/#organization"
+        }
+      }
+    ]
   }
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
@@ -325,12 +367,14 @@
         ctx.stroke();
       }
       const t = Date.now() / 1200;
+      const orbitX = rect.width < 420 ? 0.22 : 0.31;
+      const orbitY = rect.width < 420 ? 0.2 : 0.27;
       const points = labels.map((label, i) => {
         const angle = (Math.PI * 2 * i) / labels.length + t * 0.08;
         return {
           label,
-          x: rect.width / 2 + Math.cos(angle) * rect.width * 0.31,
-          y: rect.height / 2 + Math.sin(angle) * rect.height * 0.27,
+          x: rect.width / 2 + Math.cos(angle) * rect.width * orbitX,
+          y: rect.height / 2 + Math.sin(angle) * rect.height * orbitY,
           color: colors[i % colors.length],
         };
       });

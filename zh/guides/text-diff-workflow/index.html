@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="学习如何用文本对比工具审查配置、文案、接口响应和发布说明，减少遗漏和误改。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/text-diff-workflow/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/text-diff-workflow/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/text-diff-workflow/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/text-diff-workflow/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="如何用文本对比工具审查配置、文案和接口变化 - ToolkitBox">
+  <meta property="og:description" content="学习如何用文本对比工具审查配置、文案、接口响应和发布说明，减少遗漏和误改。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/text-diff-workflow/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="如何用文本对比工具审查配置、文案和接口变化 - ToolkitBox">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>如何用文本对比工具审查配置、文案和接口变化 - ToolkitBox</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://toolkitbox.org/#organization",
+        "name": "ToolkitBox",
+        "url": "https://toolkitbox.org/"
+      },
+      {
+        "@type": "Article",
+        "headline": "如何用文本对比工具审查配置、文案和接口变化",
+        "description": "学习如何用文本对比工具审查配置、文案、接口响应和发布说明，减少遗漏和误改。",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": "https://toolkitbox.org/zh/guides/text-diff-workflow/",
+        "dateModified": "2026-08-09",
+        "author": {
+          "@id": "https://toolkitbox.org/#organization"
+        },
+        "publisher": {
+          "@id": "https://toolkitbox.org/#organization"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "ToolkitBox",
+            "item": "https://toolkitbox.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "指南",
+            "item": "https://toolkitbox.org/zh/guides/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "如何用文本对比工具审查配置、文案和接口变化",
+            "item": "https://toolkitbox.org/zh/guides/text-diff-workflow/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/text-diff-workflow/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>如何用文本对比工具审查配置、文案和接口变化</h1>
+    <p class="lead">Diff 不只适合代码。配置文件、接口响应、翻译文案、提示词、发布说明和客服话术，只要两个版本看起来很像但行为不同，文本对比就能帮你更快定位真正变化。</p>
+    <section class="panel"><h2>先对比，再人工判断</h2><p>当两段文本相似时，不要直接逐行肉眼扫描。先把旧版本和新版本放进对比工具，明确新增、删除和改动位置，再判断这些变化是否符合预期。</p></section>
+    <section class="panel"><h2>配置变更尤其适合 diff</h2><p>一个环境名、布尔开关、缩进或参数值的变化，都可能影响部署结果。上线前用 diff 看一次配置变化，可以发现复制到错误位置、遗漏字段或意外启用的开关。</p></section>
+    <section class="panel"><h2>审查生成内容和翻译内容</h2><p>AI 生成稿、翻译文本和发布说明经常会在语气、产品名称或风险提示上发生细微变化。对比两个版本可以更快发现被删掉的警告、被改写的专有名词和不该变化的段落。</p></section>
+    <section class="panel"><h2>根据场景处理空白字符</h2><p>有些 diff 噪声来自换行、缩进或空格。如果结构比格式更重要，可以先统一格式；如果空白字符有语义，比如代码、配置或 Markdown，就保留原始文本认真检查。</p></section>
+    <section class="panel"><h2>敏感文本先脱敏</h2><p>日志、客户记录、内部配置和错误堆栈可能包含账号、令牌或业务信息。用于公开讨论或提交 issue 前，应先替换敏感字段，只保留足够复现问题的上下文。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://diff.toolkitbox.org/zh/">打开 Diff Checker</a>，在浏览器中完成文本对比。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>
