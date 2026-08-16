@@ -36,7 +36,7 @@
         "description": "A practical guide to parsing URLs, decoding query strings, and avoiding common link bugs.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/url-encoding-decoding/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -78,6 +78,7 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>URL Encoding and Decoding for Debugging Web Links</h1>
+    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
     <p class="lead">URLs carry routing, tracking, search, and state. When a link breaks, the problem is often hidden in encoding, query parameters, redirects, or a small character that was copied incorrectly.</p>
     <section class="panel"><h2>Break the URL into parts</h2><p>Before editing a URL, split it into scheme, host, path, query string, and fragment. This makes it easier to see whether the issue is a missing protocol, an unexpected domain, a malformed path, or a query parameter problem.</p></section>
     <section class="panel"><h2>Decode query strings before debugging</h2><p>Encoded values are hard to read. Decode the query string so you can inspect parameters, repeated keys, nested redirect URLs, and tracking values. If a decoded value contains another URL, inspect that URL separately.</p></section>

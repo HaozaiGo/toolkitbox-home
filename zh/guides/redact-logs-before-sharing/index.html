@@ -39,7 +39,7 @@
         "description": "了解在提交工单或公开 issue 前，日志、堆栈、URL 和错误信息中哪些内容应该移除或替换。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/redact-logs-before-sharing/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": { "@id": "https://toolkitbox.org/#organization" },
         "publisher": { "@id": "https://toolkitbox.org/#organization" }
       },
@@ -62,6 +62,7 @@
   <main>
     <div class="eyebrow">开发者指南</div>
     <h1>分享日志和错误信息前，应该如何脱敏</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
     <p class="lead">日志之所以有用，是因为它包含上下文。但这些上下文也可能暴露凭证、客户标识、内部域名和私密文件路径。分享前必须先检查。</p>
     <section class="panel"><h2>先找凭证和密钥</h2><p>优先搜索 token、密码、Bearer Header、Cookie、私钥、数据库 URL 和云服务凭证。分享前用稳定占位符替换。</p></section>
     <section class="panel"><h2>减少用户和账号信息</h2><p>客户 ID、邮箱、手机号、文档名和组织名通常不需要完整展示。如果精确值不是必要条件，只保留值的形状。</p></section>

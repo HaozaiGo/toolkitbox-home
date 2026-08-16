@@ -36,7 +36,7 @@
         "description": "Learn where UUIDs fit, how to use them in test data, and what to avoid when generating identifiers.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/uuid-generator-guide/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -78,6 +78,7 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>A Practical Guide to UUIDs for Development and Testing</h1>
+    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
     <p class="lead">UUIDs are convenient identifiers for prototypes, fixtures, distributed systems, and local development. They are easy to generate and hard to collide, but they are not a replacement for every database key or every security token.</p>
     <section class="panel"><h2>Use UUIDs when coordination is hard</h2><p>A UUID is useful when multiple systems need to create identifiers without asking a central database for the next number. This makes them popular for client-generated IDs, import jobs, offline workflows, message correlation, and test data.</p></section>
     <section class="panel"><h2>Separate identifiers from secrets</h2><p>A UUID can identify an object, but it should not be treated as proof of permission. If guessing or discovering an ID would expose sensitive data, protect the resource with authentication and authorization checks.</p></section>

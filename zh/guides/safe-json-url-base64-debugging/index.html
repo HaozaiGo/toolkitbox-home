@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="JSON、URL 和 Base64 调试中的安全用法：在浏览器工具中处理编码值和结构化 payload 前先减少敏感数据。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/safe-json-url-base64-debugging/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/safe-json-url-base64-debugging/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/safe-json-url-base64-debugging/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/safe-json-url-base64-debugging/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JSON/URL/Base64 调试中的安全用法 - ToolkitBox">
+  <meta property="og:description" content="调试编码值和结构化 payload 时，减少暴露密钥、客户数据和内部标识的风险。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/safe-json-url-base64-debugging/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>JSON/URL/Base64 调试中的安全用法 - ToolkitBox</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"JSON/URL/Base64 调试中的安全用法","description":"JSON、URL 和 Base64 调试中的安全用法：在浏览器工具中处理编码值和结构化 payload 前先减少敏感数据。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/safe-json-url-base64-debugging/","dateModified":"2026-08-16","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/zh/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://toolkitbox.org/zh/guides/"},{"@type":"ListItem","position":3,"name":"JSON/URL/Base64 调试中的安全用法","item":"https://toolkitbox.org/zh/guides/safe-json-url-base64-debugging/"}]}]}
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/safe-json-url-base64-debugging/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>JSON/URL/Base64 调试中的安全用法</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
+    <p class="lead">JSON、URL 和 Base64 字符串都是纯文本，所以很容易复制到工具中。方便的另一面是秘密值也容易被带进去。更稳妥的流程是在解码、格式化或分享结果前，先清理输入。</p>
+    <section class="panel"><h2>使用工具前先缩小样本</h2><p>从能复现问题的最小 payload 开始。把真实客户姓名、邮箱、token、ID 和内部域名替换为结构相似的假值。</p></section>
+    <section class="panel"><h2>扫描秘密前先解码 URL</h2><p>Query string 可能通过百分号编码隐藏值。先解码 URL，再检查 token、code、state、redirect_uri、email、account、session 等参数。</p></section>
+    <section class="panel"><h2>记住 Base64 不是加密</h2><p>Base64 看起来不透明，但任何人都可以解码。尤其是 JWT 片段、凭据、图片、日志或序列化配置，都应当按明文处理。</p></section>
+    <section class="panel"><h2>替换敏感值后再格式化 JSON</h2><p>Pretty print 可以让嵌套数据更容易检查，也能让隐私字段更明显。尽量先替换敏感值，再格式化和对比清理后的版本。</p></section>
+    <section class="panel"><h2>对比清理前后的输入输出</h2><p>转换或解码后，对比处理前后的版本。这能发现意外变化，也能确认示例中的占位符保持一致。</p></section>
+    <section class="panel"><h2>相关工具</h2><p>使用 <a href="https://json.toolkitbox.org/zh/">JSON Toolbox</a>、<a href="https://url.toolkitbox.org/zh/">URL Checker</a> 和 <a href="https://base64.toolkitbox.org/zh/">Base64 Tool</a> 做本地浏览器检查。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

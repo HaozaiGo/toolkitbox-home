@@ -44,6 +44,8 @@ Most ToolkitBox tools run in the browser. User-provided text, files, and generat
 
 - Main directory: https://toolkitbox.org/
 - Developer guides: https://toolkitbox.org/guides/
+- API log sanitization guide: https://toolkitbox.org/guides/api-log-sanitization/
+- Safe JSON, URL, and Base64 debugging: https://toolkitbox.org/guides/safe-json-url-base64-debugging/
 - Privacy policy: https://toolkitbox.org/privacy/
 - Terms of service: https://toolkitbox.org/terms/
 

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API 日志脱敏指南：分享工单、issue、文档或调试信息前，移除令牌、标识符、URL、Payload 和客户数据。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/api-log-sanitization/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/api-log-sanitization/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/api-log-sanitization/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/api-log-sanitization/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="API 日志脱敏指南 - ToolkitBox">
+  <meta property="og:description" content="分享 API 日志前移除 token、账号标识、URL 参数、客户数据和无关 payload。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/api-log-sanitization/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>API 日志脱敏指南 - ToolkitBox</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"API 日志脱敏指南","description":"API 日志脱敏指南：分享工单、issue、文档或调试信息前，移除令牌、标识符、URL、Payload 和客户数据。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/api-log-sanitization/","dateModified":"2026-08-16","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/zh/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://toolkitbox.org/zh/guides/"},{"@type":"ListItem","position":3,"name":"API 日志脱敏指南","item":"https://toolkitbox.org/zh/guides/api-log-sanitization/"}]}]}
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/api-log-sanitization/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>API 日志脱敏指南</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
+    <p class="lead">API 日志有价值，是因为它保留了上下文；它有风险，也是因为它保留了上下文。分享到工单、公开 issue、聊天或文档前，请先缩小样本并移除敏感信息。</p>
+    <section class="panel"><h2>先移除认证材料</h2><p>Access token、Refresh token、API key、Session cookie、签名 URL、Authorization header 和 webhook secret 都不应该出现在共享日志里。可以用 <code>[REDACTED_TOKEN]</code> 这类稳定占位符替换。</p></section>
+    <section class="panel"><h2>遮蔽客户和账号标识</h2><p>邮箱、用户 ID、组织 ID、手机号、发票号和订单号都可能敏感。如果准确值不是排查所必需，用一致的假值替换，保留结构即可。</p></section>
+    <section class="panel"><h2>只保留相关请求和响应</h2><p>过长日志会增加暴露风险，也会让排查更困难。保留失败请求、相关响应、时间范围和错误码，删除无关重试、调试 dump 和重复堆栈。</p></section>
+    <section class="panel"><h2>复查前先格式化结构化数据</h2><p>先格式化 JSON、解码 URL 参数，再扫描敏感信息。压缩 payload、query string 和深层数组里更容易漏掉秘密值。</p></section>
+    <section class="panel"><h2>把最终版本当作公开内容检查</h2><p>脱敏后再读一遍，搜索 token、secret、key、email、cookie、bearer、password、authorization 等关键词，再发送出去。</p></section>
+    <section class="panel"><h2>相关工具</h2><p>使用 <a href="https://json.toolkitbox.org/zh/">JSON Toolbox</a>、<a href="https://url.toolkitbox.org/zh/">URL Checker</a> 和 <a href="https://diff.toolkitbox.org/zh/">Diff Checker</a> 在本地检查脱敏样本。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

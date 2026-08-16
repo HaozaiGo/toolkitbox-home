@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical guide to sanitizing API logs before sharing them in tickets, issue reports, documentation, or debugging sessions.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/api-log-sanitization/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/api-log-sanitization/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/api-log-sanitization/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/api-log-sanitization/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="API Log Sanitization Guide - ToolkitBox">
+  <meta property="og:description" content="Remove tokens, identifiers, payloads, URLs, and customer data from API logs before sharing them.">
+  <meta property="og:url" content="https://toolkitbox.org/guides/api-log-sanitization/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>API Log Sanitization Guide - ToolkitBox</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"API Log Sanitization Guide","description":"A practical guide to sanitizing API logs before sharing them in tickets, issue reports, documentation, or debugging sessions.","inLanguage":"en","mainEntityOfPage":"https://toolkitbox.org/guides/api-log-sanitization/","dateModified":"2026-08-16","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://toolkitbox.org/guides/"},{"@type":"ListItem","position":3,"name":"API Log Sanitization Guide","item":"https://toolkitbox.org/guides/api-log-sanitization/"}]}]}
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/zh/guides/api-log-sanitization/">中文</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>API Log Sanitization Guide</h1>
+    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
+    <p class="lead">API logs are useful because they preserve context. They are risky for the same reason. Before sharing a log in a ticket, public issue, chat, or documentation page, reduce it to the smallest useful example and remove secrets.</p>
+    <section class="panel"><h2>Remove authentication material first</h2><p>Access tokens, refresh tokens, API keys, session cookies, signed URLs, authorization headers, and webhook secrets should never remain in a shared log. Replace them with stable placeholders such as <code>[REDACTED_TOKEN]</code>.</p></section>
+    <section class="panel"><h2>Mask customer and account identifiers</h2><p>Email addresses, user IDs, organization IDs, phone numbers, invoice IDs, and order numbers can all be sensitive. If the exact value is not needed, replace it with a consistent fake value so the structure remains understandable.</p></section>
+    <section class="panel"><h2>Keep only the relevant request and response</h2><p>Long traces make review harder and increase exposure. Keep the failing request, the relevant response, the timestamp range, and any error code that explains the behavior. Remove unrelated retries, debug dumps, and repeated stack frames.</p></section>
+    <section class="panel"><h2>Format structured payloads before review</h2><p>Pretty-print JSON and decode URL parameters before scanning for secrets. Sensitive values are easier to miss in minified payloads, query strings, and nested arrays.</p></section>
+    <section class="panel"><h2>Check the final version</h2><p>After redaction, read the log as if it were public. Search for terms such as token, secret, key, email, cookie, bearer, password, and authorization before sending it.</p></section>
+    <section class="panel"><h2>Related tools</h2><p>Use <a href="https://json.toolkitbox.org/">JSON Toolbox</a>, <a href="https://url.toolkitbox.org/">URL Checker</a>, and <a href="https://diff.toolkitbox.org/">Diff Checker</a> to inspect sanitized samples locally.</p></section>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+  </main>
+</body>
+</html>

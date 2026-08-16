@@ -39,7 +39,7 @@
         "description": "Debug API payloads with a safer workflow for JSON formatting, URL inspection, text comparison, and secret redaction.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/api-debugging-checklist/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": { "@id": "https://toolkitbox.org/#organization" },
         "publisher": { "@id": "https://toolkitbox.org/#organization" }
       },
@@ -62,6 +62,7 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>A Safe API Debugging Checklist for Browser-Based Tools</h1>
+    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
     <p class="lead">API bugs often hide in small details: a renamed field, an encoded callback URL, a missing header, or a null value. A checklist makes debugging faster without exposing more data than necessary.</p>
     <section class="panel"><h2>Validate structure first</h2><p>If a JSON payload fails, confirm syntax before investigating business logic. Formatting a valid payload makes field names, nesting, arrays, and unexpected null values easier to inspect.</p></section>
     <section class="panel"><h2>Compare working and broken examples</h2><p>When one request works and another fails, compare the two payloads or URLs. A diff can reveal changed types, missing parameters, renamed fields, or accidental whitespace changes.</p></section>

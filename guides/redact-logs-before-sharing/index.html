@@ -39,7 +39,7 @@
         "description": "Learn what to remove from logs, stack traces, URLs, and error messages before posting them in tickets or public issue reports.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/redact-logs-before-sharing/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": { "@id": "https://toolkitbox.org/#organization" },
         "publisher": { "@id": "https://toolkitbox.org/#organization" }
       },
@@ -62,6 +62,7 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>How to Redact Logs and Error Messages Before Sharing Them</h1>
+    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
     <p class="lead">Logs are useful because they include context. That same context can expose credentials, customer identifiers, internal hostnames, and private file paths when shared without review.</p>
     <section class="panel"><h2>Look for credentials first</h2><p>Search for tokens, passwords, bearer headers, cookies, private keys, database URLs, and cloud credentials. Replace them with stable placeholders before sharing.</p></section>
     <section class="panel"><h2>Reduce user and account details</h2><p>Customer IDs, email addresses, phone numbers, document names, and organization names are rarely needed in full. Keep only the shape of the value when the exact value is not required.</p></section>

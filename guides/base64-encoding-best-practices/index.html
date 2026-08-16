@@ -36,7 +36,7 @@
         "description": "Understand common Base64 use cases, URL-safe variants, Data URIs, and practical limits for browser-side encoding.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/base64-encoding-best-practices/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -78,6 +78,7 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>Base64 Encoding: When to Use It and When Not To</h1>
+    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
     <p class="lead">Base64 is useful when binary data needs to travel through text-only systems, but it is not compression, encryption, or a privacy layer. Knowing the difference helps you avoid bloated payloads and false security assumptions.</p>
     <section class="panel"><h2>Base64 turns bytes into text</h2><p>The main purpose of Base64 is compatibility. It represents binary data using printable characters so the data can fit into JSON, email, HTML, CSS, or URL parameters. The encoded result is usually larger than the original file, so it should be used deliberately.</p></section>
     <section class="panel"><h2>Use URL-safe Base64 for URLs and tokens</h2><p>Standard Base64 can include characters that have special meaning in URLs. URL-safe Base64 changes those characters so encoded strings are easier to pass in query parameters, path segments, and token-like values. If a system expects a specific variant, use that variant consistently.</p></section>

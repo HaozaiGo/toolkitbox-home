@@ -36,7 +36,7 @@
         "description": "A step-by-step workflow for testing regex patterns, capture groups, replacements, and edge cases.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/regex-testing-guide/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -78,6 +78,7 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>How to Test Regular Expressions Before Shipping Them</h1>
+    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
     <p class="lead">Regular expressions are compact, which makes them powerful and easy to misunderstand. A careful test workflow helps you catch false positives, missed matches, and replacement mistakes before they reach production.</p>
     <section class="panel"><h2>Begin with real examples</h2><p>Start with a small set of strings that represent the data you actually expect. Include normal cases, empty values, malformed input, and surprising but valid examples. This prevents a pattern from only working against the one sample used while writing it.</p></section>
     <section class="panel"><h2>Test what should not match</h2><p>A regex is only useful if it rejects the right things. Add negative examples such as extra punctuation, invalid prefixes, mixed whitespace, and partial matches. False positives are often more damaging than a pattern that simply fails loudly.</p></section>

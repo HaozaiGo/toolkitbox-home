@@ -39,7 +39,7 @@
         "description": "理解 URL 解析、查询参数、编码解码和分享链接清理，减少 Web 链接调试中的常见错误。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/url-encoding-decoding/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -81,6 +81,7 @@
   <main>
     <div class="eyebrow">开发者指南</div>
     <h1>URL 编码和解码：调试 Web 链接的实用方法</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
     <p class="lead">URL 会携带路由、查询参数、跳转目标、追踪字段和页面状态。链接失效时，问题往往藏在编码、参数顺序、保留字符或复制时多出的一个字符里。</p>
     <section class="panel"><h2>先拆成组件再修改</h2><p>不要把整条 URL 当作一段普通字符串处理。先拆分协议、域名、路径、查询参数和片段，确认问题出在域名、路径、参数值还是 Hash 上。</p></section>
     <section class="panel"><h2>调试查询参数前先解码</h2><p>编码后的参数很难阅读。先解码查询字符串，可以看到重复 key、嵌套跳转链接、中文字符、追踪参数和意外混入的空格。如果某个参数本身又是一条 URL，需要单独检查。</p></section>

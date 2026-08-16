@@ -39,7 +39,7 @@
         "description": "排查 HTTPS 和 SSL/TLS 证书问题时，如何检查到期时间、域名匹配、证书链、DNS 和部署层。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/ssl-certificate-checking/",
-        "dateModified": "2026-08-09",
+        "dateModified": "2026-08-16",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -81,6 +81,7 @@
   <main>
     <div class="eyebrow">开发者指南</div>
     <h1>SSL 证书异常时应该先检查什么</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
     <p class="lead">HTTPS 报错可能来自证书过期、域名不匹配、中间证书链缺失、DNS 指向错误，或者部署平台返回了其他项目的证书。按顺序检查可以让问题更快收敛。</p>
     <section class="panel"><h2>先确认访问的主机名</h2><p>证书是签发给具体域名的。根域名、www 域名和子域名可能使用不同证书。浏览器提示名称不匹配时，先确认用户实际访问的 host 是否在证书的 SAN 列表里。</p></section>
     <section class="panel"><h2>到期时间是第一优先级</h2><p>证书过期是最常见也最容易忽略的问题。除了检查日期，还要预留 DNS、CDN、部署和缓存传播时间，不要等到最后一天才续期。</p></section>
