@@ -156,6 +156,66 @@
       font-size: 14px;
       line-height: 1.55;
     }
+    .content-section {
+      margin-top: 32px;
+      padding-top: 4px;
+    }
+    .content-section h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+    .content-section p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .content-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 16px;
+    }
+    .content-panel h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      letter-spacing: 0;
+    }
+    .content-panel ul, .content-panel ol {
+      margin: 0;
+      padding-left: 19px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .faq-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .faq-list details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 14px 16px;
+    }
+    .faq-list summary {
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .faq-list p {
+      margin-top: 9px;
+      font-size: 14px;
+    }
     .scene {
       width: 100%;
       aspect-ratio: 16 / 10;
@@ -273,6 +333,7 @@
       .intro { grid-template-columns: 1fr; }
       h1 { font-size: 36px; }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .content-grid, .faq-list { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .nav {
@@ -338,6 +399,47 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "en",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is ToolkitBox for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ToolkitBox is a collection of small browser-based utilities for developers who need to inspect, convert, validate, or compare data during daily work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do ToolkitBox tools upload my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most tools process input directly in the browser. You should still remove secrets, tokens, and customer data before testing examples on any shared device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who should use these tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "They are intended for developers, QA engineers, technical writers, support teams, and students who need quick utilities without creating an account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the tools free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. ToolkitBox tools are free to use and do not require a login."
+        }
+      }
+    ]
+  }
+  </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
   <script>
@@ -390,6 +492,35 @@
         <a class="card" href="/guides/uuid-generator-guide/"><div class="card-top"><strong>A Practical Guide to UUIDs for Development and Testing</strong><span class="icon blue">G</span></div><span>Learn where UUIDs fit, how to use them in test data, and what to avoid when generating identifiers.</span></a>
         <a class="card" href="/guides/regex-testing-guide/"><div class="card-top"><strong>How to Test Regular Expressions Before Shipping Them</strong><span class="icon blue">G</span></div><span>A step-by-step workflow for testing regex patterns, capture groups, replacements, and edge cases.</span></a>
 
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="why-toolkitbox">
+      <h2 id="why-toolkitbox">Built for everyday developer checks</h2>
+      <p>ToolkitBox focuses on the small technical tasks that happen between writing code, testing an API, reviewing logs, and preparing documentation. Instead of sending snippets to a generic web service, the tools are designed to run in the browser and keep the workflow fast, predictable, and easy to repeat.</p>
+      <div class="content-grid">
+        <div class="content-panel"><h3>Data and encoding</h3><ul><li>Format JSON before debugging API responses.</li><li>Decode Base64 strings and Data URIs.</li><li>Generate UUIDs for tests, fixtures, and examples.</li></ul></div>
+        <div class="content-panel"><h3>Text and web checks</h3><ul><li>Test regular expressions before shipping them.</li><li>Compare configuration, copy, and API changes.</li><li>Inspect URL components and encoded parameters.</li></ul></div>
+        <div class="content-panel"><h3>Security-adjacent review</h3><ul><li>Check SSL certificate dates and issuer details.</li><li>Remove tokens before sharing examples.</li><li>Use local tools for sensitive drafts whenever possible.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="safe-workflow">
+      <h2 id="safe-workflow">A safer workflow for browser tools</h2>
+      <div class="content-grid">
+        <div class="content-panel"><h3>1. Reduce the sample</h3><p>Use the smallest realistic input that still reproduces the issue. This makes errors easier to understand and avoids exposing unnecessary data.</p></div>
+        <div class="content-panel"><h3>2. Remove secrets</h3><p>Replace API keys, bearer tokens, email addresses, account IDs, and customer records before formatting or sharing examples.</p></div>
+        <div class="content-panel"><h3>3. Verify before publishing</h3><p>After converting, comparing, or minifying output, review the result before using it in docs, tickets, commits, or public posts.</p></div>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="toolkitbox-faq">
+      <h2 id="toolkitbox-faq">ToolkitBox FAQ</h2>
+      <div class="faq-list">
+        <details><summary>What is ToolkitBox for?</summary><p>ToolkitBox is for quick developer checks: formatting structured data, testing expressions, comparing text, inspecting URLs, checking SSL certificates, and preparing examples.</p></details>
+        <details><summary>Do the tools upload my data?</summary><p>Most tools run directly in your browser. The site is still best used with cleaned samples, especially when you are working on shared computers or production data.</p></details>
+        <details><summary>Are these tools a replacement for security review?</summary><p>No. They help with everyday inspection and cleanup, but production systems still need code review, secret scanning, access controls, and dedicated security testing.</p></details>
+        <details><summary>Why are there guides as well as tools?</summary><p>The guides explain common mistakes, safe workflows, and edge cases so the tools are easier to use correctly in real development work.</p></details>
       </div>
     </section>
 

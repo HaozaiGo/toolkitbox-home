@@ -51,6 +51,9 @@
       .card { min-height: auto; }
     }
   </style>
+  <style>
+    .content-section{margin-top:32px;padding-top:4px}.content-section h2{margin:0 0 12px;font-size:20px;letter-spacing:0}.content-section p{margin:0;color:var(--muted);font-size:15px;line-height:1.7}.content-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}.content-panel{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:16px}.content-panel h3{margin:0 0 8px;font-size:15px;letter-spacing:0}.content-panel ul,.content-panel ol{margin:0;padding-left:19px;color:var(--muted);font-size:14px;line-height:1.65}.faq-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.faq-list details{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:14px 16px}.faq-list summary{cursor:pointer;font-weight:700;letter-spacing:0}.faq-list p{margin-top:9px;font-size:14px}@media(max-width:860px){.content-grid,.faq-list{grid-template-columns:1fr}}
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,6 +77,47 @@
         "inLanguage": "zh-CN",
         "publisher": {
           "@id": "https://toolkitbox.org/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "zh-CN",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ToolkitBox 适合做什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ToolkitBox 收集开发者日常会用到的小工具，用于检查、转换、校验和对比数据，例如 JSON、Base64、UUID、正则、URL、SSL 和颜色。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ToolkitBox 会上传我的数据吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "大多数工具直接在浏览器中处理输入。即便如此，处理生产样本前也建议先移除密钥、令牌、客户资料和其他敏感内容。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "谁适合使用这些工具？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "这些工具适合开发者、测试工程师、技术写作者、支持团队和学习者，用来快速完成无需账号的日常检查。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "这些工具免费吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "是的，ToolkitBox 工具免费使用，不需要登录。"
         }
       }
     ]
@@ -111,6 +155,34 @@
         <a class="card" href="/zh/guides/uuid-generator-guide/"><div class="card-top"><strong>开发和测试中的 UUID 实用指南</strong><span class="icon blue">G</span></div><span>了解 UUID 适合哪些场景，如何用于测试数据，以及生成标识符时应避免什么。</span></a>
         <a class="card" href="/zh/guides/regex-testing-guide/"><div class="card-top"><strong>正则表达式上线前如何测试</strong><span class="icon blue">G</span></div><span>测试正则模式、捕获组、替换和边界情况的分步工作流。</span></a>
 
+      </div>
+    </section>
+    <section class="content-section" aria-labelledby="why-toolkitbox">
+      <h2 id="why-toolkitbox">为日常开发检查而设计</h2>
+      <p>ToolkitBox 聚焦代码调试、接口测试、日志排查、文档编写之间经常出现的小任务。相比把片段随手发到不确定的在线服务，这些工具尽量在浏览器中完成处理，让工作流更快、更清楚，也更容易复查。</p>
+      <div class="content-grid">
+        <div class="content-panel"><h3>数据与编码</h3><ul><li>调试 API 响应前格式化 JSON。</li><li>解码 Base64 字符串和 Data URI。</li><li>为测试、示例和夹具生成 UUID。</li></ul></div>
+        <div class="content-panel"><h3>文本与网页检查</h3><ul><li>上线前测试正则表达式。</li><li>对比配置、文案和接口返回变化。</li><li>查看 URL 组件和编码参数。</li></ul></div>
+        <div class="content-panel"><h3>安全相关复查</h3><ul><li>检查 SSL 证书日期和签发信息。</li><li>分享示例前移除令牌和账号信息。</li><li>敏感草稿优先使用本地浏览器工具处理。</li></ul></div>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="safe-workflow">
+      <h2 id="safe-workflow">更稳妥的浏览器工具使用流程</h2>
+      <div class="content-grid">
+        <div class="content-panel"><h3>1. 缩小样本</h3><p>只保留能复现问题的最小输入。这样更容易定位错误，也能减少不必要的数据暴露。</p></div>
+        <div class="content-panel"><h3>2. 移除敏感信息</h3><p>格式化或分享前，先替换 API key、Bearer token、邮箱、账号 ID、客户记录等内容。</p></div>
+        <div class="content-panel"><h3>3. 发布前复查</h3><p>转换、对比或压缩完成后，先检查结果，再放进文档、工单、提交记录或公开帖子。</p></div>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="toolkitbox-faq">
+      <h2 id="toolkitbox-faq">ToolkitBox 常见问题</h2>
+      <div class="faq-list">
+        <details><summary>ToolkitBox 适合做什么？</summary><p>它适合快速完成开发检查：格式化结构化数据、测试表达式、对比文本、查看 URL、检查 SSL 证书，以及整理可分享的示例。</p></details>
+        <details><summary>工具会上传我的数据吗？</summary><p>大多数工具直接在浏览器中运行。即便如此，如果你处理生产数据，仍建议先清理样本，尤其是在共享电脑上操作时。</p></details>
+        <details><summary>这些工具可以替代安全审计吗？</summary><p>不能。它们用于日常检查和清理；生产系统仍需要代码审查、密钥扫描、访问控制和专门的安全测试。</p></details>
+        <details><summary>为什么除了工具还要写指南？</summary><p>指南会解释常见错误、使用边界和更安全的流程，帮助你在真实开发工作中更正确地使用这些工具。</p></details>
       </div>
     </section>
     <footer><span><a href="/zh/privacy/">隐私策略</a> · <a href="/zh/terms/">服务条款</a></span></footer>

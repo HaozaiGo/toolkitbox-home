@@ -24,12 +24,17 @@ Chinese URL: https://toolkitbox.org/zh/
 - English and Chinese pages for the main directory and tool interfaces
 - Practical guides about safer browser-based developer workflows
 - Privacy, terms, and contact pages for site trust and policy context
+- A visible workflow for reducing samples, removing secrets, and verifying output before using generated or transformed data in public contexts
 
 ## Tool categories
 
 - Data and encoding: JSON Toolbox, Base64 Tool, UUID Generator, Color Tool
 - Text and web workflows: Regex Tester, Diff Checker, URL Checker
 - Security and diagnostics: SSL Checker
+
+## Safe workflow
+
+ToolkitBox recommends using the smallest representative sample, removing API keys, tokens, emails, account IDs, customer records, and other sensitive values before testing, then reviewing output before adding it to documentation, tickets, commits, or public posts.
 
 ## Privacy model
 
