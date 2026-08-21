@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="开发者分享 URL 到工单、文档、截图、日志或公开 bug 报告前，应检查参数中的隐私和密钥风险。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/url-parameter-privacy-checklist/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/url-parameter-privacy-checklist/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/url-parameter-privacy-checklist/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/url-parameter-privacy-checklist/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="URL 参数隐私检查清单 - ToolkitBox">
+  <meta property="og:description" content="开发者分享 URL 到工单、文档、截图、日志或公开 bug 报告前，应检查参数中的隐私和密钥风险。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/url-parameter-privacy-checklist/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>URL 参数隐私检查清单 - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"URL 参数隐私检查清单","description":"开发者分享 URL 到工单、文档、截图、日志或公开 bug 报告前，应检查参数中的隐私和密钥风险。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/url-parameter-privacy-checklist/","dateModified":"2026-08-21","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/zh/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://toolkitbox.org/zh/guides/"},{"@type":"ListItem","position":3,"name":"URL 参数隐私检查清单","item":"https://toolkitbox.org/zh/guides/url-parameter-privacy-checklist/"}]}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="https://toolkitbox.org/guides/url-parameter-privacy-checklist/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>URL 参数隐私检查清单</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 21 日 · ToolkitBox 编辑</p>
+    <p class="lead">URL 不只是地址。Query、fragment、签名链接和浏览器复制出来的地址里，可能包含 token、标识符、搜索词和内部环境信息。</p>
+    <section class="panel"><h2>先解码再检查</h2><p>编码参数会隐藏可读内容。分享到公开 issue、工单、文档或截图前，应先解码 URL 并逐个检查参数。</p></section>
+    <section class="panel"><h2>移除令牌和签名值</h2><p>Session ID、Access token、签名 URL、邀请链接、重置密码链接和 magic link 都不应公开分享。可用稳定占位符替换。</p></section>
+    <section class="panel"><h2>遮蔽客户标识</h2><p>用户 ID、组织 ID、发票号、邮箱、手机号和订单号都应替换，除非这是私密支持工单中必须保留的值。</p></section>
+    <section class="panel"><h2>留意 fragment 和嵌套跳转</h2><p>Hash fragment 和 redirect 参数很容易漏掉。需要展开嵌套 URL，同时检查外层和内层值。</p></section>
+    <section class="panel"><h2>只分享最小可复现 URL</h2><p>只保留复现行为所需的 path 和参数，移除 analytics 标签、无关筛选条件和个人状态。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://url.toolkitbox.org/zh/">URL Checker</a> 可在本地解码和检查参数；用 <a href="https://diff.toolkitbox.org/zh/">Diff Checker</a> 对比原始和脱敏版本。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

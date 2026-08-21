@@ -2,162 +2,202 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://toolkitbox.org/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/about/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/privacy/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/terms/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/contact/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/about/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/privacy/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/terms/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/contact/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/json-formatting-validation/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/base64-encoding-best-practices/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/uuid-generator-guide/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/regex-testing-guide/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/text-diff-workflow/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/url-encoding-decoding/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/ssl-certificate-checking/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/color-conversion-accessibility/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/json-formatting-validation/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/base64-encoding-best-practices/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/uuid-generator-guide/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/regex-testing-guide/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/text-diff-workflow/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/url-encoding-decoding/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/ssl-certificate-checking/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/color-conversion-accessibility/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/safe-online-developer-tools/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/safe-online-developer-tools/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/api-debugging-checklist/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/api-debugging-checklist/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/redact-logs-before-sharing/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/api-log-sanitization/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/api-log-sanitization/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/safe-json-url-base64-debugging/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/safe-json-url-base64-debugging/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/redact-logs-before-sharing/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/local-browser-tools-privacy/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/local-browser-tools-privacy/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/guides/url-parameter-privacy-checklist/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/zh/guides/url-parameter-privacy-checklist/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/guides/regex-release-checklist/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/zh/guides/regex-release-checklist/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/zh/guides/ssl-certificate-renewal-playbook/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/guides/base64-is-not-encryption/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/zh/guides/base64-is-not-encryption/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/guides/json-schema-validation-before-release/</loc>
+    <lastmod>2026-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://toolkitbox.org/zh/guides/json-schema-validation-before-release/</loc>
+    <lastmod>2026-08-21</lastmod>
   </url>
 </urlset>

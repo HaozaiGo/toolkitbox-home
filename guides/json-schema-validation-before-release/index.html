@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical guide to validating JSON payloads before release so API examples, configuration files, and test fixtures stay reliable.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/json-schema-validation-before-release/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/json-schema-validation-before-release/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/json-schema-validation-before-release/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/json-schema-validation-before-release/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JSON Schema Validation Before Release - ToolkitBox">
+  <meta property="og:description" content="A practical guide to validating JSON payloads before release so API examples, configuration files, and test fixtures stay reliable.">
+  <meta property="og:url" content="https://toolkitbox.org/guides/json-schema-validation-before-release/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>JSON Schema Validation Before Release - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"JSON Schema Validation Before Release","description":"A practical guide to validating JSON payloads before release so API examples, configuration files, and test fixtures stay reliable.","inLanguage":"en","mainEntityOfPage":"https://toolkitbox.org/guides/json-schema-validation-before-release/","dateModified":"2026-08-21","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://toolkitbox.org/guides/"},{"@type":"ListItem","position":3,"name":"JSON Schema Validation Before Release","item":"https://toolkitbox.org/guides/json-schema-validation-before-release/"}]}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://toolkitbox.org/zh/guides/json-schema-validation-before-release/">中文</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>JSON Schema Validation Before Release</h1>
+    <p class="guide-meta">Last updated: August 21, 2026 · Edited by ToolkitBox</p>
+    <p class="lead">Valid JSON is not always correct JSON. Before shipping API examples, config files, or fixtures, validate the structure, required fields, types, and edge cases that consumers actually depend on.</p>
+    <section class="panel"><h2>Separate syntax from structure</h2><p>Formatting checks catch commas and brackets. Schema checks catch missing fields, wrong types, invalid enums, and nested objects that do not match the contract.</p></section>
+    <section class="panel"><h2>Validate examples used in docs</h2><p>Documentation examples often become copy-paste starting points. Keep them valid, realistic, and free from real customer data or secrets.</p></section>
+    <section class="panel"><h2>Check optional and required fields</h2><p>Make sure required fields are present and optional fields behave as expected when absent, null, empty, or set to unusual values.</p></section>
+    <section class="panel"><h2>Compare fixture changes</h2><p>When changing fixtures, compare old and new versions so reviewers can see exactly which fields were added, removed, or renamed.</p></section>
+    <section class="panel"><h2>Keep sensitive values fake</h2><p>Use realistic but fake IDs, emails, tokens, and names. Never validate examples by pasting production payloads into public pages or tickets.</p></section>
+    <section class="panel"><h2>Related tools</h2><p><a href="https://json.toolkitbox.org/">JSON Toolbox</a> helps format and inspect payloads locally. Use <a href="https://diff.toolkitbox.org/">Diff Checker</a> to review fixture changes.</p></section>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+  </main>
+</body>
+</html>

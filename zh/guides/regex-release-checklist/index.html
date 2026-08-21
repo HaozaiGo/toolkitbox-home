@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="正则表达式用于表单、解析器、校验规则或日志过滤前，应检查匹配、边界、Unicode 和性能风险。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/regex-release-checklist/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/regex-release-checklist/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/regex-release-checklist/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/regex-release-checklist/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="正则表达式上线前检查清单 - ToolkitBox">
+  <meta property="og:description" content="正则表达式用于表单、解析器、校验规则或日志过滤前，应检查匹配、边界、Unicode 和性能风险。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/regex-release-checklist/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>正则表达式上线前检查清单 - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"正则表达式上线前检查清单","description":"正则表达式用于表单、解析器、校验规则或日志过滤前，应检查匹配、边界、Unicode 和性能风险。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/regex-release-checklist/","dateModified":"2026-08-21","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/zh/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://toolkitbox.org/zh/guides/"},{"@type":"ListItem","position":3,"name":"正则表达式上线前检查清单","item":"https://toolkitbox.org/zh/guides/regex-release-checklist/"}]}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="https://toolkitbox.org/guides/regex-release-checklist/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>正则表达式上线前检查清单</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 21 日 · ToolkitBox 编辑</p>
+    <p class="lead">一个正则在单个样本上可用，并不代表生产环境安全。上线前应测试应匹配、不应匹配、边界、Unicode 行为和性能风险。</p>
+    <section class="panel"><h2>列出应匹配和不应匹配样本</h2><p>保留一个小表格，包含应通过和应失败的值。样本要覆盖短、长、空、畸形和接近生产数据的情况。</p></section>
+    <section class="panel"><h2>检查捕获组</h2><p>如果代码依赖捕获组，应确认分组顺序和可选分组。一次小改动就可能改变组号，影响后续解析。</p></section>
+    <section class="panel"><h2>测试边界</h2><p>检查前后空白、标点、换行、Tab、路径分隔符和重复分隔符。校验器和日志过滤中很容易出现边界错误。</p></section>
+    <section class="panel"><h2>考虑 Unicode 和语言环境</h2><p>姓名、URL、域名和文本字段可能包含非 ASCII 字符。应明确正则是接受还是拒绝，并在说明中记录。</p></section>
+    <section class="panel"><h2>复查性能风险</h2><p>嵌套重复和过宽通配符可能导致长输入匹配缓慢。用长字符串测试，并避免严重回溯的模式。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://regex.toolkitbox.org/zh/">Regex Tester</a> 可本地测试匹配；用 <a href="https://diff.toolkitbox.org/zh/">Diff Checker</a> 审查正则变更。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

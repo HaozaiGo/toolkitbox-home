@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="检查 SSL 证书状态、续期时间、DNS 对齐和部署准备情况的实用流程。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/ssl-certificate-renewal-playbook/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/ssl-certificate-renewal-playbook/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SSL 证书续期检查流程 - ToolkitBox">
+  <meta property="og:description" content="检查 SSL 证书状态、续期时间、DNS 对齐和部署准备情况的实用流程。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/ssl-certificate-renewal-playbook/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>SSL 证书续期检查流程 - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"SSL 证书续期检查流程","description":"检查 SSL 证书状态、续期时间、DNS 对齐和部署准备情况的实用流程。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/ssl-certificate-renewal-playbook/","dateModified":"2026-08-21","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/zh/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://toolkitbox.org/zh/guides/"},{"@type":"ListItem","position":3,"name":"SSL 证书续期检查流程","item":"https://toolkitbox.org/zh/guides/ssl-certificate-renewal-playbook/"}]}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>SSL 证书续期检查流程</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 21 日 · ToolkitBox 编辑</p>
+    <p class="lead">证书问题往往要等用户看到浏览器警告才变得紧急。轻量的续期流程可以提前发现过期、域名不匹配、DNS 漂移和部署时机问题。</p>
+    <section class="panel"><h2>跟踪证书有效期</h2><p>检查过期时间、签发机构和覆盖的主机名。剩余时间过短时，应把它当成部署任务，而不是最后一刻的事故。</p></section>
+    <section class="panel"><h2>验证所有公开主机名</h2><p>根域、www、应用子域、API 主机和区域别名可能使用不同证书或部署。用户能访问的每个主机名都应检查。</p></section>
+    <section class="panel"><h2>确认 DNS 和托管平台一致</h2><p>如果 DNS 指向旧服务商，或新主机名没有绑定到部署，证书可能失败。A、CNAME 和平台域名设置要一起确认。</p></section>
+    <section class="panel"><h2>续期后从外部测试</h2><p>续期后应从外部网络检查 live certificate。浏览器缓存、CDN 边缘和旧部署可能让本地检查产生误判。</p></section>
+    <section class="panel"><h2>保留事故说明</h2><p>记录谁负责续期、DNS 在哪里管理、站点由哪个平台服务、证书覆盖哪些主机名。未来变更时会省很多时间。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://ssl.toolkitbox.org/zh/">SSL Checker</a> 可检查证书过期时间和主机覆盖；用 <a href="https://url.toolkitbox.org/zh/">URL Checker</a> 检查 URL 和跳转。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="发布 API 示例、配置文件或测试 fixture 前，如何校验 JSON 结构、必填字段、类型和边界情况。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/json-schema-validation-before-release/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/json-schema-validation-before-release/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/json-schema-validation-before-release/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/json-schema-validation-before-release/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="发布前如何校验 JSON Schema - ToolkitBox">
+  <meta property="og:description" content="发布 API 示例、配置文件或测试 fixture 前，如何校验 JSON 结构、必填字段、类型和边界情况。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/json-schema-validation-before-release/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>发布前如何校验 JSON Schema - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"发布前如何校验 JSON Schema","description":"发布 API 示例、配置文件或测试 fixture 前，如何校验 JSON 结构、必填字段、类型和边界情况。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/json-schema-validation-before-release/","dateModified":"2026-08-21","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/zh/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://toolkitbox.org/zh/guides/"},{"@type":"ListItem","position":3,"name":"发布前如何校验 JSON Schema","item":"https://toolkitbox.org/zh/guides/json-schema-validation-before-release/"}]}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="https://toolkitbox.org/guides/json-schema-validation-before-release/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>发布前如何校验 JSON Schema</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 21 日 · ToolkitBox 编辑</p>
+    <p class="lead">合法 JSON 不一定是正确 JSON。发布 API 示例、配置文件或 fixture 前，应校验结构、必填字段、类型和调用方依赖的边界情况。</p>
+    <section class="panel"><h2>区分语法和结构</h2><p>格式化检查能发现逗号和括号问题；Schema 检查能发现缺失字段、类型错误、枚举无效和嵌套对象不符合契约。</p></section>
+    <section class="panel"><h2>校验文档中的示例</h2><p>文档示例经常被复制使用。它们应保持有效、接近真实，同时不能包含真实客户数据或秘密。</p></section>
+    <section class="panel"><h2>检查可选和必填字段</h2><p>确认必填字段存在，可选字段在缺失、null、空值或异常值时也符合预期。</p></section>
+    <section class="panel"><h2>对比 fixture 变更</h2><p>修改 fixture 时，对比新旧版本，让审查者清楚看到哪些字段被添加、删除或重命名。</p></section>
+    <section class="panel"><h2>敏感值使用假数据</h2><p>使用逼真但虚假的 ID、邮箱、token 和名称。不要把生产 payload 粘贴到公开页面或工单里作为校验样本。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://json.toolkitbox.org/zh/">JSON Toolbox</a> 可本地格式化和检查 payload；用 <a href="https://diff.toolkitbox.org/zh/">Diff Checker</a> 审查 fixture 变更。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

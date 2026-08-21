@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="解释 Base64 为什么只是编码而不是加密，以及如何避免在编码字符串中暴露密钥和敏感数据。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/base64-is-not-encryption/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/base64-is-not-encryption/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/base64-is-not-encryption/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/base64-is-not-encryption/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Base64 不是加密 - ToolkitBox">
+  <meta property="og:description" content="解释 Base64 为什么只是编码而不是加密，以及如何避免在编码字符串中暴露密钥和敏感数据。">
+  <meta property="og:url" content="https://toolkitbox.org/zh/guides/base64-is-not-encryption/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>Base64 不是加密 - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"Base64 不是加密","description":"解释 Base64 为什么只是编码而不是加密，以及如何避免在编码字符串中暴露密钥和敏感数据。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/base64-is-not-encryption/","dateModified":"2026-08-21","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/zh/"},{"@type":"ListItem","position":2,"name":"指南","item":"https://toolkitbox.org/zh/guides/"},{"@type":"ListItem","position":3,"name":"Base64 不是加密","item":"https://toolkitbox.org/zh/guides/base64-is-not-encryption/"}]}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="https://toolkitbox.org/guides/base64-is-not-encryption/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">开发者指南</div>
+    <h1>Base64 不是加密</h1>
+    <p class="guide-meta">最后更新：2026 年 8 月 21 日 · ToolkitBox 编辑</p>
+    <p class="lead">Base64 适合传输和格式转换，但不能保护数据。如果一个秘密只是 Base64 编码，任何人都可以不用密钥直接解码。</p>
+    <section class="panel"><h2>理解编码的作用</h2><p>编码只是改变表示形式，让数据能通过需要文本的系统传输。它不会增加保密性、认证能力或访问控制。</p></section>
+    <section class="panel"><h2>编码后的秘密仍是秘密</h2><p>API key、JWT、凭据、token 和客户数据经过 Base64 后仍然敏感，不应贴到公开工单、截图、文档或日志中。</p></section>
+    <section class="panel"><h2>分享样本前先解码</h2><p>收到编码样本时，应在本地解码并检查是否含有私密值，再决定是否转发或发布。</p></section>
+    <section class="panel"><h2>示例中使用占位符</h2><p>写文档或 bug 报告时，用假的结构化值替代真实秘密，保留格式但不能访问真实系统。</p></section>
+    <section class="panel"><h2>需要保密时使用加密</h2><p>数据需要保密时，应使用真正的加密、密钥管理和访问控制，而不是依赖 Base64 或类似编码。</p></section>
+    <section class="panel"><h2>相关工具</h2><p><a href="https://base64.toolkitbox.org/zh/">Base64 Tool</a> 可在浏览器本地解码；用 <a href="https://json.toolkitbox.org/zh/">JSON Toolbox</a> 检查解码后的结构化 payload。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  </main>
+</body>
+</html>

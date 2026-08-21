@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical playbook for checking SSL certificate status, renewal timing, DNS alignment, and deployment readiness.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/ssl-certificate-renewal-playbook/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SSL Certificate Renewal Playbook - ToolkitBox">
+  <meta property="og:description" content="A practical playbook for checking SSL certificate status, renewal timing, DNS alignment, and deployment readiness.">
+  <meta property="og:url" content="https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/">
+  <meta property="og:site_name" content="ToolkitBox">
+  <meta property="og:image" content="https://toolkitbox.org/og-guides.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolkitbox.org/og-guides.png">
+  <title>SSL Certificate Renewal Playbook - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"SSL Certificate Renewal Playbook","description":"A practical playbook for checking SSL certificate status, renewal timing, DNS alignment, and deployment readiness.","inLanguage":"en","mainEntityOfPage":"https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/","dateModified":"2026-08-21","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ToolkitBox","item":"https://toolkitbox.org/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://toolkitbox.org/guides/"},{"@type":"ListItem","position":3,"name":"SSL Certificate Renewal Playbook","item":"https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/"}]}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="https://toolkitbox.org/zh/guides/ssl-certificate-renewal-playbook/">中文</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Developer Guide</div>
+    <h1>SSL Certificate Renewal Playbook</h1>
+    <p class="guide-meta">Last updated: August 21, 2026 · Edited by ToolkitBox</p>
+    <p class="lead">Certificate problems often become urgent only after users see warnings. A lightweight renewal playbook helps catch expiry, domain mismatch, DNS drift, and deployment timing before they cause downtime.</p>
+    <section class="panel"><h2>Track the certificate window</h2><p>Check the expiry date, issuer, and covered hostnames. Treat short remaining validity as a deployment task, not a last-minute incident.</p></section>
+    <section class="panel"><h2>Verify every public hostname</h2><p>Root domains, www hosts, app subdomains, API hosts, and regional aliases may use different certificates or deployments. Check each hostname users can visit.</p></section>
+    <section class="panel"><h2>Confirm DNS and hosting alignment</h2><p>A certificate can fail if DNS points to an old provider or if a new host is not attached to the deployment. Confirm A, CNAME, and platform domain settings together.</p></section>
+    <section class="panel"><h2>Test after renewal</h2><p>After renewal, check the live certificate from an external network. Browser caches, CDN edges, and old deployments can make local checks misleading.</p></section>
+    <section class="panel"><h2>Keep an incident note</h2><p>Document who owns renewal, where DNS is managed, what platform serves the site, and which hostnames are covered. This saves time during future changes.</p></section>
+    <section class="panel"><h2>Related tools</h2><p><a href="https://ssl.toolkitbox.org/">SSL Checker</a> helps inspect certificate expiry and hostname coverage. Use <a href="https://url.toolkitbox.org/">URL Checker</a> for URL and redirect checks.</p></section>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+  </main>
+</body>
+</html>

@@ -52,3 +52,9 @@ Most ToolkitBox tools run in the browser. User-provided text, files, and generat
 ## Intended audience
 
 ToolkitBox is intended for developers, QA engineers, technical writers, students, and people who need lightweight browser tools for everyday technical work. It is not a replacement for production security audits, legal advice, or dedicated observability systems.
+
+- URL Parameter Privacy Checklist: https://toolkitbox.org/guides/url-parameter-privacy-checklist/
+- Regex Release Checklist: https://toolkitbox.org/guides/regex-release-checklist/
+- SSL Certificate Renewal Playbook: https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/
+- Base64 Is Not Encryption: https://toolkitbox.org/guides/base64-is-not-encryption/
+- JSON Schema Validation Before Release: https://toolkitbox.org/guides/json-schema-validation-before-release/
