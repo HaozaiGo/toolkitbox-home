@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="把真实 API 故障缩减为小型、脱敏、可复用的测试夹具，同时去除客户数据和凭据。"><meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/build-sanitized-api-test-fixtures/"><link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/build-sanitized-api-test-fixtures/"><link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/build-sanitized-api-test-fixtures/"><link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/build-sanitized-api-test-fixtures/"><link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/legal.css"><title>从真实故障制作脱敏 API 测试夹具 - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"从真实故障制作脱敏 API 测试夹具","description":"把真实 API 故障缩减为小型、脱敏、可复用的测试夹具。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/build-sanitized-api-test-fixtures/","datePublished":"2026-09-07","dateModified":"2026-09-07","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head><body><header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/build-sanitized-api-test-fixtures/">English</a></div></nav></header><main>
+  <div class="eyebrow">测试工作流</div><h1>从真实故障制作脱敏 API 测试夹具</h1><p class="guide-meta">发布于 2026 年 9 月 7 日 · 由 <a href="/zh/about/">ToolkitBox</a> 编写和维护 · 约 14 分钟</p>
+  <p class="lead">生产响应往往最能解释故障，也最不适合直接粘贴到工单或提交到仓库。真正需要保留的通常只是一个很小的结构条件：字段缺失、类型异常、空数组或特殊 Unicode 值。好的测试夹具会保留触发条件，同时移除凭据、客户身份、业务数据和无关噪声。</p>
+  <section class="panel"><h2>脱敏夹具应该保留什么</h2><p>回归夹具不需要像完整客户记录。它应该是仍能触发问题的最小输入，只保留相关字段名、嵌套层级、数据类型、必要的顺序和导致故障的边界值。与问题无关的真实身份全部替换。</p><p>例如解析器在 <code>postal_code</code> 为空字符串时失败，就保留这个空字符串。客户真实姓名、街道、账号 ID、授权头和无关订单项都不能帮助复现。</p></section>
+  <section class="panel"><h2>1. 创建受控工作副本</h2><p>不要直接修改唯一的事故记录。原始数据只应保存在有访问控制和保留规则的正式事故系统中。在批准的环境创建临时副本，脱敏夹具通过复查后删除临时文件。不要放进个人笔记、聊天草稿、公开粘贴服务或未加密下载目录。</p><p>编辑前先写一句假设，例如：“当 <code>discounts</code> 是 <code>null</code> 而不是数组时客户端崩溃。”这句话决定哪些结构必须保留。</p></section>
+  <section class="panel"><h2>2. 先移除传输层秘密</h2><p>请求头和 URL 往往包含风险最高的信息。删除 Authorization、Cookie、API Key、Webhook 签名、签名查询参数、重置链接、会话 ID 和客户端证书。不要把秘密缩短后继续保留，应该使用 <code>REDACTED_BEARER_TOKEN</code> 这类明确占位符。</p><pre class="example">POST /v1/orders/TEST_ORDER_001
+Authorization: REDACTED_BEARER_TOKEN
+Content-Type: application/json</pre><p>如果要测试身份验证，应在非生产环境创建专用测试凭据。脱敏后的生产令牌既不能测试认证，也不应该进入仓库。</p></section>
+  <section class="panel"><h2>3. 替换身份但保留必要格式</h2><p>把姓名、邮箱、电话、地址、IP、账号 ID、订单 ID、设备 ID 和文件名替换为合成值，只保留测试需要的格式性质。需要 36 位标识符就生成新 UUID；需要 Unicode 组合字符就编造具有相同行为的文本；需要长字符串就生成同长度数据，不保留生产值前缀。</p><pre class="example">{
+  "customer_id": "00000000-0000-4000-8000-000000000001",
+  "email": "sample.user@example.test",
+  "display_name": "Example User",
+  "discounts": null
+}</pre></section>
+  <section class="panel"><h2>4. 有步骤地缩减 payload</h2><p>每次删除一个无关分支，然后重新运行失败测试。如果问题仍存在，就让该分支保持删除。这样做比一次删光慢，但能避免误删触发条件后，又在反复试验中把敏感字段放回来。</p><ol class="checklist"><li>除非是触发点，否则移除二进制、Base64、HTML 和自由文本。</li><li>把数组缩减到仍会失败的最少元素。</li><li>时间、时区、精度或过期逻辑无关时移除时间戳。</li><li>内部域名和路径使用保留示例替换。</li><li>不要混淆 null、缺失、空值、0、false 和错误类型。</li></ol></section>
+  <section class="panel"><h2>5. 校验结构并检查差异</h2><p>用一致格式整理原始工作副本和脱敏副本，再逐项对比。检查每个剩余值，也要检查嵌套 URL 和包含编码 JSON 的字符串。Base64 不是脱敏：应先解码查看，再决定是否保留。</p><p>有 Schema 时可以运行校验，但如果无效值本身就是复现条件，不要为了“通过校验”而修复它。应在回归测试旁明确记录预期的校验失败。</p></section>
+  <section class="panel"><h2>6. 证明夹具仍能复现</h2><p>不能触发故障的脱敏样本没有回归价值。在本地或非生产环境运行，记录准确的失败断言，再确认修复后同一断言通过。必要时补一个正常输入，明确行为边界。</p><p class="note"><strong>说明示例：</strong>这个合成 payload 会在 <code>discounts</code> 为 <code>null</code> 时复现崩溃。所有标识符和联系方式均为生成值，不包含生产请求头、URL、自由文本或客户内容。</p></section>
+  <section class="panel"><h2>7. 让第二个人复查隐私</h2><p>执行脱敏的人容易忽略熟悉的值。让另一位审查者搜索令牌格式、邮箱、电话、私有域名、内部路径、客户名和异常长的编码字符串。同时检查夹具文件名、提交说明、测试快照和失败输出。</p><p>自动秘密扫描很有帮助，但无法识别所有客户标识和业务字段，仍需要了解数据模型的人复查。</p></section>
+  <section class="panel"><h2>只提交最终成品</h2><p>按行为而不是事故或客户命名夹具，说明每个异常值存在的原因。不要提交中间副本、包含原始值的终端历史、截图或 diff 输出。夹具验收后，按照事故流程删除临时文件。</p></section>
+  <section class="panel"><h2>发布清单</h2><ul class="checklist"><li>没有真实凭据、Cookie、签名和签名 URL。</li><li>姓名、联系方式、地址、标识符、域名和文件名均为合成值。</li><li>编码内容和嵌套内容已经解码检查。</li><li>只保留复现行为必需的字段。</li><li>修复前失败、修复后通过。</li><li>第二位审查者检查了夹具和测试输出。</li><li>原始数据只留在正式事故系统。</li></ul></section>
+  <section class="panel"><h2>相关工具与参考</h2><p>使用合成数据在 <a href="https://json.toolkitbox.org/zh/">JSON Toolbox</a> 中格式化和校验，再通过 <a href="https://diff.toolkitbox.org/zh/">Diff Checker</a> 复查缩减结果。更多测试原则可参考 <a href="https://owasp.org/www-project-web-security-testing-guide/" rel="noopener noreferrer">OWASP Web Security Testing Guide</a>，示例域名可参考 <a href="https://datatracker.ietf.org/doc/html/rfc2606" rel="noopener noreferrer">IETF 保留顶级域名规范</a>。</p></section>
+  <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+</main></body></html>

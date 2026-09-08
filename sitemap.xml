@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://toolkitbox.org/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://toolkitbox.org/about/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/privacy/</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/about/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/privacy/</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/guides/json-formatting-validation/</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/guides/json-formatting-validation/</loc>
@@ -200,4 +200,8 @@
     <loc>https://toolkitbox.org/zh/guides/json-schema-validation-before-release/</loc>
     <lastmod>2026-08-21</lastmod>
   </url>
+  <url><loc>https://toolkitbox.org/guides/verify-browser-tool-local-processing/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://toolkitbox.org/zh/guides/verify-browser-tool-local-processing/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://toolkitbox.org/guides/build-sanitized-api-test-fixtures/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://toolkitbox.org/zh/guides/build-sanitized-api-test-fixtures/</loc><lastmod>2026-09-07</lastmod></url>
 </urlset>

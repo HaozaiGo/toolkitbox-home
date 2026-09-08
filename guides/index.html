@@ -6,6 +6,9 @@
   <meta name="description" content="ToolkitBox guides for safer, faster browser-based tool workflows.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://toolkitbox.org/guides/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/">
   <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/legal.css">
   <title>Guides - ToolkitBox</title>
@@ -17,21 +20,38 @@
   <main>
     <div class="eyebrow">Guides</div>
     <h1>Practical guides for everyday workflows.</h1>
-    <p class="lead">Learn when to use each tool, what to check before sharing data or files, and how to avoid common mistakes.</p>
-    <a class="panel" href="/guides/json-formatting-validation/"><h2>How to Format and Validate JSON Without Leaking API Data</h2><p>A practical guide to formatting, validating, comparing, and converting JSON safely in your browser.</p></a>
-    <a class="panel" href="/guides/base64-encoding-best-practices/"><h2>Base64 Encoding: When to Use It and When Not To</h2><p>Understand common Base64 use cases, URL-safe variants, Data URIs, and practical limits for browser-side encoding.</p></a>
-    <a class="panel" href="/guides/uuid-generator-guide/"><h2>A Practical Guide to UUIDs for Development and Testing</h2><p>Learn where UUIDs fit, how to use them in test data, and what to avoid when generating identifiers.</p></a>
-    <a class="panel" href="/guides/regex-testing-guide/"><h2>How to Test Regular Expressions Before Shipping Them</h2><p>A step-by-step workflow for testing regex patterns, capture groups, replacements, and edge cases.</p></a>
-    <a class="panel" href="/guides/text-diff-workflow/"><h2>Using Text Diff Tools to Review Config, Copy, and API Changes</h2><p>Learn how text comparison improves reviews for configuration files, documentation, payloads, and release notes.</p></a>
-    <a class="panel" href="/guides/url-encoding-decoding/"><h2>URL Encoding and Decoding for Debugging Web Links</h2><p>A practical guide to parsing URLs, decoding query strings, and avoiding common link bugs.</p></a>
-    <a class="panel" href="/guides/ssl-certificate-checking/"><h2>What to Check When an SSL Certificate Looks Broken</h2><p>Understand certificate expiry, hostnames, chains, and practical first checks for HTTPS problems.</p></a>
-    <a class="panel" href="/guides/color-conversion-accessibility/"><h2>Color Conversion and Contrast Checks for Practical UI Work</h2><p>Use color formats, palettes, and contrast checks to make interface decisions faster and safer.</p></a>
-    <a class="panel" href="/guides/safe-online-developer-tools/"><h2>How to Use Online Developer Tools Without Uploading Sensitive Data</h2><p>A practical checklist for using browser-based developer tools while keeping API keys, logs, customer data, and private files out of unknown servers.</p></a>
-    <a class="panel" href="/guides/api-debugging-checklist/"><h2>A Safe API Debugging Checklist for Browser-Based Tools</h2><p>Debug API payloads with a safer workflow for JSON formatting, URL inspection, text comparison, and secret redaction.</p></a>
-    <a class="panel" href="/guides/api-log-sanitization/"><h2>API Log Sanitization Guide</h2><p>Remove tokens, identifiers, payloads, URLs, and customer data from API logs before sharing them.</p></a>
-    <a class="panel" href="/guides/safe-json-url-base64-debugging/"><h2>Safe JSON, URL, and Base64 Debugging</h2><p>Debug encoded values and structured payloads while reducing the chance of exposing secrets.</p></a>
-    <a class="panel" href="/guides/redact-logs-before-sharing/"><h2>How to Redact Logs and Error Messages Before Sharing Them</h2><p>Learn what to remove from logs, stack traces, URLs, and error messages before posting them in tickets or public issue reports.</p></a>
-    <a class="panel" href="/guides/local-browser-tools-privacy/"><h2>Local Browser Tools Privacy Checklist for Developers</h2><p>A developer-focused privacy checklist for deciding when browser-based tools are appropriate and when sensitive data needs extra care.</p></a>
+    <p class="lead">Twenty-one original guides cover practical developer workflows, privacy boundaries, validation steps, and the decisions behind each browser tool.</p>
+    <p class="guide-meta">Maintained by the ToolkitBox editorial team · Reviewed September 7, 2026</p>
+
+    <section class="guide-section" aria-labelledby="privacy-guides"><h2 id="privacy-guides">Privacy and safer debugging</h2><p class="section-copy">Understand what local processing does and does not protect before pasting data into any utility.</p><div class="article-grid">
+      <a class="panel" href="/guides/verify-browser-tool-local-processing/"><h3>How to Verify That a Browser Tool Processes Data Locally</h3><p>Use DevTools, network controls, and a disposable sample to check a tool's actual data flow.</p><span class="article-meta">12 minute guide · New</span></a>
+      <a class="panel" href="/guides/safe-online-developer-tools/"><h3>Use Online Developer Tools Without Uploading Sensitive Data</h3><p>Choose safer samples and avoid sending API keys, logs, or customer records to unknown services.</p></a>
+      <a class="panel" href="/guides/local-browser-tools-privacy/"><h3>Local Browser Tools Privacy Checklist</h3><p>Decide when browser-side processing is appropriate and when stronger isolation is required.</p></a>
+      <a class="panel" href="/guides/api-log-sanitization/"><h3>API Log Sanitization Guide</h3><p>Remove tokens, identifiers, URL parameters, and customer data before sharing logs.</p></a>
+      <a class="panel" href="/guides/redact-logs-before-sharing/"><h3>Redact Logs and Error Messages Before Sharing</h3><p>Clean stack traces, URLs, file paths, and environment details for public reports.</p></a>
+      <a class="panel" href="/guides/url-parameter-privacy-checklist/"><h3>URL Parameter Privacy Checklist</h3><p>Review tokens, IDs, redirects, and tracking values before copying a link.</p></a>
+      <a class="panel" href="/guides/base64-is-not-encryption/"><h3>Base64 Is Not Encryption</h3><p>Learn why readable data remains exposed after encoding and where Base64 is appropriate.</p></a>
+    </div></section>
+
+    <section class="guide-section" aria-labelledby="data-guides"><h2 id="data-guides">Data, encoding, and identifiers</h2><p class="section-copy">Work through common formats with concrete validation and review steps.</p><div class="article-grid">
+      <a class="panel" href="/guides/json-formatting-validation/"><h3>Format and Validate JSON Without Leaking API Data</h3><p>Validate, format, compare, and convert JSON with a safer browser workflow.</p></a>
+      <a class="panel" href="/guides/json-schema-validation-before-release/"><h3>JSON Schema Validation Before Release</h3><p>Check required fields, types, examples, and backward compatibility before shipping.</p></a>
+      <a class="panel" href="/guides/safe-json-url-base64-debugging/"><h3>Safe JSON, URL, and Base64 Debugging</h3><p>Debug encoded values and payloads without exposing production secrets.</p></a>
+      <a class="panel" href="/guides/base64-encoding-best-practices/"><h3>Base64 Encoding: When to Use It and When Not To</h3><p>Understand standard and URL-safe variants, Data URIs, limits, and common mistakes.</p></a>
+      <a class="panel" href="/guides/url-encoding-decoding/"><h3>URL Encoding and Decoding for Debugging Links</h3><p>Parse URL components, query strings, and nested encoding layers.</p></a>
+      <a class="panel" href="/guides/uuid-generator-guide/"><h3>UUIDs for Development and Testing</h3><p>Choose identifiers for test data while keeping authorization and secrecy separate.</p></a>
+    </div></section>
+
+    <section class="guide-section" aria-labelledby="testing-guides"><h2 id="testing-guides">Testing, review, and operations</h2><p class="section-copy">Use repeatable checks that produce evidence instead of relying on a tool result alone.</p><div class="article-grid">
+      <a class="panel" href="/guides/build-sanitized-api-test-fixtures/"><h3>Build Sanitized API Test Fixtures From Real Failures</h3><p>Reduce a production failure into a safe, reusable fixture without preserving customer data.</p><span class="article-meta">14 minute guide · New</span></a>
+      <a class="panel" href="/guides/api-debugging-checklist/"><h3>Safe API Debugging Checklist</h3><p>Review payloads, URLs, diffs, and redaction before sharing a reproduction.</p></a>
+      <a class="panel" href="/guides/regex-testing-guide/"><h3>Test Regular Expressions Before Shipping</h3><p>Exercise matches, capture groups, replacements, Unicode, and edge cases.</p></a>
+      <a class="panel" href="/guides/regex-release-checklist/"><h3>Regex Release Checklist</h3><p>Confirm anchors, input limits, expected failures, and runtime behavior.</p></a>
+      <a class="panel" href="/guides/text-diff-workflow/"><h3>Review Config, Copy, and API Changes With a Diff</h3><p>Compare formatted inputs and separate meaningful changes from noise.</p></a>
+      <a class="panel" href="/guides/ssl-certificate-checking/"><h3>What to Check When an SSL Certificate Looks Broken</h3><p>Work through expiry, hostname, chain, DNS, and deployment checks.</p></a>
+      <a class="panel" href="/guides/ssl-certificate-renewal-playbook/"><h3>SSL Certificate Renewal Playbook</h3><p>Plan renewal timing and verify DNS, issuance, and production delivery.</p></a>
+      <a class="panel" href="/guides/color-conversion-accessibility/"><h3>Color Conversion and Contrast Checks</h3><p>Review color formats, states, palettes, and text contrast in practical UI work.</p></a>
+    </div></section>
     <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
   </main>
 </body>

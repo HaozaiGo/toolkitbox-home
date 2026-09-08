@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="使用一次性样本、浏览器网络面板、离线模式和存储检查，验证在线工具是否真的在浏览器本地处理数据。"><meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://toolkitbox.org/zh/guides/verify-browser-tool-local-processing/"><link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/verify-browser-tool-local-processing/"><link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/verify-browser-tool-local-processing/"><link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/verify-browser-tool-local-processing/"><link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/legal.css">
+  <title>如何验证浏览器工具是否真的在本地处理数据 - ToolkitBox</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"如何验证浏览器工具是否真的在本地处理数据","description":"使用一次性样本、浏览器网络面板、离线模式和存储检查验证在线工具的数据流。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/verify-browser-tool-local-processing/","datePublished":"2026-09-07","dateModified":"2026-09-07","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+</head>
+<body><header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/verify-browser-tool-local-processing/">English</a></div></nav></header><main>
+  <div class="eyebrow">隐私实验</div><h1>如何验证浏览器工具是否真的在本地处理数据</h1><p class="guide-meta">发布于 2026 年 9 月 7 日 · 由 <a href="/zh/about/">ToolkitBox</a> 编写和维护 · 约 12 分钟</p>
+  <p class="lead">“浏览器本地处理”不应该只是一句宣传语。下面是一套可重复的检查方法：使用人工生成的一次性样本，观察网络请求，切换离线模式，检查浏览器存储，再对照可用的源代码。它不能保证网站未来每个版本都安全，但能为你正在使用的版本提供证据。</p>
+  <section class="panel"><h2>先明确要验证的问题</h2><p>本地处理通常表示核心转换由设备上的 JavaScript 或 WebAssembly 完成，并不表示页面完全没有网络请求。字体、分析、广告、错误报告和远程库都可能产生与输入无关的流量。真正需要确认的是：执行格式化、编码、对比或导出时，输入内容或可以识别的派生值有没有离开浏览器。</p><p>如果材料包含生产密钥、受监管数据或真实客户记录，不要把一次浏览器检查当作安全审批。应该使用组织批准的内部工具、离线桌面程序或隔离环境。</p></section>
+  <section class="panel"><h2>1. 制作一次性“探针”样本</h2><p>不要使用真实凭据。生成一个不会出现在正常流量中的字符串，例如 <code>LOCAL_TEST_7F3A_NOT_SECRET</code>，再把它放进能代表实际结构的小型样本。</p><pre class="example">{
+  "request_id": "LOCAL_TEST_7F3A_NOT_SECRET",
+  "email": "sample.user@example.test",
+  "roles": ["viewer"]
+}</pre><p><code>.test</code> 是明确用于测试的保留域名。样本只需要覆盖工具功能，不应复制真实事故中的值。</p></section>
+  <section class="panel"><h2>2. 记录一次干净的网络轨迹</h2><ol class="checklist"><li>输入样本前打开浏览器开发者工具。</li><li>进入 Network 面板，启用保留日志并清空现有请求。</li><li>粘贴样本，依次执行格式化、校验、复制、转换和下载等相关动作。</li><li>检查 Fetch/XHR、文档、WebSocket、Beacon 和 Worker 请求的 URL、参数、请求体与预览。</li><li>搜索完整探针字符串，也搜索其中较短但有辨识度的片段。</li></ol><p>没有观察到探针，只能说明它没有出现在这次记录里。延迟上报、加密应用数据、浏览器扩展和之后的代码更新仍可能改变结果。</p></section>
+  <section class="panel"><h2>3. 页面加载后再做离线测试</h2><p>页面资源加载完成后，把 Network 切换为 Offline，再重复核心转换。JSON 格式化、Base64 编解码、UUID 生成、正则测试、文本对比和颜色转换通常应该继续工作。离线刷新整个页面是另一项测试：资源没有缓存会导致页面打不开，这并不能证明转换发生在服务器。</p><p>SSL 证书检查等功能确实需要网络。URL 解析可以本地完成，但检查远程地址是否可访问就必须发出请求。应按具体功能判断。</p></section>
+  <section class="panel"><h2>4. 检查存储和后台活动</h2><p>在 Application 或 Storage 面板里，对比操作前后的 Local Storage、Session Storage、IndexedDB、Cache Storage 和 Cookie。保存语言或主题偏好很常见；保存输入副本则需要进一步确认。完成操作后再观察一会儿，排除延迟发送。Service Worker 和 Web Worker 也应纳入检查。</p><p>如果测试样本不应留在设备上，完成后清除站点数据。浏览器历史、剪贴板管理器、扩展程序、崩溃报告和系统备份不属于网页自身的存储范围。</p></section>
+  <section class="panel"><h2>5. 源代码可见时检查实现</h2><p>搜索 <code>fetch</code>、<code>XMLHttpRequest</code>、<code>sendBeacon</code>、WebSocket、表单提交和第三方 SDK，从输入事件追踪到转换和导出逻辑。JSON 工具通常会使用浏览器解析和序列化；图片工具可能使用 Canvas、FileReader、Blob 与对象 URL。</p><p>压缩代码更难审计，没有看到明显网络调用也不等于绝对安全。但实现检查可以确认网络测试的结论，并找出哪些功能属于有意的服务器例外。</p></section>
+  <section class="panel"><h2>记录可复查的结论</h2><p>记录页面 URL、日期、浏览器版本、探针、执行动作、观察到的请求、离线结果和服务器依赖功能。这样团队成员可以重复检查，而不是只留下“看起来在本地”的模糊判断。</p><p class="note"><strong>结论示例：</strong>格式化、校验和复制在离线模式下仍可完成；本次网络记录没有出现探针；页面会加载分析和广告脚本，但未观察到测试输入进入这些请求。结论只适用于记录日期所测试的页面版本和动作。</p></section>
+  <section class="panel"><h2>最终清单</h2><ul class="checklist"><li>只用合成的一次性输入。</li><li>记录动作前、动作中和动作后的流量。</li><li>页面加载后用离线模式测试核心转换。</li><li>检查站点存储、Worker 和延迟请求。</li><li>区分必须联网的功能与可本地完成的转换。</li><li>机密和受监管数据继续使用批准的专用工具。</li></ul></section>
+  <section class="panel"><h2>参考与相关工具</h2><p>网络检查步骤可参考 <a href="https://developer.chrome.com/docs/devtools/network/" rel="noopener noreferrer">Chrome DevTools Network 官方文档</a>和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API" rel="noopener noreferrer">MDN Fetch API</a>。可以使用一次性数据在 <a href="https://json.toolkitbox.org/zh/">JSON Toolbox</a>、<a href="https://base64.toolkitbox.org/zh/">Base64 工具</a>和 <a href="https://diff.toolkitbox.org/zh/">文本对比工具</a>中复现这套方法。</p></section>
+  <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+</main></body></html>
