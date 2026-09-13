@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://toolkitbox.org/about/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-08</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/privacy/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-08</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/terms/</loc>
@@ -26,11 +26,11 @@
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/about/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-08</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/privacy/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-09-08</lastmod>
   </url>
   <url>
     <loc>https://toolkitbox.org/zh/terms/</loc>
@@ -204,4 +204,8 @@
   <url><loc>https://toolkitbox.org/zh/guides/verify-browser-tool-local-processing/</loc><lastmod>2026-09-07</lastmod></url>
   <url><loc>https://toolkitbox.org/guides/build-sanitized-api-test-fixtures/</loc><lastmod>2026-09-07</lastmod></url>
   <url><loc>https://toolkitbox.org/zh/guides/build-sanitized-api-test-fixtures/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://toolkitbox.org/editorial-policy/</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://toolkitbox.org/zh/editorial-policy/</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://toolkitbox.org/changelog/</loc><lastmod>2026-09-08</lastmod></url>
+  <url><loc>https://toolkitbox.org/zh/changelog/</loc><lastmod>2026-09-08</lastmod></url>
 </urlset>

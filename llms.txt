@@ -48,6 +48,8 @@ Most ToolkitBox tools run in the browser. User-provided text, files, and generat
 - Safe JSON, URL, and Base64 debugging: https://toolkitbox.org/guides/safe-json-url-base64-debugging/
 - Privacy policy: https://toolkitbox.org/privacy/
 - Terms of service: https://toolkitbox.org/terms/
+- Editorial policy: https://toolkitbox.org/editorial-policy/
+- Changelog: https://toolkitbox.org/changelog/
 - How to verify local browser processing: https://toolkitbox.org/guides/verify-browser-tool-local-processing/
 - Building sanitized API test fixtures: https://toolkitbox.org/guides/build-sanitized-api-test-fixtures/
 
