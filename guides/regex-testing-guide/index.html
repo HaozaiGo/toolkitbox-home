@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A step-by-step workflow for testing regex patterns, capture groups, replacements, and edge cases.">
   <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
   <link rel="canonical" href="https://toolkitbox.org/guides/regex-testing-guide/">
   <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/regex-testing-guide/">
   <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/regex-testing-guide/">
@@ -39,7 +40,7 @@
         "description": "A step-by-step workflow for testing regex patterns, capture groups, replacements, and edge cases.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/regex-testing-guide/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-10",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -81,13 +82,22 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>How to Test Regular Expressions Before Shipping Them</h1>
-    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
+    <p class="guide-meta">Published August 16, 2026 · Reviewed October 10, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 9 minutes</p>
     <p class="lead">Regular expressions are compact, which makes them powerful and easy to misunderstand. A careful test workflow helps you catch false positives, missed matches, and replacement mistakes before they reach production.</p>
     <section class="panel"><h2>Begin with real examples</h2><p>Start with a small set of strings that represent the data you actually expect. Include normal cases, empty values, malformed input, and surprising but valid examples. This prevents a pattern from only working against the one sample used while writing it.</p></section>
     <section class="panel"><h2>Test what should not match</h2><p>A regex is only useful if it rejects the right things. Add negative examples such as extra punctuation, invalid prefixes, mixed whitespace, and partial matches. False positives are often more damaging than a pattern that simply fails loudly.</p></section>
     <section class="panel"><h2>Inspect capture groups</h2><p>Capture groups are where many production bugs hide. Confirm group order, optional groups, named groups, and repeated groups before using the result in code. If a replacement string uses $1 or $2, verify the preview before shipping.</p></section>
     <section class="panel"><h2>Keep patterns maintainable</h2><p>A clever one-line regex can become expensive to maintain. If a pattern is business-critical, keep notes about what it accepts and what it intentionally rejects. In code, pair complex patterns with tests and descriptive variable names.</p></section>
     <section class="panel"><h2>Remember the engine matters</h2><p>ToolkitBox uses the JavaScript regular expression engine in the browser. If your production system uses another language, check for differences in flags, lookbehind support, Unicode behavior, and replacement syntax.</p></section>
+    <section class="panel"><h2>Build a small test matrix</h2><p>Write expected outcomes before changing the pattern. A compact table is more useful than a large block of random text:</p><pre class="example">should match:  order-1042, order-7
+should reject: order-, xorder-7, order-7-draft
+pattern:       ^order-(\d+)$
+expected $1:   1042, 7</pre><p>Add boundary cases for the shortest and longest allowed value, different line endings, Unicode text, and empty input. When a pattern is used for extraction, verify the captured value as well as the full match.</p></section>
+    <section class="panel"><h2>Test replacements separately</h2><p>A pattern can match correctly and still produce the wrong replacement. JavaScript replacement strings treat <code>$&amp;</code> as the full match, <code>$1</code> through <code>$99</code> as numbered groups, and <code>$&lt;name&gt;</code> as a named group. Test optional groups because an unmatched group may produce an empty string. If replacement text comes from a user, prefer a replacement function when literal dollar signs must remain literal.</p></section>
+    <section class="panel"><h2>Check performance with adversarial input</h2><p>Patterns with nested quantifiers or ambiguous alternatives can take much longer on a near match than on a successful match. Test a long string that almost satisfies the pattern, not only short happy paths. Avoid expressions such as <code>(a+)+$</code> on unbounded input. In production, constrain input length, use simpler alternatives, and consider a parser when the format is structured.</p></section>
+    <section class="panel"><h2>Know when regex is the wrong tool</h2><p>Use a URL parser for URLs, a JSON parser for JSON, and an HTML parser for HTML documents. Regex is useful for local validation, extraction, and replacement when the grammar is small and well defined. It is a poor substitute for a parser when nesting, escaping, comments, or multiple encodings affect meaning.</p></section>
+    <section class="panel"><h2>Release checklist</h2><ul class="checklist"><li>Positive, negative, boundary, empty, and Unicode cases are recorded.</li><li>Flags match the production engine and calling code.</li><li>Every numbered or named group has an expected value.</li><li>Replacement output has been tested independently.</li><li>A long near-match input completes within an acceptable time.</li><li>Test data contains no real logs, emails, tokens, or customer records.</li><li>The pattern and its intended limits are documented beside the code.</li></ul></section>
+    <section class="panel"><h2>Sources and review notes</h2><p>Engine behavior in this guide is based on the <a href="https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-regular-expression-objects" rel="noopener noreferrer">ECMAScript regular expression specification</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions" rel="noopener noreferrer">MDN's JavaScript regular expression guide</a>. All samples are synthetic. See the <a href="/editorial-policy/">editorial policy</a> for the testing and correction process.</p></section>
     <section class="panel"><h2>Try the related tool</h2><p><a href="https://regex.toolkitbox.org/">Open Regex Tester</a> to apply this workflow in your browser.</p></section>
     <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
   </main>

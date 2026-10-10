@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="学习如何在浏览器中安全地格式化、校验、对比和转换 JSON，减少 API 数据、配置文件和日志泄露风险。">
   <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
   <link rel="canonical" href="https://toolkitbox.org/zh/guides/json-formatting-validation/">
   <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/json-formatting-validation/">
   <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/json-formatting-validation/">
@@ -39,7 +40,7 @@
         "description": "学习如何在浏览器中安全地格式化、校验、对比和转换 JSON，减少 API 数据、配置文件和日志泄露风险。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/json-formatting-validation/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-10",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -81,13 +82,22 @@
   <main>
     <div class="eyebrow">开发者指南</div>
     <h1>如何在不泄露 API 数据的情况下格式化和校验 JSON</h1>
-    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
+    <p class="guide-meta">发布于 2026 年 8 月 16 日 · 2026 年 10 月 10 日复查 · 由 <a href="/zh/about/">ToolkitBox</a> 编写和维护 · 约 10 分钟</p>
     <p class="lead">JSON 经常出现在接口响应、Webhook、配置文件和调试日志里。把这些内容随手复制到在线工具之前，先确认处理是否发生在浏览器本地，这能明显降低令牌、客户数据和内部字段被误传的风险。</p>
     <section class="panel"><h2>先校验，再美化</h2><p>当 JSON 解析失败时，第一步应该是确认文档本身是否有效。漏掉逗号、多写尾随逗号、引号不匹配或括号层级错误，都会让后续排查变复杂。校验通过后再格式化，结构才更容易阅读。</p></section>
     <section class="panel"><h2>用格式化检查结构，而不只是让文本变好看</h2><p>格式化的价值在于暴露数据形状。你可以快速看到数组是否嵌套过深、字段是否出现在错误层级、接口是否返回了意外键名。这对调试第三方 API、功能开关、埋点事件和配置文件都很有帮助。</p></section>
     <section class="panel"><h2>行为变化时对比两份 payload</h2><p>如果昨天能工作的请求今天失败了，把旧 payload 和新 payload 格式化后再对比，通常能更快发现字段改名、类型变化、缺失字段和 null 值。对结构化数据来说，先格式化再 diff 比直接比较一行压缩文本更可靠。</p></section>
     <section class="panel"><h2>转换前先清理源数据</h2><p>JSON 转 YAML 或 XML 时，源数据越稳定，转换结果越容易检查。先移除不需要的字段，确认结构和类型，再进行转换，可以减少把隐藏问题带到另一个格式里的概率。</p></section>
     <section class="panel"><h2>敏感内容默认留在本地</h2><p>生产 token、访问密钥、客户资料和内部日志不应该被粘贴到不了解处理方式的工具里。ToolkitBox 的定位是尽量使用浏览器端工作流，让日常格式化、校验和清理不必离开你的设备。</p></section>
+    <section class="panel"><h2>一套可复现的校验流程</h2><ol class="checklist"><li>只复制能够复现问题的最小 payload。</li><li>把令牌、Cookie、邮箱、账号 ID、姓名、URL 和自由文本替换成合成示例。</li><li>先校验语法并记录第一个解析错误，不要一次改多个位置。</li><li>格式化后检查对象边界、数组、null 和字段类型。</li><li>与已知正确的样本或接口约定进行对比。</li><li>最后再做 Schema 或业务规则校验。</li></ol><p>语法有效只表示解析器能读取文档，并不代表接口会接受字段，也不代表内容适合记录到日志。</p></section>
+    <section class="panel"><h2>脱敏测试样例</h2><pre class="example">{
+  "event": "invoice.updated",
+  "account_id": "TEST_ACCOUNT_001",
+  "attempt": 2,
+  "items": [{"sku": "DEMO-SKU", "quantity": 1}]
+}</pre><p>如果问题来自尾随逗号，应在单独的失败样本中只保留这个语法条件，不需要保留客户地址、账单备注、签名回调地址或授权头。</p></section>
+    <section class="panel"><h2>容易遗漏的边界</h2><ul class="checklist"><li>字段缺失、<code>null</code>、空字符串和空数组是四种不同状态。</li><li>超大整数在 JavaScript 中可能丢失精度，精确标识符应使用字符串。</li><li>重复键可能被解析器静默覆盖，应避免产生歧义。</li><li>视觉相同的 Unicode 字符可能使用不同编码序列。</li><li>JSON 没有原生日期类型，时区和格式必须由业务层约束。</li><li>Base64 与转义后的 JSON 字符串可能隐藏敏感内容，分享前要先解码检查。</li></ul></section>
+    <section class="panel"><h2>来源与复查说明</h2><p>本文语法依据 <a href="https://www.rfc-editor.org/rfc/rfc8259" rel="noopener noreferrer">RFC 8259</a> 与 <a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-404/" rel="noopener noreferrer">ECMA-404</a>。示例均为合成数据，维护方法见<a href="/zh/editorial-policy/">编辑规范</a>。</p></section>
     <section class="panel"><h2>相关工具</h2><p><a href="https://json.toolkitbox.org/">打开 JSON Toolbox</a>，在浏览器中应用这套工作流。</p></section>
     <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
   </main>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="排查 HTTPS 和 SSL/TLS 证书问题时，如何检查到期时间、域名匹配、证书链、DNS 和部署层。">
   <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
   <link rel="canonical" href="https://toolkitbox.org/zh/guides/ssl-certificate-checking/">
   <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/ssl-certificate-checking/">
   <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/ssl-certificate-checking/">
@@ -39,7 +40,7 @@
         "description": "排查 HTTPS 和 SSL/TLS 证书问题时，如何检查到期时间、域名匹配、证书链、DNS 和部署层。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/ssl-certificate-checking/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-10",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -81,13 +82,18 @@
   <main>
     <div class="eyebrow">开发者指南</div>
     <h1>SSL 证书异常时应该先检查什么</h1>
-    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
+    <p class="guide-meta">发布于 2026 年 8 月 16 日 · 2026 年 10 月 10 日复查 · 由 <a href="/zh/about/">ToolkitBox</a> 编写和维护 · 约 10 分钟</p>
     <p class="lead">HTTPS 报错可能来自证书过期、域名不匹配、中间证书链缺失、DNS 指向错误，或者部署平台返回了其他项目的证书。按顺序检查可以让问题更快收敛。</p>
     <section class="panel"><h2>先确认访问的主机名</h2><p>证书是签发给具体域名的。根域名、www 域名和子域名可能使用不同证书。浏览器提示名称不匹配时，先确认用户实际访问的 host 是否在证书的 SAN 列表里。</p></section>
     <section class="panel"><h2>到期时间是第一优先级</h2><p>证书过期是最常见也最容易忽略的问题。除了检查日期，还要预留 DNS、CDN、部署和缓存传播时间，不要等到最后一天才续期。</p></section>
     <section class="panel"><h2>检查证书链和颁发机构</h2><p>证书本身有效，不代表所有客户端都能信任。中间证书链缺失时，一些浏览器可能正常，另一些客户端会失败。迁移托管平台或 CDN 后尤其要检查这一点。</p></section>
     <section class="panel"><h2>DNS 和部署层也会影响证书</h2><p>如果 DNS 指向了错误服务，对方可能返回另一个项目的证书。修改 DNS、添加域名或切换平台后，要确认域名已经绑定到正确部署。</p></section>
     <section class="panel"><h2>把修复流程记录下来</h2><p>证书问题不是一次性任务。记录证书提供方、续期入口、负责人与提醒方式，下次遇到同类问题时会少很多排查成本。</p></section>
+    <section class="panel"><h2>按顺序排查</h2><ol class="checklist"><li>记录准确主机名、端口、UTC 时间、客户端和报错。</li><li>确认 DNS 指向预期服务，代理或 CDN 没有返回其他证书。</li><li>使用 SNI 检查该主机名实际返回的证书。</li><li>检查有效期、SAN、颁发者和完整证书链。</li><li>从第二个网络或客户端复测，排除本地缓存和信任库差异。</li><li>修复后再次从公网验证，而不是只看控制台状态。</li></ol></section>
+    <section class="panel"><h2>域名匹配以 SAN 为准</h2><p>现代客户端会把请求主机名与 Subject Alternative Name 比较。签发给 <code>example.com</code> 的证书不会自动覆盖 <code>api.example.com</code>；<code>*.example.com</code> 通常只覆盖一层子域名，不覆盖 <code>v2.api.example.com</code>。</p></section>
+    <section class="panel"><h2>叶证书有效也可能失败</h2><p>服务器通常需要发送建立信任链所需的中间证书。桌面浏览器可能因为缓存而忽略缺失链条，但干净的移动设备、API 客户端或服务器进程仍会失败。必须检查服务器实际发送的链。</p></section>
+    <section class="panel"><h2>在线检查器的边界</h2><p>远程检查只观察某个地点的一次公网连接，不能证明所有 CDN 区域、私有源站、IPv4/IPv6 地址或鉴权服务都配置一致。它适合定位线索，但仍需结合托管平台、监控和真实客户端复核。</p></section>
+    <section class="panel"><h2>来源与复查说明</h2><p>术语和主机名校验依据 <a href="https://www.rfc-editor.org/rfc/rfc5280" rel="noopener noreferrer">RFC 5280</a> 与 <a href="https://www.rfc-editor.org/rfc/rfc6125" rel="noopener noreferrer">RFC 6125</a>。维护方法见<a href="/zh/editorial-policy/">编辑规范</a>。</p></section>
     <section class="panel"><h2>相关工具</h2><p><a href="https://ssl.toolkitbox.org/zh/">打开 SSL Checker</a>，检查公开证书信息。</p></section>
     <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
   </main>

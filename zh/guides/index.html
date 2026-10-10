@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ToolkitBox 中文指南，介绍如何安全使用浏览器端开发者工具处理 JSON、Base64、UUID、正则表达式等常见任务。">
   <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
   <link rel="canonical" href="https://toolkitbox.org/zh/guides/">
   <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/">
   <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/">
@@ -12,8 +13,6 @@
   <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/legal.css">
   <title>开发者工具指南 - ToolkitBox</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
-     crossorigin="anonymous"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/">English</a></div></nav></header>
@@ -21,7 +20,7 @@
     <div class="eyebrow">开发者指南</div>
     <h1>更安全地使用浏览器端开发者工具。</h1>
     <p class="lead">21 篇原创指南覆盖常见开发工作流、隐私边界、校验步骤，以及每类浏览器工具背后的使用判断。</p>
-    <p class="guide-meta">由 ToolkitBox 编辑维护 · 2026 年 9 月 7 日复查</p>
+    <p class="guide-meta">由 ToolkitBox 编辑维护 · 2026 年 10 月 10 日复查 · 指南包含经测试的流程、限制、来源和纠错入口</p>
     <section class="guide-section"><h2>隐私与安全调试</h2><p class="section-copy">在粘贴数据前，先理解浏览器本地处理能保护什么、不能保护什么。</p><div class="article-grid">
       <a class="panel" href="/zh/guides/verify-browser-tool-local-processing/"><h3>如何验证浏览器工具是否真的在本地处理数据</h3><p>通过开发者工具、网络控制和一次性样本检查工具的真实数据流。</p><span class="article-meta">约 12 分钟 · 新增</span></a>
       <a class="panel" href="/zh/guides/safe-online-developer-tools/"><h3>如何安全使用在线开发者工具</h3><p>选择更安全的样本，避免把密钥、日志和客户记录发送给未知服务。</p></a>
@@ -32,7 +31,7 @@
       <a class="panel" href="/zh/guides/base64-is-not-encryption/"><h3>Base64 不是加密</h3><p>理解为什么编码后数据仍然暴露，以及 Base64 的适用范围。</p></a>
     </div></section>
     <section class="guide-section"><h2>数据、编码与标识符</h2><p class="section-copy">用具体的校验和复查步骤处理常见格式。</p><div class="article-grid">
-      <a class="panel" href="/zh/guides/json-formatting-validation/"><h3>如何在不泄露 API 数据的情况下格式化和校验 JSON</h3><p>从校验、格式化、对比到转换，建立更稳妥的浏览器端 JSON 工作流。</p></a>
+      <a class="panel" href="/zh/guides/json-formatting-validation/"><h3>如何在不泄露 API 数据的情况下格式化和校验 JSON</h3><p>用可复现流程检查语法、边界情况、Schema 和脱敏测试夹具。</p><span class="article-meta">约 10 分钟 · 已更新</span></a>
       <a class="panel" href="/zh/guides/base64-encoding-best-practices/"><h3>Base64 编码：什么时候该用，什么时候不该用</h3><p>理解 Base64 的用途、限制、URL 安全变体和 Data URI 风险。</p></a>
       <a class="panel" href="/zh/guides/uuid-generator-guide/"><h3>开发和测试中的 UUID 实用指南</h3><p>了解 UUID 适合哪些场景，以及测试数据、日志和示例标识符的使用边界。</p></a>
       <a class="panel" href="/zh/guides/url-encoding-decoding/"><h3>URL 编码和解码：调试 Web 链接的实用方法</h3><p>理解 URL 组件、查询参数和编码层级，清理链接中的敏感或无用信息。</p></a>
@@ -42,10 +41,10 @@
     <section class="guide-section"><h2>测试、审查与运维</h2><p class="section-copy">使用可重复、能留下验证证据的检查流程。</p><div class="article-grid">
       <a class="panel" href="/zh/guides/build-sanitized-api-test-fixtures/"><h3>从真实故障制作脱敏 API 测试夹具</h3><p>把生产故障缩减为安全、可复用且不包含客户数据的测试样本。</p><span class="article-meta">约 14 分钟 · 新增</span></a>
       <a class="panel" href="/zh/guides/api-debugging-checklist/"><h3>API 调试安全检查清单</h3><p>分享复现步骤前检查 payload、URL、diff 和脱敏结果。</p></a>
-      <a class="panel" href="/zh/guides/regex-testing-guide/"><h3>正则表达式上线前如何测试</h3><p>覆盖匹配、捕获组、替换、Unicode 和边界情况。</p></a>
+      <a class="panel" href="/zh/guides/regex-testing-guide/"><h3>正则表达式上线前如何测试</h3><p>测试匹配、替换、引擎差异、Unicode 和对抗性性能输入。</p><span class="article-meta">约 9 分钟 · 已更新</span></a>
       <a class="panel" href="/zh/guides/regex-release-checklist/"><h3>正则表达式发布检查清单</h3><p>确认锚点、输入限制、预期失败和运行时行为。</p></a>
       <a class="panel" href="/zh/guides/text-diff-workflow/"><h3>用文本对比审查配置和接口变化</h3><p>先格式化再比较，把有效变化与格式噪声分开。</p></a>
-      <a class="panel" href="/zh/guides/ssl-certificate-checking/"><h3>SSL 证书异常时先检查什么</h3><p>依次检查到期、域名、证书链、DNS 和部署。</p></a>
+      <a class="panel" href="/zh/guides/ssl-certificate-checking/"><h3>SSL 证书异常时先检查什么</h3><p>依次检查 SNI、主机名、证书链、DNS、公网边缘和续期证据。</p><span class="article-meta">约 10 分钟 · 已更新</span></a>
       <a class="panel" href="/zh/guides/ssl-certificate-renewal-playbook/"><h3>SSL 证书续期实用流程</h3><p>规划续期并验证 DNS、签发和生产环境交付。</p></a>
       <a class="panel" href="/zh/guides/color-conversion-accessibility/"><h3>颜色转换和对比度检查</h3><p>在 UI 工作中复查颜色格式、状态、调色板和文字对比度。</p></a>
     </div></section>

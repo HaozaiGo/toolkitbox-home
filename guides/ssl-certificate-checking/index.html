@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Understand certificate expiry, hostnames, chains, and practical first checks for HTTPS problems.">
   <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
   <link rel="canonical" href="https://toolkitbox.org/guides/ssl-certificate-checking/">
   <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/ssl-certificate-checking/">
   <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/ssl-certificate-checking/">
@@ -39,7 +40,7 @@
         "description": "Understand certificate expiry, hostnames, chains, and practical first checks for HTTPS problems.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/ssl-certificate-checking/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-10",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -81,14 +82,21 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>What to Check When an SSL Certificate Looks Broken</h1>
-    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
+    <p class="guide-meta">Published August 16, 2026 · Reviewed October 10, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 10 minutes</p>
     <p class="lead">HTTPS failures can come from expired certificates, missing intermediates, hostname mismatches, DNS changes, or a deployment that served the wrong certificate. A quick checklist makes the problem less mysterious.</p>
     <section class="panel"><h2>Check the hostname first</h2><p>Certificates are issued for specific names. If the certificate does not match the hostname users visit, browsers will warn even if the certificate is otherwise valid. Check both the root domain and the www or subdomain version.</p></section>
     <section class="panel"><h2>Look at expiry before anything else</h2><p>Expired certificates are common and easy to miss until users report errors. Track the expiration date and renew early enough that DNS, deployment, and CDN propagation do not create a last-minute incident.</p></section>
     <section class="panel"><h2>Verify the certificate chain</h2><p>A certificate can be valid but still fail if the intermediate chain is incomplete. Some clients are forgiving, while others are strict. Chain problems often appear after moving hosting providers or changing CDN settings.</p></section>
     <section class="panel"><h2>Remember DNS and hosting layers</h2><p>If a domain points to the wrong service, that service may present a certificate for a different project. After DNS changes, check the resolved target and confirm the host is attached to the right deployment.</p></section>
     <section class="panel"><h2>Document the fix</h2><p>Certificate issues are recurring operational tasks. After fixing one, document the renewal path, owner, provider, and expected alerting so the same issue is easier to solve next time.</p></section>
-    <section class="panel"><h2>Try the related tool</h2><p><a href="https://ssl.toolkitbox.org/">Open SSL Checker</a> to apply this workflow in your browser.</p></section>
+    <section class="panel"><h2>A practical incident sequence</h2><ol class="checklist"><li>Record the exact hostname, port, UTC time, client, and error message.</li><li>Confirm DNS resolves to the expected service and that a proxy or CDN is not serving another certificate.</li><li>Inspect the certificate presented for that hostname with SNI enabled.</li><li>Check validity dates, subject alternative names, issuer, and chain completeness.</li><li>Test from a second network or client to separate local cache and trust-store problems from server configuration.</li><li>After a fix, verify the public endpoint again rather than relying only on a control panel status.</li></ol></section>
+    <section class="panel"><h2>Hostname matching is more than the common name</h2><p>Modern clients compare the requested hostname with the certificate's Subject Alternative Name entries. A certificate for <code>example.com</code> does not automatically cover <code>api.example.com</code>. A wildcard such as <code>*.example.com</code> normally covers one label, such as <code>api.example.com</code>, but not <code>v2.api.example.com</code>. Test the exact hostname users and automated clients request.</p></section>
+    <section class="panel"><h2>Why a valid leaf certificate can still fail</h2><p>The server must usually provide the intermediate certificates needed to build a chain to a trusted root. Desktop browsers sometimes hide a missing intermediate because they cached it from another site, while a clean mobile device, API client, or server process fails. Compare results from a fresh client and inspect the chain delivered by the server, not only the leaf certificate file stored in the hosting dashboard.</p></section>
+    <section class="panel"><h2>Expiry checks need an operational margin</h2><p>Do not wait for the final day. Renewal can succeed while deployment fails, a load balancer can retain an old certificate, or one region can lag behind another. Track the certificate currently served by every public hostname and alert with enough time to investigate. After renewal, compare serial number, validity window, issuer, and hostname coverage at the public edge.</p></section>
+    <section class="panel"><h2>What an online checker cannot prove</h2><p>A remote check observes one public connection from one location. It cannot prove that every CDN region, private origin, IPv4 and IPv6 address, or authenticated service presents the same configuration. It also cannot assess application authorization or the security of content sent after TLS is established. Use it as a diagnostic observation, then confirm with your provider, monitoring, and representative clients.</p></section>
+    <section class="panel"><h2>Evidence to keep after a fix</h2><ul class="checklist"><li>The affected hostname and user-visible error.</li><li>The old and new certificate serial numbers or fingerprints.</li><li>The chain served before and after deployment.</li><li>DNS or proxy changes made during remediation.</li><li>Verification from at least two independent clients.</li><li>The next renewal owner, date, and alert path.</li></ul></section>
+    <section class="panel"><h2>Sources and review notes</h2><p>Terminology and hostname verification guidance are based on <a href="https://www.rfc-editor.org/rfc/rfc5280" rel="noopener noreferrer">RFC 5280</a> and <a href="https://www.rfc-editor.org/rfc/rfc6125" rel="noopener noreferrer">RFC 6125</a>. Operational examples are synthetic and should be adapted to your TLS termination architecture. See the <a href="/editorial-policy/">editorial policy</a> for maintenance details.</p></section>
+    <section class="panel"><h2>Try the related tool</h2><p><a href="https://ssl.toolkitbox.org/">Open SSL Checker</a> to inspect public certificate details for a hostname.</p></section>
     <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
   </main>
 </body>

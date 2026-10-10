@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="学习如何在上线前测试正则表达式，检查匹配、捕获组、替换逻辑、边界情况和性能风险。">
   <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
   <link rel="canonical" href="https://toolkitbox.org/zh/guides/regex-testing-guide/">
   <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/regex-testing-guide/">
   <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/regex-testing-guide/">
@@ -39,7 +40,7 @@
         "description": "学习如何在上线前测试正则表达式，检查匹配、捕获组、替换逻辑、边界情况和性能风险。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/regex-testing-guide/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-10",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -81,13 +82,21 @@
   <main>
     <div class="eyebrow">开发者指南</div>
     <h1>正则表达式上线前如何测试</h1>
-    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
+    <p class="guide-meta">发布于 2026 年 8 月 16 日 · 2026 年 10 月 10 日复查 · 由 <a href="/zh/about/">ToolkitBox</a> 编写和维护 · 约 9 分钟</p>
     <p class="lead">正则表达式通常很短，但影响范围可能很大。它可能用于表单校验、日志清洗、路由匹配、内容过滤或批量替换。上线前建立测试流程，能减少误匹配和漏匹配。</p>
     <section class="panel"><h2>先写出应该匹配的样例</h2><p>不要只用一个“刚好通过”的字符串测试。准备多组真实但已脱敏的样例，包括普通输入、边界输入、大小写变化和包含空格或特殊字符的情况。</p></section>
     <section class="panel"><h2>同时准备不应该匹配的样例</h2><p>正则测试只看成功匹配是不够的。你还需要验证哪些输入必须被拒绝，否则很容易让错误邮箱、异常 URL、非法文件名或无关日志行通过校验。</p></section>
     <section class="panel"><h2>检查捕获组和替换结果</h2><p>很多问题不是匹配本身，而是捕获组位置变化导致后续替换错误。每次修改表达式后，都应该确认每个捕获组的含义，以及替换模板是否仍然引用正确字段。</p></section>
     <section class="panel"><h2>注意贪婪匹配和性能风险</h2><p>过度宽泛的表达式可能吞掉比预期更多的文本。复杂嵌套和回溯也可能让长输入变慢。对用户输入、日志文件和大文本处理场景，应尽量使用更明确的边界。</p></section>
     <section class="panel"><h2>使用脱敏数据进行浏览器端测试</h2><p>测试正则时经常会复制日志、路径、邮箱或订单号。把真实个人信息替换为示例值，再使用浏览器端工具测试，可以降低误传敏感内容的风险。</p></section>
+    <section class="panel"><h2>建立小型测试矩阵</h2><pre class="example">应该匹配：order-1042、order-7
+应该拒绝：order-、xorder-7、order-7-draft
+表达式：  ^order-(\d+)$
+预期分组：1042、7</pre><p>修改表达式前先写出预期结果，并加入最短、最长、空值、换行、Unicode 和异常输入。</p></section>
+    <section class="panel"><h2>单独测试替换结果</h2><p>匹配正确并不代表替换正确。JavaScript 中 <code>$&amp;</code> 表示完整匹配，<code>$1</code> 到 <code>$99</code> 表示编号分组，<code>$&lt;name&gt;</code> 表示命名分组。可选分组未命中时可能变成空字符串，应单独验证。</p></section>
+    <section class="panel"><h2>用接近匹配的长输入检查性能</h2><p>嵌套量词和歧义分支可能在“几乎匹配”的输入上大量回溯。不要只测试短文本和成功案例；应限制不可信输入长度，简化表达式，并在面对 JSON、URL、HTML 等结构化格式时优先使用解析器。</p></section>
+    <section class="panel"><h2>上线检查清单</h2><ul class="checklist"><li>包含正例、反例、边界、空值和 Unicode 用例。</li><li>标志位与生产环境完全一致。</li><li>每个编号或命名分组都有预期结果。</li><li>替换输出经过独立测试。</li><li>较长的接近匹配输入能在可接受时间完成。</li><li>样本不包含真实日志、邮箱、令牌或客户数据。</li></ul></section>
+    <section class="panel"><h2>来源与复查说明</h2><p>引擎行为依据 <a href="https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-regular-expression-objects" rel="noopener noreferrer">ECMAScript 规范</a>和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_expressions" rel="noopener noreferrer">MDN JavaScript 正则指南</a>。全部样例均为合成数据。</p></section>
     <section class="panel"><h2>相关工具</h2><p><a href="https://regex.toolkitbox.org/">打开 Regex Tester</a>，在浏览器中测试表达式和匹配结果。</p></section>
     <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
   </main>
