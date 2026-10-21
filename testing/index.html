@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ToolkitBox testing methodology, reproducible browser checks, synthetic fixtures, limitations, and current tool review scope.">
+  <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
+  <link rel="canonical" href="https://toolkitbox.org/testing/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/testing/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/testing/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/testing/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>How ToolkitBox Tests Browser Tools</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"How ToolkitBox Tests Browser Tools","dateModified":"2026-10-20","publisher":{"@type":"Organization","name":"ToolkitBox","url":"https://toolkitbox.org/"}}</script>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/zh/testing/">中文</a></div></nav></header>
+  <main>
+    <div class="eyebrow">Testing methodology</div>
+    <h1>How we verify a browser tool before recommending it.</h1>
+    <p class="lead">A privacy claim is not proven by a label. ToolkitBox uses disposable fixtures, browser network inspection, boundary cases, and output checks so readers can reproduce the same review on their own device.</p>
+    <p class="guide-meta">Maintained by ToolkitBox · Last reviewed October 20, 2026 · Current reference browser: Chrome 155 on macOS</p>
+
+    <section class="panel"><h2>1. Start with a synthetic fixture</h2><p>We never use customer records, production credentials, or copied private logs for a public test. A JSON fixture uses invented names and example domains. URL tests use reserved hosts such as <code>example.com</code>. Regex tests include expected matches, expected failures, Unicode, empty input, and a deliberately long string. This makes a failure reproducible without putting anyone's data at risk.</p></section>
+    <section class="panel"><h2>2. Observe the network, not the marketing copy</h2><p>With DevTools open, we clear the Network panel, disable cache, run the main action, and inspect every new request. Static assets and analytics are recorded separately from user-input transmission. A browser-only claim passes this check only when the input and generated output stay in the page runtime. SSL checks are the intentional exception: certificate inspection needs a server request, so that boundary is disclosed in the tool and guide.</p></section>
+
+    <figure class="evidence"><img src="/assets/json-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox JSON formatter with a synthetic sample loaded"><figcaption>Original review capture from October 20, 2026. The sample is invented and contains no production data. The same sample is used to check formatting, validation, copy, and download behavior.</figcaption></figure>
+
+    <section class="panel"><h2>3. Check the result independently</h2><p>A green status inside a tool is not enough. JSON output is parsed again and compared with the input value. Base64 output is decoded and compared byte for byte. URL components are checked against the browser URL parser. Regex results are compared with a small expected-match table. SSL observations are compared with the certificate presented at the public edge, because a local certificate file does not prove what visitors receive.</p></section>
+
+    <h2>Current review matrix</h2>
+    <table class="test-table">
+      <thead><tr><th>Tool</th><th>Primary fixture</th><th>Independent check</th><th>Important limit</th></tr></thead>
+      <tbody>
+        <tr><td>JSON Toolbox</td><td>Nested object, Unicode, invalid trailing comma</td><td>Parse and structural comparison</td><td>Formatting does not validate a business schema</td></tr>
+        <tr><td>Base64 Tool</td><td>UTF-8 text and URL-safe symbols</td><td>Decode and compare original bytes</td><td>Encoding is not encryption</td></tr>
+        <tr><td>UUID Generator</td><td>Multiple generated identifiers</td><td>Version and format checks</td><td>Uniqueness is not authorization or secrecy</td></tr>
+        <tr><td>Regex Tester</td><td>Positive, negative, Unicode, and long inputs</td><td>Expected-match table</td><td>Browser engine behavior can differ from a server engine</td></tr>
+        <tr><td>Diff Checker</td><td>Config with whitespace and value changes</td><td>Manual review of meaningful changes</td><td>A diff cannot decide whether a change is correct</td></tr>
+        <tr><td>URL Checker</td><td>Encoded query, fragment, and reserved host</td><td>Native URL parser comparison</td><td>Decoded parameters may contain secrets</td></tr>
+        <tr><td>SSL Checker</td><td>Known public HTTPS host</td><td>Public-edge certificate comparison</td><td>Requires a network-backed lookup</td></tr>
+        <tr><td>Color Tool</td><td>Hex, RGB, HSL, and contrast pairs</td><td>Round-trip and WCAG ratio calculation</td><td>Contrast checks do not replace full accessibility review</td></tr>
+      </tbody>
+    </table>
+
+    <figure class="evidence"><img src="/assets/regex-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox regular expression tester review screen"><figcaption>The Regex Tester review includes a visible pattern, flags, expected matches, expected non-matches, replacement output, and a separate performance check with bounded input.</figcaption></figure>
+
+    <section class="panel"><h2>4. Test failure paths and mobile layout</h2><p>Each review includes empty input, malformed input, repeated actions, copy or download controls, language switching, keyboard focus, and a narrow mobile viewport. We check that an error explains what failed without discarding the user's input. Tool controls must remain usable at 390 CSS pixels wide and must not be covered by navigation or advertising.</p></section>
+    <section class="panel"><h2>5. Record what the tool cannot prove</h2><p>ToolkitBox deliberately publishes limits next to results. Local processing cannot make unsafe source data harmless. A valid JSON document can still contain a leaked token. A valid certificate can belong to the wrong service architecture. A passing contrast ratio does not guarantee that every state is accessible. These boundaries are part of the result, not fine print.</p></section>
+    <section class="panel"><h2>Corrections and repeatability</h2><p>If a browser update changes a workflow, we rerun the fixture and update the relevant guide. Material changes appear in the <a href="/changelog/">public changelog</a>. To report a reproducible problem, send the tool URL, browser version, expected result, actual result, and a synthetic example to <a href="mailto:contact@toolkitbox.org">contact@toolkitbox.org</a>.</p></section>
+
+    <footer><a href="/editorial-policy/">Editorial policy</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+  </main>
+</body>
+</html>

@@ -40,7 +40,7 @@
         "description": "A practical guide to formatting, validating, comparing, and converting JSON safely in your browser.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/json-formatting-validation/",
-        "datePublished":"2026-08-16","dateModified":"2026-10-10",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -82,8 +82,9 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>How to Format and Validate JSON Without Leaking API Data</h1>
-    <p class="guide-meta">Published August 16, 2026 · Reviewed October 10, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 10 minutes</p>
+    <p class="guide-meta">Published August 16, 2026 · Reviewed October 20, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 10 minutes</p>
     <p class="lead">JSON is one of the easiest formats to copy around and one of the easiest formats to accidentally leak. A browser-side JSON workflow gives you the speed of an online formatter without sending API responses, configuration files, or test payloads to an unknown server.</p>
+    <figure class="evidence"><img src="/assets/json-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox JSON formatter with a synthetic validation sample"><figcaption>Original ToolkitBox review capture, October 20, 2026. The fixture is invented and is used to compare validation, formatting, copy, and download behavior without production data.</figcaption></figure>
     <section class="panel"><h2>Start with validation before beautifying</h2><p>When a JSON payload fails, the first question is whether the document is valid at all. Validate the syntax before making other changes. A missing comma, an extra trailing comma, or a mismatched quote can make downstream debugging feel much larger than it is. After validation passes, formatting makes nested objects easier to scan and review.</p></section>
     <section class="panel"><h2>Use formatting to review structure, not just appearance</h2><p>Pretty printing is useful because it exposes shape. You can see whether arrays are nested too deeply, whether a field appears at the wrong level, and whether an API response includes unexpected keys. This is especially helpful when debugging webhooks, third-party API responses, feature flags, and generated configuration.</p></section>
     <section class="panel"><h2>Compare payloads when behavior changes</h2><p>If a request worked yesterday but fails today, compare the previous payload against the current one. A diff can reveal renamed fields, missing optional properties, type changes, and null values that are hard to notice in a long response. For structured data, comparing formatted JSON is usually clearer than comparing one-line minified strings.</p></section>

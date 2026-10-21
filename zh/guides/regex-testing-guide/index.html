@@ -40,7 +40,7 @@
         "description": "学习如何在上线前测试正则表达式，检查匹配、捕获组、替换逻辑、边界情况和性能风险。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/regex-testing-guide/",
-        "datePublished":"2026-08-16","dateModified":"2026-10-10",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -84,6 +84,7 @@
     <h1>正则表达式上线前如何测试</h1>
     <p class="guide-meta">发布于 2026 年 8 月 16 日 · 2026 年 10 月 10 日复查 · 由 <a href="/zh/about/">ToolkitBox</a> 编写和维护 · 约 9 分钟</p>
     <p class="lead">正则表达式通常很短，但影响范围可能很大。它可能用于表单校验、日志清洗、路由匹配、内容过滤或批量替换。上线前建立测试流程，能减少误匹配和漏匹配。</p>
+    <figure class="evidence"><img src="/assets/regex-tool.png" width="1280" height="800" loading="lazy" alt="包含标志位和预期匹配的 ToolkitBox 正则测试工具"><figcaption>ToolkitBox 于 2026 年 10 月 20 日制作的原创复核截图。完整测试应记录表达式、标志位、正例、反例、捕获值、替换输出和受控性能输入。</figcaption></figure>
     <section class="panel"><h2>先写出应该匹配的样例</h2><p>不要只用一个“刚好通过”的字符串测试。准备多组真实但已脱敏的样例，包括普通输入、边界输入、大小写变化和包含空格或特殊字符的情况。</p></section>
     <section class="panel"><h2>同时准备不应该匹配的样例</h2><p>正则测试只看成功匹配是不够的。你还需要验证哪些输入必须被拒绝，否则很容易让错误邮箱、异常 URL、非法文件名或无关日志行通过校验。</p></section>
     <section class="panel"><h2>检查捕获组和替换结果</h2><p>很多问题不是匹配本身，而是捕获组位置变化导致后续替换错误。每次修改表达式后，都应该确认每个捕获组的含义，以及替换模板是否仍然引用正确字段。</p></section>

@@ -40,7 +40,7 @@
         "description": "A step-by-step workflow for testing regex patterns, capture groups, replacements, and edge cases.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/regex-testing-guide/",
-        "datePublished":"2026-08-16","dateModified":"2026-10-10",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -82,8 +82,9 @@
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>How to Test Regular Expressions Before Shipping Them</h1>
-    <p class="guide-meta">Published August 16, 2026 · Reviewed October 10, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 9 minutes</p>
+    <p class="guide-meta">Published August 16, 2026 · Reviewed October 20, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 9 minutes</p>
     <p class="lead">Regular expressions are compact, which makes them powerful and easy to misunderstand. A careful test workflow helps you catch false positives, missed matches, and replacement mistakes before they reach production.</p>
+    <figure class="evidence"><img src="/assets/regex-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox Regex Tester with flags and expected-match controls"><figcaption>Original ToolkitBox review capture, October 20, 2026. A useful test records the pattern, flags, positive cases, negative cases, capture values, replacement output, and a bounded performance case.</figcaption></figure>
     <section class="panel"><h2>Begin with real examples</h2><p>Start with a small set of strings that represent the data you actually expect. Include normal cases, empty values, malformed input, and surprising but valid examples. This prevents a pattern from only working against the one sample used while writing it.</p></section>
     <section class="panel"><h2>Test what should not match</h2><p>A regex is only useful if it rejects the right things. Add negative examples such as extra punctuation, invalid prefixes, mixed whitespace, and partial matches. False positives are often more damaging than a pattern that simply fails loudly.</p></section>
     <section class="panel"><h2>Inspect capture groups</h2><p>Capture groups are where many production bugs hide. Confirm group order, optional groups, named groups, and repeated groups before using the result in code. If a replacement string uses $1 or $2, verify the preview before shipping.</p></section>

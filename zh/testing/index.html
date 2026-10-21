@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ToolkitBox 浏览器工具测试方法：合成样例、网络检查、结果复核、失败边界与当前测试范围。">
+  <meta name="robots" content="index, follow">
+  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
+  <link rel="canonical" href="https://toolkitbox.org/zh/testing/">
+  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/testing/">
+  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/testing/">
+  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/testing/">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/legal.css">
+  <title>ToolkitBox 如何测试浏览器工具</title>
+</head>
+<body>
+  <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/testing/">English</a></div></nav></header>
+  <main>
+    <div class="eyebrow">测试方法</div>
+    <h1>推荐一个浏览器工具之前，我们如何验证它。</h1>
+    <p class="lead">“本地处理”不能只靠页面上的一句文案证明。ToolkitBox 使用可公开复现的合成样例、浏览器网络检查、边界输入和独立结果复核，让读者也能在自己的设备上重复验证。</p>
+    <p class="guide-meta">ToolkitBox 维护 · 2026 年 10 月 20 日复核 · 当前参考环境：macOS 上的 Chrome 155</p>
+    <section class="panel"><h2>1. 先准备不含真实信息的合成样例</h2><p>公开测试不会使用客户记录、生产密钥或真实私密日志。JSON 样例使用虚构姓名和保留域名；URL 使用 <code>example.com</code>；正则测试同时包含应匹配、不应匹配、Unicode、空输入和受控长度的长文本。这样既能复现错误，也不会把任何人的数据带进测试。</p></section>
+    <section class="panel"><h2>2. 看网络请求，而不是只看宣传文案</h2><p>打开开发者工具后，清空 Network 面板、关闭缓存，再执行主要操作并检查新增请求。静态资源、统计脚本和用户输入传输必须分开记录。只有输入与输出留在页面运行环境中，浏览器本地处理的结论才成立。SSL 检查是明确例外，因为查询公网证书必须经过服务器。</p></section>
+    <figure class="evidence"><img src="/assets/json-tool.png" width="1280" height="800" loading="lazy" alt="加载合成 JSON 样例的 ToolkitBox JSON 工具"><figcaption>2026 年 10 月 20 日的原创测试截图。样例完全虚构，用于复核格式化、语法校验、复制和下载流程。</figcaption></figure>
+    <section class="panel"><h2>3. 使用独立方法复核结果</h2><p>工具内部显示“成功”并不等于验证完成。JSON 输出会再次解析并与原始结构比较；Base64 输出会解码并逐字节比较；URL 组件会与浏览器原生 URL 解析器对照；正则结果会与预先写好的匹配表比较；SSL 结果则要与公网边缘实际提供的证书核对。</p></section>
+    <h2>当前复核矩阵</h2>
+    <table class="test-table"><thead><tr><th>工具</th><th>主要样例</th><th>独立复核</th><th>不能证明的事情</th></tr></thead><tbody>
+      <tr><td>JSON</td><td>嵌套对象、Unicode、错误逗号</td><td>重新解析并比较结构</td><td>语法正确不代表业务字段正确</td></tr>
+      <tr><td>Base64</td><td>UTF-8 与 URL 安全字符</td><td>解码后比较原始字节</td><td>编码不是加密</td></tr>
+      <tr><td>UUID</td><td>多组生成结果</td><td>版本和格式检查</td><td>唯一标识符不是权限或秘密</td></tr>
+      <tr><td>正则</td><td>正例、反例、Unicode、长输入</td><td>预期匹配表</td><td>浏览器与服务器正则引擎可能不同</td></tr>
+      <tr><td>文本对比</td><td>包含空白和数值变化的配置</td><td>人工确认真正变化</td><td>对比工具不能判断修改是否正确</td></tr>
+      <tr><td>URL</td><td>编码参数、片段、保留域名</td><td>原生 URL 解析器</td><td>解码后的参数仍可能包含秘密</td></tr>
+      <tr><td>SSL</td><td>已知公网 HTTPS 域名</td><td>公网边缘证书对照</td><td>必须经过联网查询</td></tr>
+      <tr><td>颜色</td><td>Hex、RGB、HSL、对比色</td><td>往返转换与 WCAG 比率</td><td>单个比率不能替代完整无障碍审查</td></tr>
+    </tbody></table>
+    <figure class="evidence"><img src="/assets/regex-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox 正则表达式测试界面"><figcaption>正则测试会明确记录表达式、标志位、应匹配和不应匹配的文本、替换结果，并单独使用受控输入检查性能。</figcaption></figure>
+    <section class="panel"><h2>4. 检查失败路径和移动端</h2><p>复核包括空输入、错误输入、重复执行、复制或下载、语言切换、键盘焦点和 390 CSS 像素宽的移动端。错误提示应说明失败原因，并且不能无故清空用户输入。导航、工具控件和广告也不能互相覆盖。</p></section>
+    <section class="panel"><h2>5. 明确写出工具边界</h2><p>本地处理不能让本来敏感的数据自动变安全；合法 JSON 仍可能包含泄露的令牌；有效证书也可能部署在错误的服务上；通过颜色对比度并不代表所有状态都无障碍。ToolkitBox 把这些限制视为结果的一部分，而不是藏在页脚的小字。</p></section>
+    <section class="panel"><h2>更正与复现</h2><p>浏览器更新改变行为后，我们会重新运行样例，并在<a href="/zh/changelog/">更新记录</a>中说明重要修改。报告问题时，请把工具网址、浏览器版本、预期结果、实际结果和不含私密数据的样例发送到 <a href="mailto:contact@toolkitbox.org">contact@toolkitbox.org</a>。</p></section>
+    <footer><a href="/zh/editorial-policy/">编辑政策</a><a href="/zh/privacy/">隐私</a><a href="/zh/terms/">条款</a></footer>
+  </main>
+</body>
+</html>

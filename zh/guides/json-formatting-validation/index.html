@@ -40,7 +40,7 @@
         "description": "学习如何在浏览器中安全地格式化、校验、对比和转换 JSON，减少 API 数据、配置文件和日志泄露风险。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/json-formatting-validation/",
-        "datePublished":"2026-08-16","dateModified":"2026-10-10",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -84,6 +84,7 @@
     <h1>如何在不泄露 API 数据的情况下格式化和校验 JSON</h1>
     <p class="guide-meta">发布于 2026 年 8 月 16 日 · 2026 年 10 月 10 日复查 · 由 <a href="/zh/about/">ToolkitBox</a> 编写和维护 · 约 10 分钟</p>
     <p class="lead">JSON 经常出现在接口响应、Webhook、配置文件和调试日志里。把这些内容随手复制到在线工具之前，先确认处理是否发生在浏览器本地，这能明显降低令牌、客户数据和内部字段被误传的风险。</p>
+    <figure class="evidence"><img src="/assets/json-tool.png" width="1280" height="800" loading="lazy" alt="加载合成校验样例的 ToolkitBox JSON 工具"><figcaption>ToolkitBox 于 2026 年 10 月 20 日制作的原创复核截图。样例完全虚构，用于比较校验、格式化、复制和下载流程。</figcaption></figure>
     <section class="panel"><h2>先校验，再美化</h2><p>当 JSON 解析失败时，第一步应该是确认文档本身是否有效。漏掉逗号、多写尾随逗号、引号不匹配或括号层级错误，都会让后续排查变复杂。校验通过后再格式化，结构才更容易阅读。</p></section>
     <section class="panel"><h2>用格式化检查结构，而不只是让文本变好看</h2><p>格式化的价值在于暴露数据形状。你可以快速看到数组是否嵌套过深、字段是否出现在错误层级、接口是否返回了意外键名。这对调试第三方 API、功能开关、埋点事件和配置文件都很有帮助。</p></section>
     <section class="panel"><h2>行为变化时对比两份 payload</h2><p>如果昨天能工作的请求今天失败了，把旧 payload 和新 payload 格式化后再对比，通常能更快发现字段改名、类型变化、缺失字段和 null 值。对结构化数据来说，先格式化再 diff 比直接比较一行压缩文本更可靠。</p></section>

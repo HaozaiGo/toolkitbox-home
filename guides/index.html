@@ -1,57 +1,8 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ToolkitBox guides for safer, faster browser-based tool workflows.">
-  <meta name="robots" content="index, follow">
-  <meta name="google-adsense-account" content="ca-pub-5333037258750046">
-  <link rel="canonical" href="https://toolkitbox.org/guides/">
-  <link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/">
-  <link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/">
-  <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/">
-  <link rel="icon" href="/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/legal.css">
-  <title>Guides - ToolkitBox</title>
-</head>
-<body>
-  <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav></header>
-  <main>
-    <div class="eyebrow">Guides</div>
-    <h1>Practical guides for everyday workflows.</h1>
-    <p class="lead">Twenty-one original guides cover practical developer workflows, privacy boundaries, validation steps, and the decisions behind each browser tool.</p>
-    <p class="guide-meta">Maintained by ToolkitBox · Reviewed October 10, 2026 · Guides include tested examples, limitations, source notes, and correction links</p>
-
-    <section class="guide-section" aria-labelledby="privacy-guides"><h2 id="privacy-guides">Privacy and safer debugging</h2><p class="section-copy">Understand what local processing does and does not protect before pasting data into any utility.</p><div class="article-grid">
-      <a class="panel" href="/guides/verify-browser-tool-local-processing/"><h3>How to Verify That a Browser Tool Processes Data Locally</h3><p>Use DevTools, network controls, and a disposable sample to check a tool's actual data flow.</p><span class="article-meta">12 minute guide · New</span></a>
-      <a class="panel" href="/guides/safe-online-developer-tools/"><h3>Use Online Developer Tools Without Uploading Sensitive Data</h3><p>Choose safer samples and avoid sending API keys, logs, or customer records to unknown services.</p></a>
-      <a class="panel" href="/guides/local-browser-tools-privacy/"><h3>Local Browser Tools Privacy Checklist</h3><p>Decide when browser-side processing is appropriate and when stronger isolation is required.</p></a>
-      <a class="panel" href="/guides/api-log-sanitization/"><h3>API Log Sanitization Guide</h3><p>Remove tokens, identifiers, URL parameters, and customer data before sharing logs.</p></a>
-      <a class="panel" href="/guides/redact-logs-before-sharing/"><h3>Redact Logs and Error Messages Before Sharing</h3><p>Clean stack traces, URLs, file paths, and environment details for public reports.</p></a>
-      <a class="panel" href="/guides/url-parameter-privacy-checklist/"><h3>URL Parameter Privacy Checklist</h3><p>Review tokens, IDs, redirects, and tracking values before copying a link.</p></a>
-      <a class="panel" href="/guides/base64-is-not-encryption/"><h3>Base64 Is Not Encryption</h3><p>Learn why readable data remains exposed after encoding and where Base64 is appropriate.</p></a>
-    </div></section>
-
-    <section class="guide-section" aria-labelledby="data-guides"><h2 id="data-guides">Data, encoding, and identifiers</h2><p class="section-copy">Work through common formats with concrete validation and review steps.</p><div class="article-grid">
-      <a class="panel" href="/guides/json-formatting-validation/"><h3>Format and Validate JSON Without Leaking API Data</h3><p>Use a reproducible workflow for syntax, edge cases, schema checks, and sanitized fixtures.</p><span class="article-meta">10 minute field guide · Updated</span></a>
-      <a class="panel" href="/guides/json-schema-validation-before-release/"><h3>JSON Schema Validation Before Release</h3><p>Check required fields, types, examples, and backward compatibility before shipping.</p></a>
-      <a class="panel" href="/guides/safe-json-url-base64-debugging/"><h3>Safe JSON, URL, and Base64 Debugging</h3><p>Debug encoded values and payloads without exposing production secrets.</p></a>
-      <a class="panel" href="/guides/base64-encoding-best-practices/"><h3>Base64 Encoding: When to Use It and When Not To</h3><p>Understand standard and URL-safe variants, Data URIs, limits, and common mistakes.</p></a>
-      <a class="panel" href="/guides/url-encoding-decoding/"><h3>URL Encoding and Decoding for Debugging Links</h3><p>Parse URL components, query strings, and nested encoding layers.</p></a>
-      <a class="panel" href="/guides/uuid-generator-guide/"><h3>UUIDs for Development and Testing</h3><p>Choose identifiers for test data while keeping authorization and secrecy separate.</p></a>
-    </div></section>
-
-    <section class="guide-section" aria-labelledby="testing-guides"><h2 id="testing-guides">Testing, review, and operations</h2><p class="section-copy">Use repeatable checks that produce evidence instead of relying on a tool result alone.</p><div class="article-grid">
-      <a class="panel" href="/guides/build-sanitized-api-test-fixtures/"><h3>Build Sanitized API Test Fixtures From Real Failures</h3><p>Reduce a production failure into a safe, reusable fixture without preserving customer data.</p><span class="article-meta">14 minute guide · New</span></a>
-      <a class="panel" href="/guides/api-debugging-checklist/"><h3>Safe API Debugging Checklist</h3><p>Review payloads, URLs, diffs, and redaction before sharing a reproduction.</p></a>
-      <a class="panel" href="/guides/regex-testing-guide/"><h3>Test Regular Expressions Before Shipping</h3><p>Exercise matches, replacements, engine differences, Unicode, and adversarial performance cases.</p><span class="article-meta">9 minute field guide · Updated</span></a>
-      <a class="panel" href="/guides/regex-release-checklist/"><h3>Regex Release Checklist</h3><p>Confirm anchors, input limits, expected failures, and runtime behavior.</p></a>
-      <a class="panel" href="/guides/text-diff-workflow/"><h3>Review Config, Copy, and API Changes With a Diff</h3><p>Compare formatted inputs and separate meaningful changes from noise.</p></a>
-      <a class="panel" href="/guides/ssl-certificate-checking/"><h3>What to Check When an SSL Certificate Looks Broken</h3><p>Work through SNI, hostname, chain, DNS, public-edge verification, and renewal evidence.</p><span class="article-meta">10 minute field guide · Updated</span></a>
-      <a class="panel" href="/guides/ssl-certificate-renewal-playbook/"><h3>SSL Certificate Renewal Playbook</h3><p>Plan renewal timing and verify DNS, issuance, and production delivery.</p></a>
-      <a class="panel" href="/guides/color-conversion-accessibility/"><h3>Color Conversion and Contrast Checks</h3><p>Review color formats, states, palettes, and text contrast in practical UI work.</p></a>
-    </div></section>
-    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
-  </main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Six in-depth ToolkitBox field guides with reproducible examples, primary sources, limitations, and browser testing methods."><meta name="robots" content="index, follow"><meta name="google-adsense-account" content="ca-pub-5333037258750046"><link rel="canonical" href="https://toolkitbox.org/guides/"><link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/"><link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/"><link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/"><link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/legal.css"><title>Tested Developer Guides - ToolkitBox</title></head>
+<body><header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/testing/">How we test</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/zh/guides/">中文</a></div></nav></header><main>
+<div class="eyebrow">Field guides</div><h1>Fewer guides, tested in more depth.</h1><p class="lead">These six guides cover the workflows we can document with reproducible fixtures, primary references, explicit limitations, and a related working tool. Short overlapping articles have been consolidated into these maintained resources.</p><p class="guide-meta">Maintained by ToolkitBox · Reviewed October 20, 2026 · Read our <a href="/testing/">testing methodology</a> and <a href="/editorial-policy/">editorial policy</a></p>
+<section class="guide-section"><h2>Privacy and safe test data</h2><p class="section-copy">Verify where data goes, then build a minimal reproduction without keeping production secrets or customer records.</p><div class="article-grid"><a class="panel" href="/guides/verify-browser-tool-local-processing/"><h3>How to Verify Local Processing in a Browser Tool</h3><p>Use DevTools, controlled samples, and a repeatable network test instead of trusting a privacy badge.</p><span class="article-meta">12 minute field guide · Original test workflow</span></a><a class="panel" href="/guides/build-sanitized-api-test-fixtures/"><h3>Build Sanitized API Test Fixtures From Real Failures</h3><p>Reduce a production failure into a safe, reusable fixture while preserving the behavior that matters.</p><span class="article-meta">14 minute field guide · Complete worked example</span></a></div></section>
+<section class="guide-section"><h2>Data and pattern review</h2><p class="section-copy">Use explicit expected results and independent checks rather than accepting a green tool status.</p><div class="article-grid"><a class="panel" href="/guides/json-formatting-validation/"><h3>Format and Validate JSON Without Leaking API Data</h3><p>Work through syntax, structure, schema boundaries, edge cases, and a sanitized webhook fixture.</p><span class="article-meta">10 minute guide · RFC references</span></a><a class="panel" href="/guides/regex-testing-guide/"><h3>Test Regular Expressions Before Shipping</h3><p>Record positive, negative, Unicode, replacement, and adversarial performance cases.</p><span class="article-meta">9 minute guide · Engine limitations</span></a><a class="panel" href="/guides/base64-encoding-best-practices/"><h3>Base64 Encoding: When to Use It and When Not To</h3><p>Choose standard or URL-safe encoding, understand Data URI limits, and avoid treating encoding as secrecy.</p><span class="article-meta">Practical reference · Local tool</span></a></div></section>
+<section class="guide-section"><h2>Public-edge operations</h2><p class="section-copy">Separate local configuration from the certificate and DNS behavior real visitors receive.</p><div class="article-grid"><a class="panel" href="/guides/ssl-certificate-checking/"><h3>What to Check When an SSL Certificate Looks Broken</h3><p>Trace hostname, SNI, chain, expiry, DNS, CDN, and renewal evidence in a deliberate order.</p><span class="article-meta">10 minute guide · Public-edge verification</span></a><a class="panel" href="/testing/"><h3>How ToolkitBox Tests Browser Tools</h3><p>See the synthetic fixtures, independent checks, failure paths, mobile review, and limits used across the toolkit.</p><span class="article-meta">Public methodology · Updated October 20, 2026</span></a></div></section>
+<footer><a href="/editorial-policy/">Editorial policy</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer></main></body></html>
