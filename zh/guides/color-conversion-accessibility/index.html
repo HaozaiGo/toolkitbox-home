@@ -40,7 +40,7 @@
         "description": "学习如何在界面设计和前端开发中使用颜色格式转换、调色板和对比度检查。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/color-conversion-accessibility/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -76,13 +76,14 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/color-conversion-accessibility/">English</a></div></nav></header>
   <main>
     <div class="eyebrow">开发者指南</div>
     <h1>颜色转换和对比度检查：更实用的 UI 配色流程</h1>
-    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
+    <p class="guide-meta">内容更新：2026 年 10 月 20 日 · ToolkitBox 编辑</p>
     <p class="lead">颜色工具的价值不只是把 HEX 转成 RGB。它应该帮助设计师和开发者把视觉意图落到 CSS、组件状态、可访问性和长期维护上。</p>
     <section class="panel"><h2>转换格式时保持设计意图</h2><p>设计稿、品牌规范、截图和 CSS 可能使用不同颜色格式。准确转换 HEX、RGB、HSL 等格式，可以减少凭感觉取色造成的偏差。</p></section>
     <section class="panel"><h2>用 HSL 做可控调整</h2><p>HSL 更适合调整明度和饱和度。制作 hover、disabled、focus、边框和浅色背景时，用 HSL 微调通常比直接改 HEX 更容易保持同一色相。</p></section>
@@ -90,7 +91,8 @@
     <section class="panel"><h2>不要只依赖颜色表达状态</h2><p>即使颜色对比足够，也不应该只靠颜色传达成功、失败、警告或禁用状态。配合文字、图标、边框或布局，界面会更容易理解。</p></section>
     <section class="panel"><h2>让调色板保持克制</h2><p>少量稳定颜色比大量一次性颜色更容易维护。每新增一个颜色，都要判断它是设计系统的一部分，还是只解决当前页面的小问题。</p></section>
     <section class="panel"><h2>相关工具</h2><p><a href="https://color.toolkitbox.org/zh/">打开 Color Tool</a>，转换颜色并检查对比度。</p></section>
-    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+    <section class="panel"><h2>转换与对比度示例</h2><p>不透明 sRGB 颜色 <code>#336699</code> 对应 <code>rgb(51, 102, 153)</code>，约等于 <code>hsl(210, 50%, 40%)</code>。请进行往返转换并考虑舍入误差；HSL 明度不等于感知亮度。</p><p>WCAG AA 文本通常至少需要 4.5:1；大号文字（至少 18 pt，或 14 pt 粗体）为 3:1。白底上的 <code>#777777</code> 约为 4.48:1，不满足 4.5:1，不能靠四舍五入认定通过。白底上的 <code>#767676</code> 约为 4.54:1。这些是参考计算，不是关联工具的实测结果。</p><p>透明颜色、渐变和图片应按实际合成后的背景检查，并覆盖悬停、焦点和错误状态。单一文字对比度不能证明整体无障碍。参见 <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 最低对比度说明</a>。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a><a href="/zh/privacy/#privacy-choices" data-privacy-settings>隐私选择</a></footer>
   </main>
 </body>
 </html>

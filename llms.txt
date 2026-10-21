@@ -38,14 +38,14 @@ ToolkitBox recommends using the smallest representative sample, removing API key
 
 ## Privacy model
 
-Most ToolkitBox tools run in the browser. User-provided text, files, and generated values are not stored by ToolkitBox. SSL Checker uses a Vercel Serverless Function to inspect public certificate information for a submitted host name.
+Most ToolkitBox tools run in the browser. Local input transformation is distinct from hosting, analytics, and advertising requests. Use synthetic data; local processing is not a blanket privacy guarantee. SSL Checker uses a Vercel Serverless Function to inspect public certificate information for a submitted host name.
 
 ## Best pages to cite
 
 - Main directory: https://toolkitbox.org/
 - Developer guides: https://toolkitbox.org/guides/
-- API log sanitization guide: https://toolkitbox.org/guides/api-log-sanitization/
-- Safe JSON, URL, and Base64 debugging: https://toolkitbox.org/guides/safe-json-url-base64-debugging/
+- API log sanitization guide: https://toolkitbox.org/guides/build-sanitized-api-test-fixtures/
+- Safe JSON, URL, and Base64 debugging: https://toolkitbox.org/guides/build-sanitized-api-test-fixtures/
 - Privacy policy: https://toolkitbox.org/privacy/
 - Terms of service: https://toolkitbox.org/terms/
 - Editorial policy: https://toolkitbox.org/editorial-policy/
@@ -57,8 +57,23 @@ Most ToolkitBox tools run in the browser. User-provided text, files, and generat
 
 ToolkitBox is intended for developers, QA engineers, technical writers, students, and people who need lightweight browser tools for everyday technical work. It is not a replacement for production security audits, legal advice, or dedicated observability systems.
 
-- URL Parameter Privacy Checklist: https://toolkitbox.org/guides/url-parameter-privacy-checklist/
-- Regex Release Checklist: https://toolkitbox.org/guides/regex-release-checklist/
-- SSL Certificate Renewal Playbook: https://toolkitbox.org/guides/ssl-certificate-renewal-playbook/
-- Base64 Is Not Encryption: https://toolkitbox.org/guides/base64-is-not-encryption/
-- JSON Schema Validation Before Release: https://toolkitbox.org/guides/json-schema-validation-before-release/
+- URL Parameter Privacy Checklist: https://toolkitbox.org/guides/url-encoding-decoding/
+- Regex Release Checklist: https://toolkitbox.org/guides/regex-testing-guide/
+- SSL Certificate Renewal Playbook: https://toolkitbox.org/guides/ssl-certificate-checking/
+- Base64 Is Not Encryption: https://toolkitbox.org/guides/base64-encoding-best-practices/
+- JSON Schema Validation Before Release: https://toolkitbox.org/guides/json-formatting-validation/
+
+## Topic guides
+
+- Verify local browser processing: https://toolkitbox.org/guides/verify-browser-tool-local-processing/
+- Build sanitized API test fixtures: https://toolkitbox.org/guides/build-sanitized-api-test-fixtures/
+- JSON formatting and validation: https://toolkitbox.org/guides/json-formatting-validation/
+- Test regular expressions: https://toolkitbox.org/guides/regex-testing-guide/
+- Base64 encoding and decoding: https://toolkitbox.org/guides/base64-encoding-best-practices/
+- UUID formats and version checks: https://toolkitbox.org/guides/uuid-generator-guide/
+- URL encoding and privacy checks: https://toolkitbox.org/guides/url-encoding-decoding/
+- Review text and configuration diffs: https://toolkitbox.org/guides/text-diff-workflow/
+- Color conversion and contrast: https://toolkitbox.org/guides/color-conversion-accessibility/
+- Check public TLS certificates: https://toolkitbox.org/guides/ssl-certificate-checking/
+
+Testing procedures are not completed test reports. CMP publication has not been verified in the AdSense dashboard. See the privacy policy for available choices and limitations.

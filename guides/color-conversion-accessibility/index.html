@@ -40,7 +40,7 @@
         "description": "Use color formats, palettes, and contrast checks to make interface decisions faster and safer.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/color-conversion-accessibility/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -76,13 +76,14 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav></header>
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>Color Conversion and Contrast Checks for Practical UI Work</h1>
-    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
+    <p class="guide-meta">Content updated: October 20, 2026 · Edited by ToolkitBox</p>
     <p class="lead">Color tools are most useful when they connect design intent to implementation details. Converting formats, checking contrast, and comparing variations helps keep interface work consistent.</p>
     <section class="panel"><h2>Convert formats without changing intent</h2><p>Design tools, CSS, screenshots, and brand guides may use different color formats. Converting between HEX, RGB, HSL, and other representations helps developers implement colors accurately without guessing.</p></section>
     <section class="panel"><h2>Use HSL for controlled adjustments</h2><p>HSL can make it easier to adjust lightness and saturation while keeping a similar hue. This is useful when building hover states, subtle backgrounds, borders, and disabled states.</p></section>
@@ -90,7 +91,8 @@
     <section class="panel"><h2>Do not rely on color alone</h2><p>Even when contrast is strong, color should not be the only way to communicate status. Pair color with text, icons, shape, or layout so the interface remains understandable.</p></section>
     <section class="panel"><h2>Keep palettes focused</h2><p>A small, intentional palette is easier to maintain than many one-off colors. When a new color appears, decide whether it belongs in the system or only solves a local problem.</p></section>
     <section class="panel"><h2>Try the related tool</h2><p><a href="https://color.toolkitbox.org/">Open Color Tool</a> to apply this workflow in your browser.</p></section>
-    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+    <section class="panel"><h2>A conversion and contrast example</h2><p>Opaque sRGB <code>#336699</code> is <code>rgb(51, 102, 153)</code> and approximately <code>hsl(210, 50%, 40%)</code>. Round-trip the conversion and allow for rounding; HSL lightness is not perceptual brightness.</p><p>For WCAG AA text, the usual minimum is 4.5:1, or 3:1 for large text (at least 18 pt, or 14 pt bold). <code>#777777</code> on white is about 4.48:1, so it fails the 4.5:1 threshold; rounding it to 4.5 is not a pass. <code>#767676</code> on white is about 4.54:1. These are reference calculations, not measured results from the linked tool.</p><p>Check the actual composited background for transparent colors, gradients, and images, plus hover, focus, and error states. A text ratio alone does not establish overall accessibility. See <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG contrast minimum</a>.</p></section>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/privacy/#privacy-choices" data-privacy-settings>Privacy choices</a></footer>
   </main>
 </body>
 </html>

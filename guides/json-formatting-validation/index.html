@@ -76,15 +76,16 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav></header>
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>How to Format and Validate JSON Without Leaking API Data</h1>
-    <p class="guide-meta">Published August 16, 2026 · Reviewed October 20, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 10 minutes</p>
-    <p class="lead">JSON is one of the easiest formats to copy around and one of the easiest formats to accidentally leak. A browser-side JSON workflow gives you the speed of an online formatter without sending API responses, configuration files, or test payloads to an unknown server.</p>
-    <figure class="evidence"><img src="/assets/json-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox JSON formatter with a synthetic validation sample"><figcaption>Original ToolkitBox review capture, October 20, 2026. The fixture is invented and is used to compare validation, formatting, copy, and download behavior without production data.</figcaption></figure>
+    <p class="guide-meta">Published August 16, 2026 · Content updated October 20, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a></p>
+    <p class="lead">JSON is one of the easiest formats to copy around and one of the easiest formats to accidentally leak. Use a synthetic payload and verify the tool's input handling. Running a transformation locally does not prevent the page from loading analytics or advertising.</p>
+    <figure class="evidence"><img src="/assets/json-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox JSON formatter with a synthetic validation sample"><figcaption>Tool interface illustration. A screenshot alone does not verify network behavior or prove the checks below passed. Use synthetic inputs and verify results independently.</figcaption></figure>
     <section class="panel"><h2>Start with validation before beautifying</h2><p>When a JSON payload fails, the first question is whether the document is valid at all. Validate the syntax before making other changes. A missing comma, an extra trailing comma, or a mismatched quote can make downstream debugging feel much larger than it is. After validation passes, formatting makes nested objects easier to scan and review.</p></section>
     <section class="panel"><h2>Use formatting to review structure, not just appearance</h2><p>Pretty printing is useful because it exposes shape. You can see whether arrays are nested too deeply, whether a field appears at the wrong level, and whether an API response includes unexpected keys. This is especially helpful when debugging webhooks, third-party API responses, feature flags, and generated configuration.</p></section>
     <section class="panel"><h2>Compare payloads when behavior changes</h2><p>If a request worked yesterday but fails today, compare the previous payload against the current one. A diff can reveal renamed fields, missing optional properties, type changes, and null values that are hard to notice in a long response. For structured data, comparing formatted JSON is usually clearer than comparing one-line minified strings.</p></section>
@@ -103,7 +104,7 @@
     <section class="panel"><h2>What this guide and tool do not prove</h2><p>Syntax validation proves only that a parser can read the document. It does not prove that an API will accept the fields, that values are trustworthy, or that a payload is safe to log. JSON-to-YAML or JSON-to-XML conversion can also change typing, ordering expectations, or representation details. Review the destination format and test the receiving system with synthetic data.</p></section>
     <section class="panel"><h2>Sources and review notes</h2><p>This workflow follows the JSON grammar in <a href="https://www.rfc-editor.org/rfc/rfc8259" rel="noopener noreferrer">RFC 8259</a> and the interoperability guidance in <a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-404/" rel="noopener noreferrer">ECMA-404</a>. The examples were created for this guide and contain no production data. Review methodology is documented in the <a href="/editorial-policy/">ToolkitBox editorial policy</a>.</p></section>
     <section class="panel"><h2>Try the related tool</h2><p><a href="https://json.toolkitbox.org/">Open JSON Toolbox</a> to apply this workflow in your browser.</p></section>
-    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/privacy/#privacy-choices" data-privacy-settings>Privacy choices</a></footer>
   </main>
 </body>
 </html>

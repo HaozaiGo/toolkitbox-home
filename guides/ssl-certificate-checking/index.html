@@ -76,15 +76,16 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav></header>
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>What to Check When an SSL Certificate Looks Broken</h1>
-    <p class="guide-meta">Published August 16, 2026 · Reviewed October 20, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 10 minutes</p>
+    <p class="guide-meta">Published August 16, 2026 · Content updated October 20, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a></p>
     <p class="lead">HTTPS failures can come from expired certificates, missing intermediates, hostname mismatches, DNS changes, or a deployment that served the wrong certificate. A quick checklist makes the problem less mysterious.</p>
-    <figure class="evidence"><img src="/assets/ssl-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox SSL certificate checker interface"><figcaption>Original ToolkitBox review capture, October 20, 2026. SSL inspection is intentionally network-backed and must be compared with the certificate served at the public edge.</figcaption></figure>
+    <figure class="evidence"><img src="/assets/ssl-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox SSL certificate checker interface"><figcaption>Tool interface illustration. A screenshot alone does not verify network behavior or prove the checks below passed. Use synthetic inputs and verify results independently.</figcaption></figure>
     <section class="panel"><h2>Check the hostname first</h2><p>Certificates are issued for specific names. If the certificate does not match the hostname users visit, browsers will warn even if the certificate is otherwise valid. Check both the root domain and the www or subdomain version.</p></section>
     <section class="panel"><h2>Look at expiry before anything else</h2><p>Expired certificates are common and easy to miss until users report errors. Track the expiration date and renew early enough that DNS, deployment, and CDN propagation do not create a last-minute incident.</p></section>
     <section class="panel"><h2>Verify the certificate chain</h2><p>A certificate can be valid but still fail if the intermediate chain is incomplete. Some clients are forgiving, while others are strict. Chain problems often appear after moving hosting providers or changing CDN settings.</p></section>
@@ -96,9 +97,9 @@
     <section class="panel"><h2>Expiry checks need an operational margin</h2><p>Do not wait for the final day. Renewal can succeed while deployment fails, a load balancer can retain an old certificate, or one region can lag behind another. Track the certificate currently served by every public hostname and alert with enough time to investigate. After renewal, compare serial number, validity window, issuer, and hostname coverage at the public edge.</p></section>
     <section class="panel"><h2>What an online checker cannot prove</h2><p>A remote check observes one public connection from one location. It cannot prove that every CDN region, private origin, IPv4 and IPv6 address, or authenticated service presents the same configuration. It also cannot assess application authorization or the security of content sent after TLS is established. Use it as a diagnostic observation, then confirm with your provider, monitoring, and representative clients.</p></section>
     <section class="panel"><h2>Evidence to keep after a fix</h2><ul class="checklist"><li>The affected hostname and user-visible error.</li><li>The old and new certificate serial numbers or fingerprints.</li><li>The chain served before and after deployment.</li><li>DNS or proxy changes made during remediation.</li><li>Verification from at least two independent clients.</li><li>The next renewal owner, date, and alert path.</li></ul></section>
-    <section class="panel"><h2>Sources and review notes</h2><p>Terminology and hostname verification guidance are based on <a href="https://www.rfc-editor.org/rfc/rfc5280" rel="noopener noreferrer">RFC 5280</a> and <a href="https://www.rfc-editor.org/rfc/rfc6125" rel="noopener noreferrer">RFC 6125</a>. Operational examples are synthetic and should be adapted to your TLS termination architecture. See the <a href="/editorial-policy/">editorial policy</a> for maintenance details.</p></section>
+    <section class="panel"><h2>Sources and review notes</h2><p>Terminology and hostname verification guidance are based on <a href="https://www.rfc-editor.org/rfc/rfc5280" rel="noopener noreferrer">RFC 5280</a> and <a href="https://www.rfc-editor.org/rfc/rfc9525" rel="noopener noreferrer">RFC 9525</a>. Operational examples are synthetic and should be adapted to your TLS termination architecture. See the <a href="/editorial-policy/">editorial policy</a> for maintenance details.</p></section>
     <section class="panel"><h2>Try the related tool</h2><p><a href="https://ssl.toolkitbox.org/">Open SSL Checker</a> to inspect public certificate details for a hostname.</p></section>
-    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/privacy/#privacy-choices" data-privacy-settings>Privacy choices</a></footer>
   </main>
 </body>
 </html>

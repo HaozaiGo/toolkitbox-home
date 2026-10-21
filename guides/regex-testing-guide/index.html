@@ -76,15 +76,16 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav></header>
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>How to Test Regular Expressions Before Shipping Them</h1>
-    <p class="guide-meta">Published August 16, 2026 · Reviewed October 20, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a> · About 9 minutes</p>
+    <p class="guide-meta">Published August 16, 2026 · Content updated October 20, 2026 · Written and maintained by <a href="/about/">ToolkitBox</a></p>
     <p class="lead">Regular expressions are compact, which makes them powerful and easy to misunderstand. A careful test workflow helps you catch false positives, missed matches, and replacement mistakes before they reach production.</p>
-    <figure class="evidence"><img src="/assets/regex-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox Regex Tester with flags and expected-match controls"><figcaption>Original ToolkitBox review capture, October 20, 2026. A useful test records the pattern, flags, positive cases, negative cases, capture values, replacement output, and a bounded performance case.</figcaption></figure>
+    <figure class="evidence"><img src="/assets/regex-tool.png" width="1280" height="800" loading="lazy" alt="ToolkitBox Regex Tester with flags and expected-match controls"><figcaption>Tool interface illustration. A screenshot alone does not verify network behavior or prove the checks below passed. Use synthetic inputs and verify results independently.</figcaption></figure>
     <section class="panel"><h2>Begin with real examples</h2><p>Start with a small set of strings that represent the data you actually expect. Include normal cases, empty values, malformed input, and surprising but valid examples. This prevents a pattern from only working against the one sample used while writing it.</p></section>
     <section class="panel"><h2>Test what should not match</h2><p>A regex is only useful if it rejects the right things. Add negative examples such as extra punctuation, invalid prefixes, mixed whitespace, and partial matches. False positives are often more damaging than a pattern that simply fails loudly.</p></section>
     <section class="panel"><h2>Inspect capture groups</h2><p>Capture groups are where many production bugs hide. Confirm group order, optional groups, named groups, and repeated groups before using the result in code. If a replacement string uses $1 or $2, verify the preview before shipping.</p></section>
@@ -100,7 +101,7 @@ expected $1:   1042, 7</pre><p>Add boundary cases for the shortest and longest a
     <section class="panel"><h2>Release checklist</h2><ul class="checklist"><li>Positive, negative, boundary, empty, and Unicode cases are recorded.</li><li>Flags match the production engine and calling code.</li><li>Every numbered or named group has an expected value.</li><li>Replacement output has been tested independently.</li><li>A long near-match input completes within an acceptable time.</li><li>Test data contains no real logs, emails, tokens, or customer records.</li><li>The pattern and its intended limits are documented beside the code.</li></ul></section>
     <section class="panel"><h2>Sources and review notes</h2><p>Engine behavior in this guide is based on the <a href="https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-regular-expression-objects" rel="noopener noreferrer">ECMAScript regular expression specification</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions" rel="noopener noreferrer">MDN's JavaScript regular expression guide</a>. All samples are synthetic. See the <a href="/editorial-policy/">editorial policy</a> for the testing and correction process.</p></section>
     <section class="panel"><h2>Try the related tool</h2><p><a href="https://regex.toolkitbox.org/">Open Regex Tester</a> to apply this workflow in your browser.</p></section>
-    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/privacy/#privacy-choices" data-privacy-settings>Privacy choices</a></footer>
   </main>
 </body>
 </html>

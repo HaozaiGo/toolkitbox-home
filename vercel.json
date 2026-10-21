@@ -1,35 +1,236 @@
 {
   "redirects": [
-    {"source":"/(.*)","has":[{"type":"host","value":"www.toolkitbox.org"}],"destination":"https://toolkitbox.org/$1","statusCode":301},
-    {"source":"/guides/api-debugging-checklist/","destination":"/guides/build-sanitized-api-test-fixtures/","permanent":true},
-    {"source":"/guides/api-log-sanitization/","destination":"/guides/build-sanitized-api-test-fixtures/","permanent":true},
-    {"source":"/guides/redact-logs-before-sharing/","destination":"/guides/build-sanitized-api-test-fixtures/","permanent":true},
-    {"source":"/guides/base64-is-not-encryption/","destination":"/guides/base64-encoding-best-practices/","permanent":true},
-    {"source":"/guides/json-schema-validation-before-release/","destination":"/guides/json-formatting-validation/","permanent":true},
-    {"source":"/guides/regex-release-checklist/","destination":"/guides/regex-testing-guide/","permanent":true},
-    {"source":"/guides/ssl-certificate-renewal-playbook/","destination":"/guides/ssl-certificate-checking/","permanent":true},
-    {"source":"/guides/local-browser-tools-privacy/","destination":"/guides/verify-browser-tool-local-processing/","permanent":true},
-    {"source":"/guides/safe-json-url-base64-debugging/","destination":"/guides/verify-browser-tool-local-processing/","permanent":true},
-    {"source":"/guides/safe-online-developer-tools/","destination":"/guides/verify-browser-tool-local-processing/","permanent":true},
-    {"source":"/guides/url-parameter-privacy-checklist/","destination":"/guides/verify-browser-tool-local-processing/","permanent":true},
-    {"source":"/guides/color-conversion-accessibility/","destination":"/testing/","permanent":true},
-    {"source":"/guides/text-diff-workflow/","destination":"/testing/","permanent":true},
-    {"source":"/guides/url-encoding-decoding/","destination":"/testing/","permanent":true},
-    {"source":"/guides/uuid-generator-guide/","destination":"/testing/","permanent":true},
-    {"source":"/zh/guides/api-debugging-checklist/","destination":"/zh/guides/build-sanitized-api-test-fixtures/","permanent":true},
-    {"source":"/zh/guides/api-log-sanitization/","destination":"/zh/guides/build-sanitized-api-test-fixtures/","permanent":true},
-    {"source":"/zh/guides/redact-logs-before-sharing/","destination":"/zh/guides/build-sanitized-api-test-fixtures/","permanent":true},
-    {"source":"/zh/guides/base64-is-not-encryption/","destination":"/zh/guides/base64-encoding-best-practices/","permanent":true},
-    {"source":"/zh/guides/json-schema-validation-before-release/","destination":"/zh/guides/json-formatting-validation/","permanent":true},
-    {"source":"/zh/guides/regex-release-checklist/","destination":"/zh/guides/regex-testing-guide/","permanent":true},
-    {"source":"/zh/guides/ssl-certificate-renewal-playbook/","destination":"/zh/guides/ssl-certificate-checking/","permanent":true},
-    {"source":"/zh/guides/local-browser-tools-privacy/","destination":"/zh/guides/verify-browser-tool-local-processing/","permanent":true},
-    {"source":"/zh/guides/safe-json-url-base64-debugging/","destination":"/zh/guides/verify-browser-tool-local-processing/","permanent":true},
-    {"source":"/zh/guides/safe-online-developer-tools/","destination":"/zh/guides/verify-browser-tool-local-processing/","permanent":true},
-    {"source":"/zh/guides/url-parameter-privacy-checklist/","destination":"/zh/guides/verify-browser-tool-local-processing/","permanent":true},
-    {"source":"/zh/guides/color-conversion-accessibility/","destination":"/zh/testing/","permanent":true},
-    {"source":"/zh/guides/text-diff-workflow/","destination":"/zh/testing/","permanent":true},
-    {"source":"/zh/guides/url-encoding-decoding/","destination":"/zh/testing/","permanent":true},
-    {"source":"/zh/guides/uuid-generator-guide/","destination":"/zh/testing/","permanent":true}
-  ]
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.toolkitbox.org"
+        }
+      ],
+      "destination": "https://toolkitbox.org/$1",
+      "statusCode": 301
+    },
+    {
+      "source": "/guides/api-debugging-checklist/",
+      "destination": "/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/api-log-sanitization/",
+      "destination": "/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/redact-logs-before-sharing/",
+      "destination": "/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/base64-is-not-encryption/",
+      "destination": "/guides/base64-encoding-best-practices/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/json-schema-validation-before-release/",
+      "destination": "/guides/json-formatting-validation/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/regex-release-checklist/",
+      "destination": "/guides/regex-testing-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ssl-certificate-renewal-playbook/",
+      "destination": "/guides/ssl-certificate-checking/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/local-browser-tools-privacy/",
+      "destination": "/guides/verify-browser-tool-local-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/safe-json-url-base64-debugging/",
+      "destination": "/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/safe-online-developer-tools/",
+      "destination": "/guides/verify-browser-tool-local-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/url-parameter-privacy-checklist/",
+      "destination": "/guides/url-encoding-decoding/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/api-debugging-checklist/",
+      "destination": "/zh/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/api-log-sanitization/",
+      "destination": "/zh/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/redact-logs-before-sharing/",
+      "destination": "/zh/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/base64-is-not-encryption/",
+      "destination": "/zh/guides/base64-encoding-best-practices/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/json-schema-validation-before-release/",
+      "destination": "/zh/guides/json-formatting-validation/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/regex-release-checklist/",
+      "destination": "/zh/guides/regex-testing-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/ssl-certificate-renewal-playbook/",
+      "destination": "/zh/guides/ssl-certificate-checking/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/local-browser-tools-privacy/",
+      "destination": "/zh/guides/verify-browser-tool-local-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/safe-json-url-base64-debugging/",
+      "destination": "/zh/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/safe-online-developer-tools/",
+      "destination": "/zh/guides/verify-browser-tool-local-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/url-parameter-privacy-checklist/",
+      "destination": "/zh/guides/url-encoding-decoding/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/api-debugging-checklist/index.html",
+      "destination": "/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/api-log-sanitization/index.html",
+      "destination": "/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/redact-logs-before-sharing/index.html",
+      "destination": "/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/base64-is-not-encryption/index.html",
+      "destination": "/guides/base64-encoding-best-practices/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/json-schema-validation-before-release/index.html",
+      "destination": "/guides/json-formatting-validation/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/regex-release-checklist/index.html",
+      "destination": "/guides/regex-testing-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ssl-certificate-renewal-playbook/index.html",
+      "destination": "/guides/ssl-certificate-checking/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/local-browser-tools-privacy/index.html",
+      "destination": "/guides/verify-browser-tool-local-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/safe-json-url-base64-debugging/index.html",
+      "destination": "/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/safe-online-developer-tools/index.html",
+      "destination": "/guides/verify-browser-tool-local-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/url-parameter-privacy-checklist/index.html",
+      "destination": "/guides/url-encoding-decoding/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/api-debugging-checklist/index.html",
+      "destination": "/zh/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/api-log-sanitization/index.html",
+      "destination": "/zh/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/redact-logs-before-sharing/index.html",
+      "destination": "/zh/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/base64-is-not-encryption/index.html",
+      "destination": "/zh/guides/base64-encoding-best-practices/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/json-schema-validation-before-release/index.html",
+      "destination": "/zh/guides/json-formatting-validation/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/regex-release-checklist/index.html",
+      "destination": "/zh/guides/regex-testing-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/ssl-certificate-renewal-playbook/index.html",
+      "destination": "/zh/guides/ssl-certificate-checking/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/local-browser-tools-privacy/index.html",
+      "destination": "/zh/guides/verify-browser-tool-local-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/safe-json-url-base64-debugging/index.html",
+      "destination": "/zh/guides/build-sanitized-api-test-fixtures/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/safe-online-developer-tools/index.html",
+      "destination": "/zh/guides/verify-browser-tool-local-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/zh/guides/url-parameter-privacy-checklist/index.html",
+      "destination": "/zh/guides/url-encoding-decoding/",
+      "permanent": true
+    }
+  ],
+  "trailingSlash": true
 }

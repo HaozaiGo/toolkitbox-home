@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ToolkitBox collects fast, private browser tools for JSON, Base64, UUIDs, regex, text diffs, URLs, SSL certificates, and colors.">
+  <meta name="description" content="ToolkitBox collects browser tools for JSON, Base64, UUIDs, regex, text diffs, URLs, SSL certificates, and colors.">
   <meta name="keywords" content="developer tools, json formatter, base64 encoder, uuid generator, regex tester, diff checker, url checker, ssl checker, color tool">
   <meta name="robots" content="index, follow">
   <meta name="google-adsense-account" content="ca-pub-5333037258750046">
@@ -13,17 +13,17 @@
   <link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ToolkitBox - Private Developer Tools">
+  <meta property="og:title" content="ToolkitBox - Browser Developer Tools">
   <meta property="og:description" content="Fast browser tools for JSON, Base64, UUIDs, regex, diffs, URLs, SSL certificates, and colors.">
   <meta property="og:url" content="https://toolkitbox.org/">
   <meta property="og:site_name" content="ToolkitBox">
   <meta property="og:image" content="https://toolkitbox.org/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="ToolkitBox - Private Developer Tools">
+  <meta property="og:image:alt" content="ToolkitBox - Browser Developer Tools">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://toolkitbox.org/og.png">
-  <title>ToolkitBox - Private Developer Tools</title>
+  <title>ToolkitBox - Browser Developer Tools</title>
   <style>
     :root {
       color-scheme: light;
@@ -419,7 +419,7 @@
         "name": "Do ToolkitBox tools upload my data?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most tools process input directly in the browser. You should still remove secrets, tokens, and customer data before testing examples on any shared device."
+          "text": "Browser-side transformations are intended to process input locally. SSL checks send the requested hostname to a server. Pages may also contact hosting, analytics, and advertising services independently of tool input. Use synthetic samples, not secrets."
         }
       },
       {
@@ -447,6 +447,7 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top">
@@ -459,12 +460,12 @@
     <section class="intro" aria-labelledby="title">
       <div>
         <h1 id="title">ToolkitBox</h1>
-        <p class="lead">Private browser tools for developers. No upload. No account. Fast utilities for daily work.</p>
-        <div class="hero-points" aria-label="ToolkitBox highlights"><span>Privacy-first</span><span>Runs in browser</span><span>No account</span><span>Free utilities</span></div>
+        <p class="lead">Browser tools for everyday developer work. Format data, inspect text, and check public certificates without an account.</p>
+        <div class="hero-points" aria-label="ToolkitBox highlights"><span>Synthetic samples recommended</span><span>Browser utilities</span><span>No account</span><span>Free utilities</span></div>
       </div>
       <div class="scene" aria-hidden="true"><canvas id="tool-scene"></canvas></div>
     </section>
-    <p class="trust-strip">Most tools run directly in your browser. Sensitive input should stay on your device whenever possible.</p>
+    <p class="trust-strip">Browser-side transformations are intended to process input locally. SSL checks send the requested hostname to a server. Pages may also contact hosting, analytics, and advertising services independently of tool input. Use synthetic samples, not secrets.</p>
 
     <section class="group" aria-labelledby="data-tools">
       <h2 id="data-tools">Data & Encoding</h2>
@@ -502,7 +503,7 @@
       <div class="content-grid">
         <div class="content-panel"><h3>Data and encoding</h3><ul><li>Format JSON before debugging API responses.</li><li>Decode Base64 strings and Data URIs.</li><li>Generate UUIDs for tests, fixtures, and examples.</li></ul></div>
         <div class="content-panel"><h3>Text and web checks</h3><ul><li>Test regular expressions before shipping them.</li><li>Compare configuration, copy, and API changes.</li><li>Inspect URL components and encoded parameters.</li></ul></div>
-        <div class="content-panel"><h3>Security-adjacent review</h3><ul><li>Check SSL certificate dates and issuer details.</li><li>Remove tokens before sharing examples.</li><li>Use local tools for sensitive drafts whenever possible.</li></ul></div>
+        <div class="content-panel"><h3>Security-adjacent review</h3><ul><li>Check SSL certificate dates and issuer details.</li><li>Remove tokens before sharing examples.</li><li>Use approved offline tools for confidential material.</li></ul></div>
       </div>
     </section>
 
@@ -519,13 +520,13 @@
       <h2 id="toolkitbox-faq">ToolkitBox FAQ</h2>
       <div class="faq-list">
         <details><summary>What is ToolkitBox for?</summary><p>ToolkitBox is for quick developer checks: formatting structured data, testing expressions, comparing text, inspecting URLs, checking SSL certificates, and preparing examples.</p></details>
-        <details><summary>Do the tools upload my data?</summary><p>Most tools run directly in your browser. The site is still best used with cleaned samples, especially when you are working on shared computers or production data.</p></details>
+        <details><summary>Do the tools upload my data?</summary><p>Browser-side transformations are intended to process input locally. SSL checks send the requested hostname to a server. Pages may also contact hosting, analytics, and advertising services independently of tool input. Use synthetic samples, not secrets.</p></details>
         <details><summary>Are these tools a replacement for security review?</summary><p>No. They help with everyday inspection and cleanup, but production systems still need code review, secret scanning, access controls, and dedicated security testing.</p></details>
         <details><summary>Why are there guides as well as tools?</summary><p>The guides explain common mistakes, safe workflows, and edge cases so the tools are easier to use correctly in real development work.</p></details>
       </div>
     </section>
 
-    <footer><span><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Service</a></span></footer>
+    <footer><span><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Service</a></span><a href="/privacy/#privacy-choices" data-privacy-settings>Privacy choices</a></footer>
   </main>
   <script>
     const canvas = document.getElementById("tool-scene");

@@ -102,7 +102,7 @@
         "name": "ToolkitBox 会上传我的数据吗？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "大多数工具直接在浏览器中处理输入。即便如此，处理生产样本前也建议先移除密钥、令牌、客户资料和其他敏感内容。"
+          "text": "浏览器端转换旨在本地处理输入；SSL 检查会把所查主机名发送到服务端。页面还可能独立于工具输入联系托管、统计和广告服务。请使用合成样例，不要输入秘密。"
         }
       },
       {
@@ -130,12 +130,13 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="主导航"><div class="brand"><span class="mark"><img src="../logo.svg" alt="" width="22" height="22"></span><span>ToolkitBox</span></div><div class="nav-links"><a href="/zh/guides/">指南</a><span>·</span><a href="/zh/testing/">测试方法</a><span>·</span><a href="/zh/about/">关于</a><span>·</span><a href="/zh/contact/">联系</a><span>·</span><a href="/">English</a></div></nav></header>
   <main>
-    <section class="intro" aria-labelledby="title"><div><h1 id="title">ToolkitBox</h1><p class="lead">面向开发者的私密浏览器工具。不上传、无需账号，日常任务快速处理。</p><div class="hero-points" aria-label="ToolkitBox 亮点"><span>隐私优先</span><span>浏览器内运行</span><span>无需账号</span><span>免费工具</span></div></div><div class="scene" aria-hidden="true"><canvas id="tool-scene"></canvas></div></section>
-    <p class="trust-strip">大多数工具直接在浏览器中运行。只要可能，敏感输入都应该留在你的设备上。</p>
+    <section class="intro" aria-labelledby="title"><div><h1 id="title">ToolkitBox</h1><p class="lead">面向日常开发工作的浏览器工具。无需账号，即可整理数据、检查文本和查询公网证书。</p><div class="hero-points" aria-label="ToolkitBox 亮点"><span>建议使用合成样例</span><span>浏览器工具</span><span>无需账号</span><span>免费工具</span></div></div><div class="scene" aria-hidden="true"><canvas id="tool-scene"></canvas></div></section>
+    <p class="trust-strip">浏览器端转换旨在本地处理输入；SSL 检查会把所查主机名发送到服务端。页面还可能独立于工具输入联系托管、统计和广告服务。请使用合成样例，不要输入秘密。</p>
     <section class="group" aria-labelledby="data-tools"><h2 id="data-tools">数据与编码</h2><div class="grid">
       <a class="card" href="https://json.toolkitbox.org/zh/"><div class="card-top"><strong>JSON Toolbox</strong><span class="icon blue">{ }</span></div><span>格式化、校验、压缩、对比、YAML、XML。</span></a>
       <a class="card" href="https://base64.toolkitbox.org/zh/"><div class="card-top"><strong>Base64 Tool</strong><span class="icon green">64</span></div><span>本地编码和解码文本。</span></a>
@@ -164,7 +165,7 @@
       <div class="content-grid">
         <div class="content-panel"><h3>数据与编码</h3><ul><li>调试 API 响应前格式化 JSON。</li><li>解码 Base64 字符串和 Data URI。</li><li>为测试、示例和夹具生成 UUID。</li></ul></div>
         <div class="content-panel"><h3>文本与网页检查</h3><ul><li>上线前测试正则表达式。</li><li>对比配置、文案和接口返回变化。</li><li>查看 URL 组件和编码参数。</li></ul></div>
-        <div class="content-panel"><h3>安全相关复查</h3><ul><li>检查 SSL 证书日期和签发信息。</li><li>分享示例前移除令牌和账号信息。</li><li>敏感草稿优先使用本地浏览器工具处理。</li></ul></div>
+        <div class="content-panel"><h3>安全相关复查</h3><ul><li>检查 SSL 证书日期和签发信息。</li><li>分享示例前移除令牌和账号信息。</li><li>机密材料请使用经批准的离线工具处理。</li></ul></div>
       </div>
     </section>
 
@@ -181,12 +182,12 @@
       <h2 id="toolkitbox-faq">ToolkitBox 常见问题</h2>
       <div class="faq-list">
         <details><summary>ToolkitBox 适合做什么？</summary><p>它适合快速完成开发检查：格式化结构化数据、测试表达式、对比文本、查看 URL、检查 SSL 证书，以及整理可分享的示例。</p></details>
-        <details><summary>工具会上传我的数据吗？</summary><p>大多数工具直接在浏览器中运行。即便如此，如果你处理生产数据，仍建议先清理样本，尤其是在共享电脑上操作时。</p></details>
+        <details><summary>工具会上传我的数据吗？</summary><p>浏览器端转换旨在本地处理输入；SSL 检查会把所查主机名发送到服务端。页面还可能独立于工具输入联系托管、统计和广告服务。请使用合成样例，不要输入秘密。</p></details>
         <details><summary>这些工具可以替代安全审计吗？</summary><p>不能。它们用于日常检查和清理；生产系统仍需要代码审查、密钥扫描、访问控制和专门的安全测试。</p></details>
         <details><summary>为什么除了工具还要写指南？</summary><p>指南会解释常见错误、使用边界和更安全的流程，帮助你在真实开发工作中更正确地使用这些工具。</p></details>
       </div>
     </section>
-    <footer><span><a href="/zh/privacy/">隐私策略</a> · <a href="/zh/terms/">服务条款</a></span></footer>
+    <footer><span><a href="/zh/privacy/">隐私策略</a> · <a href="/zh/terms/">服务条款</a></span><a href="/zh/privacy/#privacy-choices" data-privacy-settings>隐私选择</a></footer>
   </main>
   <script>
     const canvas=document.getElementById("tool-scene"),ctx=canvas.getContext("2d"),labels=["JSON","URL","TLS","UUID","REGEX","DIFF","BASE64","COLOR"],colors=["#2563eb","#0f8a6a","#b45309","#c24135","#6d5bd0"];function draw(){const r=canvas.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.round(r.width*d);canvas.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,r.width,r.height);ctx.fillStyle="#fff";ctx.fillRect(0,0,r.width,r.height);ctx.strokeStyle="#e3e8f1";ctx.lineWidth=1;for(let x=16;x<r.width;x+=28){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,r.height);ctx.stroke()}for(let y=16;y<r.height;y+=28){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(r.width,y);ctx.stroke()}const t=Date.now()/1200,rx=r.width<420?.22:.31,ry=r.width<420?.2:.27,pts=labels.map((label,i)=>{const a=Math.PI*2*i/labels.length+t*.08;return{label,x:r.width/2+Math.cos(a)*r.width*rx,y:r.height/2+Math.sin(a)*r.height*ry,color:colors[i%colors.length]}});ctx.strokeStyle="#c9d2e3";pts.forEach((p,i)=>{const q=pts[(i+2)%pts.length];ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke()});pts.forEach(p=>{ctx.fillStyle="#fff";ctx.strokeStyle=p.color;ctx.lineWidth=1.4;ctx.beginPath();ctx.roundRect(p.x-34,p.y-14,68,28,7);ctx.fill();ctx.stroke();ctx.fillStyle=p.color;ctx.font="700 11px ui-monospace, SFMono-Regular, Menlo, monospace";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(p.label,p.x,p.y+1)});requestAnimationFrame(draw)}draw();

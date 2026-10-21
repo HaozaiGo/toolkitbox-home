@@ -7,6 +7,7 @@
   <title>如何验证浏览器工具是否真的在本地处理数据 - ToolkitBox</title>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://toolkitbox.org/#organization","name":"ToolkitBox","url":"https://toolkitbox.org/"},{"@type":"Article","headline":"如何验证浏览器工具是否真的在本地处理数据","description":"使用一次性样本、浏览器网络面板、离线模式和存储检查验证在线工具的数据流。","inLanguage":"zh-CN","mainEntityOfPage":"https://toolkitbox.org/zh/guides/verify-browser-tool-local-processing/","datePublished":"2026-09-07","dateModified":"2026-09-07","author":{"@id":"https://toolkitbox.org/#organization"},"publisher":{"@id":"https://toolkitbox.org/#organization"}}]}</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046" crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body><header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/guides/">指南</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/verify-browser-tool-local-processing/">English</a></div></nav></header><main>
   <div class="eyebrow">隐私实验</div><h1>如何验证浏览器工具是否真的在本地处理数据</h1><p class="guide-meta">发布于 2026 年 9 月 7 日 · 由 <a href="/zh/about/">ToolkitBox</a> 编写和维护 · 约 12 分钟</p>
@@ -24,5 +25,5 @@
   <section class="panel"><h2>记录可复查的结论</h2><p>记录页面 URL、日期、浏览器版本、探针、执行动作、观察到的请求、离线结果和服务器依赖功能。这样团队成员可以重复检查，而不是只留下“看起来在本地”的模糊判断。</p><p class="note"><strong>结论示例：</strong>格式化、校验和复制在离线模式下仍可完成；本次网络记录没有出现探针；页面会加载分析和广告脚本，但未观察到测试输入进入这些请求。结论只适用于记录日期所测试的页面版本和动作。</p></section>
   <section class="panel"><h2>最终清单</h2><ul class="checklist"><li>只用合成的一次性输入。</li><li>记录动作前、动作中和动作后的流量。</li><li>页面加载后用离线模式测试核心转换。</li><li>检查站点存储、Worker 和延迟请求。</li><li>区分必须联网的功能与可本地完成的转换。</li><li>机密和受监管数据继续使用批准的专用工具。</li></ul></section>
   <section class="panel"><h2>参考与相关工具</h2><p>网络检查步骤可参考 <a href="https://developer.chrome.com/docs/devtools/network/" rel="noopener noreferrer">Chrome DevTools Network 官方文档</a>和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API" rel="noopener noreferrer">MDN Fetch API</a>。可以使用一次性数据在 <a href="https://json.toolkitbox.org/zh/">JSON Toolbox</a>、<a href="https://base64.toolkitbox.org/zh/">Base64 工具</a>和 <a href="https://diff.toolkitbox.org/zh/">文本对比工具</a>中复现这套方法。</p></section>
-  <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+  <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a><a href="/zh/privacy/#privacy-choices" data-privacy-settings>隐私选择</a></footer>
 </main></body></html>

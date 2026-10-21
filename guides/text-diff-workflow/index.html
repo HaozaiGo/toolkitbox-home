@@ -40,7 +40,7 @@
         "description": "Learn how text comparison improves reviews for configuration files, documentation, payloads, and release notes.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/text-diff-workflow/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -76,13 +76,14 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav></header>
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>Using Text Diff Tools to Review Config, Copy, and API Changes</h1>
-    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
+    <p class="guide-meta">Content updated: October 20, 2026 · Edited by ToolkitBox</p>
     <p class="lead">A diff is not just for source code. Text comparison is useful whenever two versions look similar but behave differently: configuration files, API responses, translations, prompts, release notes, and support macros.</p>
     <section class="panel"><h2>Compare before rewriting</h2><p>When two blocks of text differ, resist manually scanning line by line. Paste both versions into a diff tool first. The visual comparison helps you focus on the actual changes instead of rereading everything from scratch.</p></section>
     <section class="panel"><h2>Use diffs for configuration reviews</h2><p>Small configuration changes can have large effects. A diff can reveal a changed environment name, a missing comma, a toggled flag, or a value copied into the wrong section. This is especially useful before deploying config-heavy services.</p></section>
@@ -90,7 +91,9 @@
     <section class="panel"><h2>Normalize formatting when needed</h2><p>Some diffs are noisy because indentation or line wrapping changed. When the structure matters more than whitespace, normalize the text first. When whitespace is meaningful, keep the raw input and inspect changes carefully.</p></section>
     <section class="panel"><h2>Turn differences into decisions</h2><p>A good diff does not replace judgment. It shows what changed so you can decide whether the change is intentional, safe, and complete.</p></section>
     <section class="panel"><h2>Try the related tool</h2><p><a href="https://diff.toolkitbox.org/">Open Diff Checker</a> to apply this workflow in your browser.</p></section>
-    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+    <section class="panel"><h2>Separate a formatting change from a behavior change</h2><p>Compare these synthetic configuration versions with the original on the left and proposed change on the right:</p><pre class="example">Before: {"retries":3,"timeout_ms":1000,"enabled":true}
+After:  {"enabled":true,"retries":0,"timeout_ms":1000}</pre><p>Reordering these object keys is presentational for a consumer that ignores member order. Changing <code>retries</code> from 3 to 0 is a behavior change. Format both copies consistently, inspect the value change, and confirm what zero means in the consuming application's documentation or tests. Preserve the raw copies so normalization does not conceal duplicate keys or number precision loss.</p><p>Do not sort arrays to remove noise unless their order is explicitly irrelevant. Do not ignore whitespace in Python, YAML indentation, or string values. A line diff does not validate the configuration or prove a deployment is safe.</p><p>For local files, <code>git diff --no-index -- before.json after.json</code> compares two paths without adding them to a repository. Exit code 1 means differences were found, not necessarily a command failure. See <a href="https://git-scm.com/docs/git-diff">git diff documentation</a>.</p></section>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/privacy/#privacy-choices" data-privacy-settings>Privacy choices</a></footer>
   </main>
 </body>
 </html>

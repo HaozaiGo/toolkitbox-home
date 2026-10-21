@@ -40,7 +40,7 @@
         "description": "学习如何用文本对比工具审查配置、文案、接口响应和发布说明，减少遗漏和误改。",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": "https://toolkitbox.org/zh/guides/text-diff-workflow/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -76,13 +76,14 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/zh/guides/">指南</a><a href="/guides/text-diff-workflow/">English</a></div></nav></header>
   <main>
     <div class="eyebrow">开发者指南</div>
     <h1>如何用文本对比工具审查配置、文案和接口变化</h1>
-    <p class="guide-meta">最后更新：2026 年 8 月 16 日 · ToolkitBox 编辑</p>
+    <p class="guide-meta">内容更新：2026 年 10 月 20 日 · ToolkitBox 编辑</p>
     <p class="lead">Diff 不只适合代码。配置文件、接口响应、翻译文案、提示词、发布说明和客服话术，只要两个版本看起来很像但行为不同，文本对比就能帮你更快定位真正变化。</p>
     <section class="panel"><h2>先对比，再人工判断</h2><p>当两段文本相似时，不要直接逐行肉眼扫描。先把旧版本和新版本放进对比工具，明确新增、删除和改动位置，再判断这些变化是否符合预期。</p></section>
     <section class="panel"><h2>配置变更尤其适合 diff</h2><p>一个环境名、布尔开关、缩进或参数值的变化，都可能影响部署结果。上线前用 diff 看一次配置变化，可以发现复制到错误位置、遗漏字段或意外启用的开关。</p></section>
@@ -90,7 +91,9 @@
     <section class="panel"><h2>根据场景处理空白字符</h2><p>有些 diff 噪声来自换行、缩进或空格。如果结构比格式更重要，可以先统一格式；如果空白字符有语义，比如代码、配置或 Markdown，就保留原始文本认真检查。</p></section>
     <section class="panel"><h2>敏感文本先脱敏</h2><p>日志、客户记录、内部配置和错误堆栈可能包含账号、令牌或业务信息。用于公开讨论或提交 issue 前，应先替换敏感字段，只保留足够复现问题的上下文。</p></section>
     <section class="panel"><h2>相关工具</h2><p><a href="https://diff.toolkitbox.org/zh/">打开 Diff Checker</a>，在浏览器中完成文本对比。</p></section>
-    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a></footer>
+    <section class="panel"><h2>区分格式修改和行为修改</h2><p>将以下合成配置的原始版本放在左侧，拟修改版本放在右侧：</p><pre class="example">Before: {"retries":3,"timeout_ms":1000,"enabled":true}
+After:  {"enabled":true,"retries":0,"timeout_ms":1000}</pre><p>如果消费方不依赖对象成员顺序，键的重排只是展示变化；<code>retries</code> 从 3 变为 0 则改变行为。统一格式后检查数值变化，再通过应用文档或测试确认零的含义。保留原始副本，避免规范化掩盖重复键或数字精度丢失。</p><p>除非明确不关心顺序，否则不要排序数组来消除差异。Python、YAML 缩进和字符串内容中的空白不能随意忽略。行级对比不会验证配置，也不能证明部署安全。</p><p>本地文件可用 <code>git diff --no-index -- before.json after.json</code> 比较，无需加入仓库。退出码 1 表示发现差异，不一定是命令失败。参见 <a href="https://git-scm.com/docs/git-diff">git diff 文档</a>。</p></section>
+    <footer><a href="/zh/privacy/">隐私策略</a><a href="/zh/terms/">服务条款</a><a href="/zh/privacy/#privacy-choices" data-privacy-settings>隐私选择</a></footer>
   </main>
 </body>
 </html>

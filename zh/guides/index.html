@@ -1,8 +1,21 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="六篇经过深入复核的 ToolkitBox 指南，包含可复现样例、主要资料来源、限制和浏览器测试方法。"><meta name="robots" content="index, follow"><meta name="google-adsense-account" content="ca-pub-5333037258750046"><link rel="canonical" href="https://toolkitbox.org/zh/guides/"><link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/"><link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/"><link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/"><link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/legal.css"><title>经过实测的开发者指南 - ToolkitBox</title></head>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="ToolkitBox 开发者指南：数据格式、编码、UUID、文本对比、颜色、证书和可复现检查步骤。"><meta name="robots" content="index, follow"><meta name="google-adsense-account" content="ca-pub-5333037258750046"><link rel="canonical" href="https://toolkitbox.org/zh/guides/"><link rel="alternate" hreflang="en" href="https://toolkitbox.org/guides/"><link rel="alternate" hreflang="zh-CN" href="https://toolkitbox.org/zh/guides/"><link rel="alternate" hreflang="x-default" href="https://toolkitbox.org/guides/"><link rel="icon" href="/logo.svg" type="image/svg+xml"><link rel="stylesheet" href="/legal.css"><title>开发者实用指南 - ToolkitBox</title>  <script defer src="/privacy-controls.js"></script>
+</head>
 <body><header class="top"><nav class="nav" aria-label="主导航"><a class="brand" href="/zh/">ToolkitBox</a><div class="nav-links"><a href="/zh/testing/">测试方法</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a><a href="/guides/">English</a></div></nav></header><main>
-<div class="eyebrow">实用指南</div><h1>减少重复指南，把每个主题做得更深入。</h1><p class="lead">这六篇指南都能用合成样例复现，并提供主要资料来源、明确限制和相关可用工具。原有短小且主题重叠的文章已经合并到这些持续维护的资源中。</p><p class="guide-meta">ToolkitBox 维护 · 2026 年 10 月 20 日复核 · 查看<a href="/zh/testing/">测试方法</a>和<a href="/zh/editorial-policy/">编辑政策</a></p>
-<section class="guide-section"><h2>隐私与安全测试数据</h2><p class="section-copy">先验证数据流向，再构建不保留生产秘密或客户记录的最小复现。</p><div class="article-grid"><a class="panel" href="/zh/guides/verify-browser-tool-local-processing/"><h3>如何验证浏览器工具是否真的在本地处理数据</h3><p>使用开发者工具、受控样例和可重复网络检查，不靠隐私标签猜测。</p><span class="article-meta">12 分钟 · 原创测试流程</span></a><a class="panel" href="/zh/guides/build-sanitized-api-test-fixtures/"><h3>从真实故障制作脱敏 API 测试夹具</h3><p>保留触发问题的行为，同时移除生产密钥、用户身份和客户记录。</p><span class="article-meta">14 分钟 · 完整案例</span></a></div></section>
-<section class="guide-section"><h2>数据与模式复核</h2><p class="section-copy">先写预期结果，再使用独立方法复核，而不是只看工具显示绿色。</p><div class="article-grid"><a class="panel" href="/zh/guides/json-formatting-validation/"><h3>如何在不泄露 API 数据的情况下格式化和校验 JSON</h3><p>覆盖语法、结构、Schema 边界、异常值和脱敏 webhook 样例。</p></a><a class="panel" href="/zh/guides/regex-testing-guide/"><h3>正则表达式上线前如何测试</h3><p>记录正例、反例、Unicode、替换结果和对抗性性能输入。</p></a><a class="panel" href="/zh/guides/base64-encoding-best-practices/"><h3>Base64 编码什么时候该用，什么时候不该用</h3><p>选择标准或 URL 安全变体，并避免把编码误认为保密。</p></a></div></section>
-<section class="guide-section"><h2>公网边缘运维</h2><p class="section-copy">把本地配置与真实访客收到的证书和 DNS 行为分开验证。</p><div class="article-grid"><a class="panel" href="/zh/guides/ssl-certificate-checking/"><h3>SSL 证书异常时应该先检查什么</h3><p>依次检查主机名、SNI、证书链、有效期、DNS、CDN 和续期证据。</p></a><a class="panel" href="/zh/testing/"><h3>ToolkitBox 如何测试浏览器工具</h3><p>查看合成样例、独立复核、失败路径、移动端检查和工具限制。</p></a></div></section>
-<footer><a href="/zh/editorial-policy/">编辑政策</a><a href="/zh/privacy/">隐私</a><a href="/zh/terms/">条款</a></footer></main></body></html>
+<div class="eyebrow">实用指南</div>
+<h1>按任务查找开发者指南。</h1>
+<p class="lead">通过示例、预期结果和限制说明完成具体任务。方法说明和界面截图不代表工具已通过全面测试；请在实际使用的环境中复核。</p>
+<p class="guide-meta">ToolkitBox 维护 · 目录更新：2026 年 10 月 20 日</p>
+<div class="article-grid"><a class="panel" href="/zh/guides/verify-browser-tool-local-processing/"><h2>验证浏览器本地处理</h2><p>使用一次性输入检查网络请求、离线行为和存储。</p></a>
+<a class="panel" href="/zh/guides/build-sanitized-api-test-fixtures/"><h2>制作脱敏 API 测试夹具</h2><p>保留故障条件，而不是凭据或客户记录。</p></a>
+<a class="panel" href="/zh/guides/json-formatting-validation/"><h2>JSON 格式化与校验</h2><p>区分语法、Schema、精度和敏感数据问题。</p></a>
+<a class="panel" href="/zh/guides/regex-testing-guide/"><h2>测试正则表达式</h2><p>检查正例、反例、Unicode、替换和性能边界。</p></a>
+<a class="panel" href="/zh/guides/base64-encoding-best-practices/"><h2>Base64 编码与解码</h2><p>选择变体、比较字节，并理解编码不是保密措施。</p></a>
+<a class="panel" href="/zh/guides/uuid-generator-guide/"><h2>UUID 格式与版本检查</h2><p>检查 v4 样例，不把格式当成随机性或权限证明。</p></a>
+<a class="panel" href="/zh/guides/url-encoding-decoding/"><h2>URL 编解码与隐私检查</h2><p>处理加号、重复参数、嵌套 URL 与脱敏。</p></a>
+<a class="panel" href="/zh/guides/text-diff-workflow/"><h2>审查文本与配置差异</h2><p>通过具体示例区分格式噪声与行为变化。</p></a>
+<a class="panel" href="/zh/guides/color-conversion-accessibility/"><h2>颜色转换与对比度</h2><p>往返转换颜色格式，避免通过舍入误判对比度。</p></a>
+<a class="panel" href="/zh/guides/ssl-certificate-checking/"><h2>检查公网 TLS 证书</h2><p>在公网边缘核对主机名、证书链、有效期与续期情况。</p></a></div>
+<section class="guide-section"><h2>检查方法与内容责任</h2><p><a href="/zh/testing/">浏览器工具检查清单</a> · <a href="/zh/editorial-policy/">编辑规范</a> · <a href="/zh/changelog/">更正记录</a></p></section>
+<footer><a href="/zh/privacy/">隐私</a><a href="/zh/terms/">条款</a><a href="/zh/privacy/#privacy-choices" data-privacy-settings>隐私选择</a></footer>
+</main></body></html>

@@ -40,7 +40,7 @@
         "description": "Learn where UUIDs fit, how to use them in test data, and what to avoid when generating identifiers.",
         "inLanguage": "en",
         "mainEntityOfPage": "https://toolkitbox.org/guides/uuid-generator-guide/",
-        "datePublished":"2026-08-16","dateModified":"2026-08-16",
+        "datePublished":"2026-08-16","dateModified":"2026-10-20",
         "author": {
           "@id": "https://toolkitbox.org/#organization"
         },
@@ -76,13 +76,14 @@
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5333037258750046"
      crossorigin="anonymous"></script>
+  <script defer src="/privacy-controls.js"></script>
 </head>
 <body>
   <header class="top"><nav class="nav" aria-label="Main navigation"><a class="brand" href="/">ToolkitBox</a><div class="nav-links"><a href="/guides/">Guides</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></nav></header>
   <main>
     <div class="eyebrow">Developer Guide</div>
     <h1>A Practical Guide to UUIDs for Development and Testing</h1>
-    <p class="guide-meta">Last updated: August 16, 2026 · Edited by ToolkitBox</p>
+    <p class="guide-meta">Content updated: October 20, 2026 · Edited by ToolkitBox</p>
     <p class="lead">UUIDs are convenient identifiers for prototypes, fixtures, distributed systems, and local development. They are easy to generate and hard to collide, but they are not a replacement for every database key or every security token.</p>
     <section class="panel"><h2>Use UUIDs when coordination is hard</h2><p>A UUID is useful when multiple systems need to create identifiers without asking a central database for the next number. This makes them popular for client-generated IDs, import jobs, offline workflows, message correlation, and test data.</p></section>
     <section class="panel"><h2>Separate identifiers from secrets</h2><p>A UUID can identify an object, but it should not be treated as proof of permission. If guessing or discovering an ID would expose sensitive data, protect the resource with authentication and authorization checks.</p></section>
@@ -90,7 +91,8 @@
     <section class="panel"><h2>Watch for readability tradeoffs</h2><p>UUIDs are long. They are less readable in logs than short numeric IDs or meaningful slugs. For human-facing URLs, support tickets, and admin dashboards, you may want a shorter display identifier alongside the internal UUID.</p></section>
     <section class="panel"><h2>Choose consistency over cleverness</h2><p>Most teams benefit from one default UUID style across a project. Mixing formats without a reason makes validation, database indexing, and documentation harder than necessary.</p></section>
     <section class="panel"><h2>Try the related tool</h2><p><a href="https://uuid.toolkitbox.org/">Open UUID Generator</a> to apply this workflow in your browser.</p></section>
-    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></footer>
+    <section class="panel"><h2>Check a version 4 identifier</h2><p>For a UUIDv4 fixture, <code>550e8400-e29b-41d4-a716-446655440000</code> has the expected 8-4-4-4-12 grouping, a <code>4</code> version nibble, and an <code>a</code> variant nibble. A format check can reject obvious mistakes:</p><pre class="example">/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i</pre><p>This checks text shape, not randomness or uniqueness. In an HTTPS browser context, <code>crypto.randomUUID()</code> generates UUIDv4 using a cryptographically secure source. Keep database uniqueness constraints and authorization checks. Do not use a small collision-free sample as proof of generator quality.</p><p>Version 7 has a time-ordered layout; version 5 is name-based and deterministic. Choose a version explicitly rather than applying the v4 validator to every UUID. See <a href="https://www.rfc-editor.org/rfc/rfc9562">RFC 9562</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID">Crypto.randomUUID()</a>.</p></section>
+    <footer><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/privacy/#privacy-choices" data-privacy-settings>Privacy choices</a></footer>
   </main>
 </body>
 </html>
