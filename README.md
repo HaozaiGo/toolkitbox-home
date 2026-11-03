@@ -24,6 +24,9 @@ Add `--base https://toolkitbox.org` to the smoke command to test deployed status
 
 ## Maintenance Boundaries
 
+- After changes to `privacy-controls.js`, run `node scripts/sync-tool-privacy.cjs` from this repository to copy the same-origin revocation adapter to the eight sibling tool repos. `--check` verifies the copies without editing them. Each affected tool must be deployed independently; deploying this homepage alone does not update the tools.
+- In Search Console, submit the root sitemap and each tool subdomain's own `/sitemap.xml` under the verified domain property. The root sitemap intentionally lists only root-host pages. Submission/discovery is not indexing or AdSense approval.
+
 - Sitemap dates are omitted because reliable per-page significant-change evidence is incomplete. Do not mass-stamp a release date into `lastmod`.
 - Keep English/Chinese counterparts, canonical metadata, index links, and redirect destinations in sync. Consolidation must preserve the source topic, including direct `index.html` entry points.
 - Procedures and screenshots are not completed test reports. Record URL/version, environment, input, expected/actual output, and evidence for any claimed result.
